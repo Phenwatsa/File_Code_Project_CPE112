@@ -1,0 +1,2 @@
+gcc main.c User.c Library.c Book_ManageFunc.c MembersFunc.c Borrow_ReturnFunc.c OtherFunc.c DataFunc.c -o LibrarySystem
+./LibrarySystem
