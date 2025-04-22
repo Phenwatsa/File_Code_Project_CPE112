@@ -40,9 +40,11 @@ typedef booksListInfo categoryArray[numCategory][numYear];
 categoryArray Library;
 
 // create list of category 
+// description of each category is on Data_Func.c : line 4
 extern char categoryNames[numCategory][max_char];
 
 // create list of year 
+// description of each year range is on Data_Func.c : line 7
 extern char yearNames[numYear][max_char];
 
 // create a global path of the csv can be edit in Data_Func.c

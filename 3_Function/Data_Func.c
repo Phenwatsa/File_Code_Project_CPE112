@@ -7,6 +7,7 @@ char categoryNames[numCategory][max_char] = {"Fiction", "History", "Science", "B
 // Set list of year range
 char yearNames[numYear][max_char] = {"below 1975", "1975-1985", "1985-1995", "1995-2005", "2005-2015", "2015-2025", "2025-2035"};
 
+// path to csv file
 char pathFile[] = "Book-ID.csv";
 
 // Initialize data to be NULL
