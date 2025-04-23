@@ -21,7 +21,6 @@ void InitializeLibrary() {
 }
 
 void csvToStruct() {
-    
     FILE* csvFile = fopen(pathFile, "r");
 
     if (csvFile == NULL) {
