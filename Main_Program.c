@@ -1,9 +1,11 @@
 // [ploy]
 #include <stdio.h>
+#include "1_User/User.h"
+#include "2_Libralian/Libralian.h"
 #include "3_Function/Other_Func.h"
 
 int main() {
-    int choice;
+    char choice[100];
 
     do {
         // UI design format
@@ -18,19 +20,20 @@ int main() {
         printf(" Please select an option : ");
         
         // User input
-        scanf("%d", &choice);
+        scanf(" %s", choice);
         ClearScreen();
-        switch (choice) {
+        switch (check_Num(choice)){
             case 1:
                 // For Librarian
-                printf("\n Librarian selected.\n");
-                // Call librarian functions here
+                printf("\n Librarian selected . . .\n");
                 Delay();
+                Menu_Librarian();
                 break;
             case 2:
                 // For Student
-                printf("\n Student selected.\n");
-                // Call student functions here
+                printf("\n Student selected . . .\n");
+                Delay();
+                Menu_User();
                 break;
             case 3:
                 // Exit program
@@ -38,11 +41,11 @@ int main() {
                 break;
             default:
                 // Invalid choice
-                printf("\n Invalid choice. Please try again.\n");
+                printf("\n Invalid choice. Please try again . . .\n");
                 Delay();
                 break;
         }
-    } while (choice != 3); 
+    } while (check_Num(choice) != 3); 
 
     return 0;
 }
