@@ -1,6 +1,6 @@
 //[ploy]
-#include <stdio.h>
 #include "User.h"
+#include "3_Function/Book_Management_Func.h"
 #include "3_Function/Other_Func.h"
 
 void Menu_User(){
@@ -33,7 +33,7 @@ void Menu_User(){
                 break;
             case 3:
                 // Search book
-                //searchBook();
+                searchBook();
                 break;
             case 4:
                 // Return book
