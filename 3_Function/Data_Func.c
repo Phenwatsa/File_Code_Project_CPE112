@@ -31,7 +31,6 @@ int year2yearIndex(int year) {
 }
 
 void csvToStruct() {
-    
     FILE* csvFile = fopen(pathFile, "r");
 
     if (csvFile == NULL) {

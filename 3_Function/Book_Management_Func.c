@@ -4,7 +4,6 @@
 #include "Data_Func.h"
 #include "Other_Func.h"
 
-
 int searchBook() {
 
     printf("-- Welcome to search function --\n");

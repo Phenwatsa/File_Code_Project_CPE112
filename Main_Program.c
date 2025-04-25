@@ -1,1 +1,51 @@
 // [ploy]
+#include <stdio.h>
+#include "1_User/User.h"
+#include "2_Libralian/Libralian.h"
+#include "3_Function/Other_Func.h"
+
+int main() {
+    char choice[100];
+
+    do {
+        // UI design format
+        ClearScreen();
+        Line2();
+        printf("     Welcome to the Library Management System\n");
+        Line2();
+        printf(" [1] | Librarian\n");
+        printf(" [2] | Student\n");
+        printf(" [3] | Exit\n");
+        Line2();
+        printf(" Please select an option : ");
+        
+        // User input
+        scanf(" %s", choice);
+        ClearScreen();
+        switch (check_Num(choice)){
+            case 1:
+                // For Librarian
+                printf("\n Librarian selected . . .\n");
+                Delay();
+                Menu_Librarian();
+                break;
+            case 2:
+                // For Student
+                printf("\n Student selected . . .\n");
+                Delay();
+                Menu_User();
+                break;
+            case 3:
+                // Exit program
+                printf("\n Exiting the program . . .\n\n");
+                break;
+            default:
+                // Invalid choice
+                printf("\n Invalid choice. Please try again . . .\n");
+                Delay();
+                break;
+        }
+    } while (check_Num(choice) != 3); 
+
+    return 0;
+}
