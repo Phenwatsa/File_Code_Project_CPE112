@@ -9,7 +9,7 @@ void Book_Management(){
         // UI design format
         ClearScreen();
         Line2();
-        printf("       Welcome to Book Management System\n");
+        printf("        Welcome to Book Management System\n");
         Line2();
         printf(" [1] | Add Book\n");
         printf(" [2] | Update Book\n");
@@ -72,15 +72,15 @@ void Member_Management(){
         switch (check_Num(Member_manag_choice)){
             case 1:
                 // Register member
-                registerMember();
+                //registerMember();
                 break;
             case 2:
                 // Update member
-                updateMember();
+                //updateMember();
                 break;
             case 3:
                 // Check borrowing history
-                checkBorrowingHistory();
+                //checkBorrowingHistory();
                 break;
             case 4:
                 // Exit program
@@ -167,7 +167,7 @@ void Menu_Librarian(){
         // UI design format
         ClearScreen();
         Line2();
-        printf("       Welcome to Librarian Management System\n");
+        printf("      Welcome to Librarian Management System\n");
         Line2();
         printf(" [1] | Book Management\n");
         printf(" [2] | Member Management\n");
@@ -190,7 +190,7 @@ void Menu_Librarian(){
                 break;
             case 3:
                 // Borrow management
-                Book_Management();
+                Borrow_Management();
                 break;
             case 4:
                 // Top Borrowed Books
