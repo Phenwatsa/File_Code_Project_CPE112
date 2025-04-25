@@ -3,8 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Borrow_Return_Func.h"
+#include <string.h>
 #include "Data_Func.h"
+#include "Borrow_Return_Func.h"
 #include "Other_Func.h"
 
 // define Category and year

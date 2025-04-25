@@ -1,10 +1,19 @@
 //[ploy]
 #include "User.h"
-#include "3_Function/Book_Management_Func.h"
+#include "3_Function/Member_Func.h"
 #include "3_Function/Other_Func.h"
 
 void Menu_User(){
     char User_choice[100];
+    char temp_User_ID[MAX_LEN_ID];
+
+
+    Line2();
+    printf("Please enter your ID");
+    Line2();
+    printf("Enter your ID: ");
+    scanf(" %[^\n]", temp_User_ID);
+
     do{
         // UI design format
         ClearScreen();
