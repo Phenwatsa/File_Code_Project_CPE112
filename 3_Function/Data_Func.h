@@ -42,6 +42,7 @@ categoryArray Library;
 // create list of category 
 // description of each category is on Data_Func.c : line 4
 extern char categoryNames[numCategory][max_char];
+extern char cateShortNames[numCategory][4];
 
 // create list of year 
 // description of each year range is on Data_Func.c : line 7
@@ -52,4 +53,5 @@ extern char pathFile[max_char];
 
 void InitializeLibrary();
 void csvToStruct();
+int year2yearIndex();
 #endif

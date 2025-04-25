@@ -4,6 +4,8 @@
 // Set list of category
 char categoryNames[numCategory][max_char] = {"Fiction", "History", "Science", "Biography & Autography", "Psychology", "Religion", "Business & Economics", "Computers", "Cooking", "Mathematics", "Comics & Graphic Novels"};
 
+char cateShortNames[numCategory][2] = {"FT01", "HT02", "SC03", "BI04", "PS05", "RE06", "BE07", "CP08", "CK09", "MT10", "CG11"};
+
 // Set list of year range
 char yearNames[numYear][max_char] = {"below 1975", "1975-1985", "1985-1995", "1995-2005", "2005-2015", "2015-2025", "2025-2035"};
 
@@ -18,6 +20,14 @@ void InitializeLibrary() {
             Library[i][j].tail = NULL;
         }
     }
+}
+
+int year2yearIndex(int year) {
+    // find the index of given year
+    int yearIndex = (year - 1975) / 10;
+    if (yearIndex < 0) yearIndex = 0;
+    else yearIndex += 1; 
+    return yearIndex;
 }
 
 void csvToStruct() {
@@ -73,9 +83,7 @@ void csvToStruct() {
         int year = atoi(yearStr);
 
         // find index of year array
-        int yearIndex = (year - 1975) / 10;
-        if (yearIndex < 0) yearIndex = 0;
-        else yearIndex += 1; 
+        int yearIndex = year2yearIndex(year);
         
         booksNode* newBookNode = (booksNode*)malloc(sizeof(booksNode)); 
         book newBooks;
