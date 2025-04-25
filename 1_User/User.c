@@ -9,7 +9,7 @@ void Menu_User(){
 
 
     Line2();
-    printf("Please enter your ID");
+    printf("                 Please enter your ID\n");
     Line2();
     printf("Enter your ID: ");
     scanf(" %[^\n]", temp_User_ID);

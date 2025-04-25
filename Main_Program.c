@@ -9,7 +9,7 @@ int main() {
 
     do {
         // UI design format
-        ClearScreen();
+        //ClearScreen();
         Line2();
         printf("     Welcome to the Library Management System\n");
         Line2();
