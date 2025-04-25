@@ -42,7 +42,7 @@ void Menu_User(){
                 break;
             case 3:
                 // Search book
-                searchBook();
+
                 break;
             case 4:
                 // Return book
