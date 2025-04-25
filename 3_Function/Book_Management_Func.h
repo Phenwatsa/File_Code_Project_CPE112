@@ -8,6 +8,8 @@
 int filterUsable(char filter[], int number_filter);
 void showAllBooks();
 int filterCategory();
+void extractID();
+struct booksNode* bookParam();
 void showBookList();
 void showBookData();
 int checkDataEachList();
