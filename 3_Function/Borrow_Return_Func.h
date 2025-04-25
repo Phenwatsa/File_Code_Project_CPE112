@@ -7,7 +7,32 @@
 #include "Data_Func.h"
 #include "Other_Func.h"
 
+// define Category and year
+//#define numCategory 11
+//#define numYear 7
+
 // Function to borrow a book
 void borrow_Book();
+
+// Function Book Borrowing Queue
+typedef struct QueueNode{
+    char User_ID[20];
+    struct QueueNode* next;
+} QueueNode;
+
+typedef struct BookQueue{
+    QueueNode* front;
+    QueueNode* rear;
+} BookQueue;
+
+void Enqueue(BookQueue* queue, char* user_ID);
+void Dequeue(BookQueue* queue);
+int isQueueEmpty(BookQueue* queue);
+void InitializeLibrary();
+void PrintQueue(BookQueue* queue);
+void Borrowing_Queue(booksNode* temp);
+
+// Function returning a book
+void return_Book();
 
 #endif

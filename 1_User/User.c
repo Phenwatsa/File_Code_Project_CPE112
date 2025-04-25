@@ -9,7 +9,7 @@ void Menu_User(){
         // UI design format
         ClearScreen();
         Line2();
-        printf("       Welcome to Student Management System\n");
+        printf("       Welcome to Member Management System\n");
         Line2();
         printf(" [1] | Show All Books\n");
         printf(" [2] | Top Borrowed Books\n");
