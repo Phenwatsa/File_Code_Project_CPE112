@@ -1,7 +1,7 @@
 //[ploy]
 #include <stdio.h>
 #include "Libralian.h"
-#include "3_Function/Other_Func.h"
+#include "../3_Function/Other_Func.h"
 
 void Book_Management(){
     char Book_manag_choice[100];

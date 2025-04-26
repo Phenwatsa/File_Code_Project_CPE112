@@ -1,6 +1,6 @@
 //[ploy]
 #include "User.h"
-#include "3_Function/Other_Func.h"
+#include "../3_Function/Other_Func.h"
 
 void Menu_User(){
     char User_choice[100];
