@@ -307,7 +307,7 @@ void delete() {
 void deleteBook(booksNode** head, booksNode** tail, booksNode* prev, booksNode* node) {
     
     if (*head == node) {
-        head = node->next;
+        *head = node->next;
         if (*tail == node) *tail = NULL;
     }
 
