@@ -2,6 +2,7 @@
 #define BOOK_MANAGEMENT_FUNC_H
 #include "Data_Func.h"
 #include "Other_Func.h"
+#include "Book_Management_Func.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>

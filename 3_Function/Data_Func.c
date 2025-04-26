@@ -1,11 +1,11 @@
 // Add book to the library structure
-#include "Data_Func.h"
 #include "Borrow_Return_Func.h"
+#include "Data_Func.h"
 
 // Set list of category
 char categoryNames[numCategory][max_char] = {"Fiction", "History", "Science", "Biography & Autography", "Psychology", "Religion", "Business & Economics", "Computers", "Cooking", "Mathematics", "Comics & Graphic Novels"};
 
-char cateShortNames[numCategory][2] = {"FT01", "HT02", "SC03", "BI04", "PS05", "RE06", "BE07", "CP08", "CK09", "MT10", "CG11"};
+char cateShortNames[numCategory][4] = {"FT01", "HT02", "SC03", "BI04", "PS05", "RE06", "BE07", "CP08", "CK09", "MT10", "CG11"};
 
 // Set list of year range
 char yearNames[numYear][max_char] = {"below 1975", "1975-1985", "1985-1995", "1995-2005", "2005-2015", "2015-2025", "2025-2035"};

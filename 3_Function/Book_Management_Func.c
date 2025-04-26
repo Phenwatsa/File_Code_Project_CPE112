@@ -3,6 +3,7 @@
 
 #include "Data_Func.h"
 #include "Other_Func.h"
+#include "Book_Management_Func.h"
 
 int searchBook() {
 
