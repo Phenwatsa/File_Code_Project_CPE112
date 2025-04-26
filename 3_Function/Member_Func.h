@@ -1,23 +1,33 @@
 #ifndef MEMBER_H
 #define MEMBER_H
-#define MAX_MEMBERS 100
-#define MAX_LEN_ID 10
-#define MAX_LEN_FN 50
-#define MAX_LEN_LN 50
+
+#define MAX_ID 10
+#define MAX_NAME 20
+#define MAX_PHONE 15
+#define MAX_EMAIL 50
 
 typedef struct 
 {
-    char ID[MAX_LEN_ID];
-    char FirstName[MAX_LEN_FN];
-    char LastName[MAX_LEN_LN];
-    char Phone[15];
-    char email[50];
+    char ID[MAX_ID];
+    char FirstName[MAX_NAME];
+    char LastName[MAX_NAME];
+    char Phone[MAX_PHONE];
+    char Email[MAX_EMAIL];
 } Member;
 
-void registerMember(Member members[], int *count);
-void updateMember(Member members[], int count);
-void checkBorrowingHistory(const char *memberId);
-void saveAllMemberToFile(Member members[],int count);
-void loadMemberBefore(Member members[], int *count);
+typedef struct memberNode
+{
+    Member data;
+    struct memberNode *left;
+    struct memberNode *right;
+} memberNode;
+
+memberNode *insertMember(memberNode *root, Member data);
+memberNode *searchMember(memberNode *root, const char *id);
+void updateMember(memberNode *root);
+void saveMember(memberNode *root, FILE* fp);
+void loadMember(memberNode **root, const char *fileName);
+void displayMember(memberNode *root);
+void freeMemberTree(memberNode *root);
 
 #endif
