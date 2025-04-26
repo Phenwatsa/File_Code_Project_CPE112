@@ -39,7 +39,6 @@ void registerMember(Member members[], int *count)
 
 }
 
-
 void updateMember(Member members[], int count) //ตรงนี้ว่าควรแก้เพราะยังดีไม่พอ เออควรแหละ อันนี้ไม่เหมาะกับระบบใหญ่นะ 
 {
     char search_ID[10];
@@ -135,7 +134,6 @@ void checkBorrowingHistory(const char *memberId)
     fclose(fp);
 
 }
-
 
 void loadMemberBefore(Member members[], int *count)
 {

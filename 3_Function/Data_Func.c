@@ -1,5 +1,6 @@
 // Add book to the library structure
 #include "Data_Func.h"
+#include "Borrow_Return_Func.h"
 
 // Set list of category
 char categoryNames[numCategory][max_char] = {"Fiction", "History", "Science", "Biography & Autography", "Psychology", "Religion", "Business & Economics", "Computers", "Cooking", "Mathematics", "Comics & Graphic Novels"};

@@ -1,5 +1,7 @@
 #ifndef MEMBER_H
 #define MEMBER_H
+#include<stdio.h>
+#include<string.h>
 #define MAX_MEMBERS 100
 #define MAX_LEN_ID 10
 #define MAX_LEN_FN 50
