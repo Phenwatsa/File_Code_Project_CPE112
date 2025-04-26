@@ -345,6 +345,7 @@ void saveCSV() {
     }
 
     printf("Update successfully!\n");
+    fclose(file);
     return;
 }
 
