@@ -8,10 +8,10 @@ char categoryNames[numCategory][max_char] = {"Fiction", "History", "Science", "B
 char cateShortNames[numCategory][4] = {"FT01", "HT02", "SC03", "BI04", "PS05", "RE06", "BE07", "CP08", "CK09", "MT10", "CG11"};
 
 // Set list of year range
-char yearNames[numYear][max_char] = {"below 1975", "1975-1985", "1985-1995", "1995-2005", "2005-2015", "2015-2025", "2025-2035"};
+char yearNames[numYear][max_char] = {"below 1975", "1975-1985", "1985-1995", "1995-2005", "2005-2015", "2015-2025", "above 2025"};
 
 // path to csv file
-char pathFile[] = "Book-ID.csv";
+char pathFile[] = "DATA/Book-ID.csv";
 
 // Initialize data to be NULL
 void InitializeLibrary() {
@@ -27,7 +27,8 @@ int year2yearIndex(int year) {
     // find the index of given year
     int yearIndex = (year - 1975) / 10;
     if (yearIndex < 0) yearIndex = 0;
-    else yearIndex += 1; 
+    else if (yearIndex < 6) yearIndex += 1;
+    else yearIndex = 6; 
     return yearIndex;
 }
 
@@ -52,8 +53,9 @@ void csvToStruct() {
     }
     
     // With fget will read the file and split it into part 
-    while (fgets(line, sizeof(line), csvFile)) {
-        line[strcspn(line, "\n")] = '\0';
+
+    do {
+    line[strcspn(line, "\n")] = '\0';
 
         // tokenize the line using strtok
         char* id = strtok(line, ",");
@@ -99,7 +101,7 @@ void csvToStruct() {
         
         newBookNode->data = newBooks;
         newBookNode->next = NULL;
-
+        
         // if the value is not initialize yet 
         // create one and assign it
         if (Library[categoryIndex][yearIndex].tail == NULL) {
@@ -114,5 +116,5 @@ void csvToStruct() {
 
         // set the location of tail value
         Library[categoryIndex][yearIndex].tail = newBookNode;
-    }
-}
+    } while (fgets(line, sizeof(line), csvFile));
+} 

@@ -85,7 +85,7 @@ int filterCategory(char listName[][max_char], int number_list) {
 
     while (cateFilIndex == -1);
     
-    return cateFilIndex-1;
+    return cateFilIndex;
 }
 
 int filterUsable(char filter[], int number_filter) {
@@ -103,7 +103,7 @@ int filterUsable(char filter[], int number_filter) {
     }
 
     // return the int value
-    return atoi(filter);
+    return atoi(filter)-1;
 }
 
 // adding book
@@ -111,7 +111,6 @@ void addBook() {
 
     printf(" -- Adding book --\n");
     // user given the input
-    char id[11];
     char title[max_char];
     char author[max_char];
     int year;
@@ -130,15 +129,15 @@ void addBook() {
     // get the value of the year 
     printf(" Published year : ");
     scanf("%s", yearStr);
-    int year = atoi(yearStr);
-    int yearIndex = year2yearIndex(year);
 
+    year = atoi(yearStr);
 
     printf(" Author of the book name : ");
     scanf("%s", author);
 
     printf(" Quantity of the book : ");
-    scanf("%d", quantity);
+    scanf("%d", &quantity);
+
 
     // traverse to the library linklist and add at the end of the linklist 
     addBookParam(categoryIndex, year, title, author, quantity);
@@ -149,33 +148,48 @@ void addBook() {
 void editBook() {
 
     printf(" -- Edit book --\n");
-    char bookId[15];
+    char bookId[16];
 
     printf(" Enter the book Id here :");
     scanf("%s", bookId);
 
     int oldCateIndex, oldYear, bookNumber, oldYearIndex;
-    oldCateIndex = extractID(bookId)[0];
-    oldYear = extractID(bookId)[1];
-    bookNumber = extractID(bookId)[2];
 
-    int oldYearIndex = year2yearIndex(oldYear);
+    extractID(bookId, &oldCateIndex, &oldYear, &bookNumber);
+
+    if (oldCateIndex > 11 || oldCateIndex < 0) {
+        printf("Invalid input category\n");
+        return;
+    }
+
+    if (oldYear < 0 ) {
+        printf("Invalid input year\n");
+        return;
+    }
+
+    oldYearIndex = year2yearIndex(oldYear);
+
 
     // we can access to data
     booksNode* temp = Library[oldCateIndex][oldYearIndex].head;
     booksNode* prev = temp;
 
-    while (temp->next != NULL) {
+    int found = 0;
+    while (temp != NULL) {
 
         if (strcmp(bookId, temp->data.id) == 0) {
             
+            found = 1;
             // show book data
             showBookData(temp);
             
             char newTitle[max_char];
-            int newCategoryIndex;
-            int newYear;
-            int newQuantity;
+            char newCateStr[3];
+            int newCategoryIndex = 0;
+            char newYearStr[5];
+            int newYear = 0;
+            char newQuantityStr[3];
+            int newQuantity = 0;
             char newAuthor[max_char];
 
             // change to which value 
@@ -183,33 +197,49 @@ void editBook() {
             scanf("%s", newTitle);
 
             // for categoryIndex
-            do {
-                newCategoryIndex = filterCategory(categoryNames, numCategory);
-
-            } while (newCategoryIndex != -1);
+            newCategoryIndex = filterCategory(categoryNames, numCategory);
 
             // for year value 
-            printf("Enter new published year : ");
-            scanf("%d", &newYear);
-            int yearIndex = year2yearIndex(newYear);
+            do {
+                printf("Enter new published year : ");
+                scanf("%s", &newYearStr);
+            } while (isNotInteger(newYearStr));
+
+            newYear = atoi(newYearStr);
+            int newYearIndex = year2yearIndex(newYear);
 
 
             // for quantity value
-            printf("Enter new quantity : ");
-            scanf("%d", &newQuantity);
+            do {
+                printf("Enter new quantity : ");
+                scanf("%s", &newQuantityStr);
+            } while (isNotInteger(newQuantityStr));
+            newQuantity = atoi(newQuantityStr);
 
             // for author value 
             printf("Enter new author name : ");
             scanf("%s", newAuthor);
 
-            // check if category index is changed
-            if (newCategoryIndex != oldCateIndex || yearIndex != oldYearIndex) {
+            printf("%d %d\n", oldCateIndex, oldYearIndex);
+            printf("newCateIndex : %d, newYearIndex : %d\n", newCategoryIndex, newYearIndex);
+            // check if category index or year is changed
+            if (newCategoryIndex != oldCateIndex || newYearIndex != oldYearIndex) {
                 
                 // delete 
-                deleteBook(Library[oldCateIndex][oldYearIndex].head, prev, temp);
+                deleteBook(Library[oldCateIndex][oldYearIndex].head, Library[oldCateIndex][oldYear].tail,prev, temp);
 
                 // add to the new array
-                bookParam(newCategoryIndex, newYear, newTitle, newAuthor, newQuantity);
+                addBookParam(newCategoryIndex, newYear, newTitle, newAuthor, newQuantity);
+            }
+
+            else {
+                // change data
+                // title author cate year quantity
+                strcpy(temp->data.author, newAuthor);
+                strcpy(temp->data.category, categoryNames[newCategoryIndex]);
+                strcpy(temp->data.title, newTitle);
+                temp->data.year = newYear;
+                temp->data.quantity = newQuantity;
             }
             
             printf(" Change data!\n");
@@ -219,18 +249,73 @@ void editBook() {
         prev = temp;
         temp = temp->next;
     }
+
+    if (found == 0) printf(" Id is not found\n");
+}
+
+void delete() {
+    printf(" -- delete book --\n");
+    char bookId[16];
+
+    printf(" Enter the book Id here :");
+    scanf("%s", bookId);
+
+    int cateIndex, year, bookNumber, yearIndex;
+
+    extractID(bookId, &cateIndex, &year, &bookNumber);
+
+    if (cateIndex > 11 || cateIndex < 0) {
+        printf("Invalid input category\n");
+        return;
+    }
+
+    if (year < 0 ) {
+        printf("Invalid input year\n");
+        return;
+    }
+
+    yearIndex = year2yearIndex(year);
+
+    // we can access to data
+    booksNode* temp = Library[cateIndex][yearIndex].head;
+    booksNode* prev = temp;
+
+    if (Library[cateIndex][yearIndex].head == NULL) {
+        printf("Error: No books found in the specified category and year.\n");
+        return;
+    }
+
+    int found = 0;
+    while (temp != NULL) {
+        if (strcmp(temp->data.id, bookId) == 0) {
+            deleteBook(Library[cateIndex][yearIndex].head, Library[cateIndex][yearIndex].tail, prev, temp);
+        }
+
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (found == 0) {
+        printf(" The id is not found\n");
+    }
+
+    
 }
 
 // delete Book
-void deleteBook(booksNode* head, booksNode* prev, booksNode* node) {
+void deleteBook(booksNode** head, booksNode** tail, booksNode* prev, booksNode* node) {
     
-    if (head == node) {
-        head = node->next;
+    if (*head == node) {
+        *head = node->next;
+        if (*tail == node) *tail = NULL;
     }
 
     else {
         // delete data in the linklist 
         prev->next = node->next;
+        if (*tail == node) {
+            *tail = prev;
+        }
     }
     free(node);
 }
@@ -240,12 +325,9 @@ void saveCSV() {
     FILE* file = fopen(pathFile, "w");
 
     if (file == NULL) {
-        printf("File is not found!");
+        printf("Couldn't open a file!");
         return;
     }
-
-    // loop through all book data
-    // FT01-00001-2004,Gilead,Marilynne Robinson,Fiction,2004,1,available,1
 
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
@@ -254,7 +336,7 @@ void saveCSV() {
             
             while (temp != NULL) {
                 book data = temp->data;
-                fprintf("%s %s %s %d %d %d %d", data.id, data.title, data.author, data.category, data.year, data.quantity, data.available);
+                fprintf(file, "%s,%s,%s,%s,%d %d,%d", data.id, data.title, data.author, data.category, data.year, data.quantity, data.available);
 
                 temp = temp->next;
             }
@@ -265,10 +347,9 @@ void saveCSV() {
     return;
 }
 
-booksNode* bookParam(int cateIndex, int year, char title[], char author[], int quantity) {
+void addBookParam(int cateIndex, int year, char title[], char author[], int quantity) {
     
     int yearIndex = year2yearIndex(year);
-
     // create a new book data
     book bookData;
     booksNode* book = (booksNode*)malloc(sizeof(booksNode));
@@ -284,19 +365,11 @@ booksNode* bookParam(int cateIndex, int year, char title[], char author[], int q
     book->data = bookData;
     book->next = NULL;
 
-
     // for id check the last id in tail
-        // get the book category id
-        char bookCate[4];
-        for (int i = 0; i < 4; i++) {
-            bookCate[i] = cateShortNames[cateIndex][i];
-        }
-
-        bookCate[4] = '\0';
         
         char lastId[15];
         char bookNumber[5];
-        int bookIdInt = 0;
+        int bookIdInt = 1;
         
         if (Library[cateIndex][yearIndex].tail != NULL) {
 
@@ -311,54 +384,60 @@ booksNode* bookParam(int cateIndex, int year, char title[], char author[], int q
             bookIdInt = atoi(bookNumber) + 1;
         }
 
-        char bookIDNumber[5];
+        char bookIDNumber[6] = "";
 
         // Convert bookNumber to string
         sprintf(bookIDNumber, "%05d", bookIdInt);
-
-        char yearID[4];
+        printf("Book id number : %d, book id : %s\n", bookIdInt, bookIDNumber);
+        
+        char yearID[5] = "";
         // Convert year value to string 
         sprintf(yearID, "%04d", year);
-
-        char newID[15] =  "";
-
+        
+        char newID[16] =  "";
+        
         // Concatenate bookCate
-        strcat(newID, bookCate);
-
+        strcat(newID, cateShortNames[cateIndex]);
+        printf("%s\n", newID);
+        
         // Concatenate '-'
-        strcat(newID, '-');
-
+        strcat(newID, "-");
+        
+        // ID : FT01--2014
         // Concatenate bookIDNumber 
         strcat(newID, bookIDNumber);
 
         // Concatenate '-'
-        strcat(newID, '-');
+        strcat(newID, "-");
 
         // Concatenate year 
         strcat(newID, yearID);
 
     strcpy(book->data.id, newID);
     
-    // if it has book in the list assign it
+    // if the book is not empty
     if (Library[cateIndex][yearIndex].tail != NULL) {
-
         Library[cateIndex][yearIndex].tail->next = book;
-        
-    }
     
-    // if there is no book before 
-    else {
+        // if the book is empty
+    } else {
         Library[cateIndex][yearIndex].head = book;
     }
-
     Library[cateIndex][yearIndex].tail = book;
+
+    printf("Add successfully\n");
 }
 
+<<<<<<< HEAD
 int* extractID(char id[15]) {
+=======
+
+
+void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
+>>>>>>> d80f37263999ff9f76010afcf268c9ab8d36e9dd
     
     // for book number 
         char bookNumber[5];
-        int bookNumberInt;
         // plus the last number of book index
         for (int i = 0; i < 5; i++) {
             bookNumber[i] = id[i+5];
@@ -367,37 +446,32 @@ int* extractID(char id[15]) {
         bookNumber[5] = '\0';
 
         // Convert bookNumber to string
-        sprintf(bookNumber, "%05d", bookNumberInt);
+        sprintf(bookNumber, "%05d", *bookNumberInt);
 
     // for year number 
         char bookYear[5];
-        int year;
         for (int i = 0; i < 4; i++) {
             bookYear[i] = id[i+11];
         }
 
-        year = atoi(bookYear);
+        *year = atoi(bookYear);
 
     // find category
-        char bookCate[2];
-        int categoryIndex;
+        char bookCate[3];
 
         for (int i = 0; i < 2; i++) {
             bookCate[i] = id[i+2];
         }
 
-        categoryIndex = atoi(bookCate)-1;
+        bookCate[2] = '\0';
 
-    int data[3];
-    data[0] = categoryIndex;
-    data[1] = year;
-    data[2] = bookNumberInt;
-
-    return data;
+        *categoryIndex = atoi(bookCate)-1;
 }
 
 // function to show all the books
 void showAllBooks() {
+
+    printf("-- List of the book --\n");
     for (int i = 0; i < numCategory; i++) {
 
         printf("Category of the book : %s\n", categoryNames[i]);
@@ -428,6 +502,7 @@ void showBookData(booksNode* temp) {
     printf(" ---- BOOKS ----\n");
     printf(" ID : %s\n", temp->data.id);
     printf(" title : %s\n", temp->data.title);
+    printf(" Author : %s\n", temp->data.author);
     printf(" category : %s\n", temp->data.category);
     printf(" year : %d\n", temp->data.year);
     printf(" quantity : %d\n", temp->data.quantity);

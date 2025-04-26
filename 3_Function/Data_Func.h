@@ -11,7 +11,7 @@
 
 // create a book information
 typedef struct book {
-    char id[11];
+    char id[16];
     char title[max_char];
     char author[max_char];
     char category[max_char];
