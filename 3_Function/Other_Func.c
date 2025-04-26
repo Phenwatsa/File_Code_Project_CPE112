@@ -19,7 +19,7 @@ void ClearScreen(){
     system("clear");
 }
 void Delay(){
-    sleep(3);
+    sleep(2);
 }
 
 int check_Num(const char* str){

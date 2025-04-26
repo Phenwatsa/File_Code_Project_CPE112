@@ -1,15 +1,23 @@
 //[ploy]
-#include <stdio.h>
 #include "User.h"
 #include "3_Function/Other_Func.h"
 
 void Menu_User(){
     char User_choice[100];
+    char temp_User_ID[10];
+
+
+    Line2();
+    printf("                 Please enter your ID\n");
+    Line2();
+    printf("Enter your ID: ");
+    scanf(" %[^\n]", temp_User_ID);
+
     do{
         // UI design format
         ClearScreen();
         Line2();
-        printf("       Welcome to Student Management System\n");
+        printf("       Welcome to Member Management System\n");
         Line2();
         printf(" [1] | Show All Books\n");
         printf(" [2] | Top Borrowed Books\n");
@@ -33,7 +41,7 @@ void Menu_User(){
                 break;
             case 3:
                 // Search book
-                //searchBook();
+
                 break;
             case 4:
                 // Return book

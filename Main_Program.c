@@ -9,12 +9,12 @@ int main() {
 
     do {
         // UI design format
-        ClearScreen();
+        //ClearScreen();
         Line2();
         printf("     Welcome to the Library Management System\n");
         Line2();
         printf(" [1] | Librarian\n");
-        printf(" [2] | Student\n");
+        printf(" [2] | Member\n");
         printf(" [3] | Exit\n");
         Line2();
         printf(" Please select an option : ");
@@ -30,8 +30,8 @@ int main() {
                 Menu_Librarian();
                 break;
             case 2:
-                // For Student
-                printf("\n Student selected . . .\n");
+                // For Member
+                printf("\n Member selected . . .\n");
                 Delay();
                 Menu_User();
                 break;
