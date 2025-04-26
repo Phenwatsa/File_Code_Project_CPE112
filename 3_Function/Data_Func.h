@@ -1,5 +1,5 @@
-#ifndef LIBRARY_H
-#define LIBRARY_H
+#ifndef DATA_FUNC_H
+#define DATA_FUNC_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,5 +55,6 @@ extern char pathFile[max_char];
 
 void InitializeLibrary();
 void csvToStruct();
-int year2yearIndex();
+int year2yearIndex(int year);
+
 #endif

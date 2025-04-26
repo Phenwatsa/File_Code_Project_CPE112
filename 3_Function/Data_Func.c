@@ -1,4 +1,5 @@
 // Add book to the library structure
+#include "Borrow_Return_Func.h"
 #include "Data_Func.h"
 
 // Set list of category

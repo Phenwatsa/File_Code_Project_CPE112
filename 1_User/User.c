@@ -6,7 +6,8 @@ void Menu_User(){
     char User_choice[100];
     char temp_User_ID[10];
 
-
+    // User ID input
+    ClearScreen();
     Line2();
     printf("                 Please enter your ID\n");
     Line2();
