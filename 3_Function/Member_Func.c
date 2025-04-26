@@ -28,7 +28,7 @@ memberNode *insertMember(memberNode *root, Member data)
 
 memberNode *searchMember(memberNode *root, const char *id)
 {
-    if (root == NULL || strcmp(root->data.ID, id) = 0)
+    if (root == NULL || strcmp(root->data.ID, id) == 0)
     {
         return root;
     }
@@ -45,7 +45,7 @@ memberNode *searchMember(memberNode *root, const char *id)
 
 void updateMember(memberNode *root) 
 {
-    char search_ID[10];
+    char search_ID[MAX_ID];
     printf("Enter Member ID to update: ");
     scanf("%s", search_ID);
 
@@ -81,9 +81,9 @@ void saveMember(memberNode *root, FILE *fp)
     saveMember(root->right, fp);
 }
 
-void loadMember(memberNode **root, const char *fileName)
+void loadMember(memberNode **root)
 {
-    FILE *fp = fopen(fileName, "r");
+    FILE *fp = fopen("member.csv", "r");
     if (!fp) return;
     Member temp;
     while (fscanf(fp, "%[^,],%[^,],%[^,],%[^,],%[^\n]\n",temp.ID, temp.FirstName, temp.LastName, temp.Phone, temp.Email) == 5)

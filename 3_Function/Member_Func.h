@@ -26,7 +26,7 @@ memberNode *insertMember(memberNode *root, Member data);
 memberNode *searchMember(memberNode *root, const char *id);
 void updateMember(memberNode *root);
 void saveMember(memberNode *root, FILE* fp);
-void loadMember(memberNode **root, const char *fileName);
+void loadMember(memberNode **root);
 void displayMember(memberNode *root);
 void freeMemberTree(memberNode *root);
 
