@@ -10,18 +10,18 @@
 
 int filterCategory(char listName[][max_char], int number_list);
 int filterUsable(char filter[], int number_filter);
-int filterCategory();
+int filterCategory(char listName[][max_char], int number_list);
 void showAllBooks();
-void extractID();
-void addBookParam();
-void showBookList();
-void showBookData();
-int checkDataEachList();
-int isNotInteger();
-int searchBook();
+void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt);
+void addBookParam(int cateIndex, int year, char title[], char author[], int quantity);
+void showBookList(booksNode* temp);
+void showBookData(booksNode* temp);
+int checkDataEachList(booksListInfo linkList, char userInput[]);
+int isNotInteger(const char* str);
+void searchBook();
 void addBook();
 void editBook();
 void saveCSV();
-void deleteBook();
+void deleteBook(booksNode** head, booksNode** tail, booksNode* prev, booksNode* node);
 void delete();
 #endif

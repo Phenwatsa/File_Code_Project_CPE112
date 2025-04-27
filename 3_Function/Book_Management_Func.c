@@ -5,7 +5,7 @@
 #include "Other_Func.h"
 #include "Book_Management_Func.h"
 
-int searchBook() {
+void searchBook() {
 
     printf("-- Welcome to search function --\n");
 
@@ -203,7 +203,7 @@ void editBook() {
             // for year value 
             do {
                 printf("Enter new published year : ");
-                scanf("%s", &newYearStr);
+                scanf("%s", newYearStr);
             } while (isNotInteger(newYearStr));
 
             newYear = atoi(newYearStr);
@@ -213,7 +213,7 @@ void editBook() {
             // for quantity value
             do {
                 printf("Enter new quantity : ");
-                scanf("%s", &newQuantityStr);
+                scanf("%s", newQuantityStr);
             } while (isNotInteger(newQuantityStr));
             newQuantity = atoi(newQuantityStr);
 
@@ -227,8 +227,7 @@ void editBook() {
             if (newCategoryIndex != oldCateIndex || newYearIndex != oldYearIndex) {
                 
                 // delete 
-                deleteBook(Library[oldCateIndex][oldYearIndex].head, Library[oldCateIndex][oldYear].tail,prev, temp);
-
+                deleteBook(&Library[oldCateIndex][oldYearIndex].head, &Library[oldCateIndex][oldYearIndex].tail, prev, temp);
                 // add to the new array
                 addBookParam(newCategoryIndex, newYear, newTitle, newAuthor, newQuantity);
             }
@@ -289,8 +288,7 @@ void delete() {
     int found = 0;
     while (temp != NULL) {
         if (strcmp(temp->data.id, bookId) == 0) {
-            deleteBook(Library[cateIndex][yearIndex].head, Library[cateIndex][yearIndex].tail, prev, temp);
-        }
+            deleteBook(&Library[cateIndex][yearIndex].head, &Library[cateIndex][yearIndex].tail, prev, temp);        }
 
         prev = temp;
         temp = temp->next;
@@ -370,7 +368,7 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
     // for id check the last id in tail
         
         char lastId[15];
-        char bookNumber[5];
+        char bookNumber[6];
         int bookIdInt = 1;
         
         if (Library[cateIndex][yearIndex].tail != NULL) {

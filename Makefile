@@ -15,26 +15,28 @@ endif
 SRC_DIRS := . 1_User 2_Libralian 3_Function
 OBJ_DIR := obj
 
-SRCS := $(foreach dir, $(SRC_DIRS), $(wildcard $(dir)/*.c))
-OBJS := $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))
-DEPS := $(OBJS:.o=.d)
+# สร้างรายชื่อไฟล์ .c (จากทุกโฟลเดอร์)
+SRCS := $(wildcard *.c) $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
+
+# สร้างรายชื่อไฟล์ .o ใน obj/ ให้ตรงกับที่มา
+OBJS := $(foreach src,$(SRCS),$(OBJ_DIR)/$(src:.c=.o))
+
+# ให้ Makefile หาไฟล์ .c ในทุกโฟลเดอร์
+vpath %.c $(SRC_DIRS) .
 
 all: $(EXE)
 
 $(EXE): $(OBJS)
-    $(CXX) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
+# Rule สำหรับแปลง c -> o
 $(OBJ_DIR)/%.o: %.c
-    @mkdir -p $(dir $@)
-    $(CXX) $(CXXFLAGS) -MMD -c $< -o $@
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
 
--include $(DEPS)
+-include $(OBJS:.o=.d)
 
 clean:
-    rm -rf $(OBJ_DIR) $(EXE)
+	rm -rf $(OBJ_DIR) $(EXE)
 
-run: all
-    @./$(EXE)
-    @$(MAKE) clean
-
-.PHONY: all clean run
+.PHONY: all clean
