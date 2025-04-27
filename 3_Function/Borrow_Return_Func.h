@@ -32,5 +32,6 @@ void borrow_Book();
 
 // Function returning a book
 void return_Book();
+void Show_Borrowed_Books();
 
 #endif

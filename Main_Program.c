@@ -26,7 +26,7 @@ int main() {
         // User input
         scanf(" %s", choice);
         ClearScreen();
-        switch (check_Num(choice)){
+        switch (Check_Num(choice)){
             case 1:
                 // For Librarian
                 printf("\n Librarian selected . . .\n");
@@ -49,7 +49,7 @@ int main() {
                 Delay();
                 break;
         }
-    } while (check_Num(choice) != 3); 
+    } while (Check_Num(choice) != 3); 
 
     return 0;
 }

@@ -149,6 +149,7 @@ void return_Book(){
     int book_found = 0;
 
     // Prompt user for book name
+    void Show_Borrowed_Books();
     printf("Enter the ID of the book you want to return : ");
     scanf(" %[^\n]", book_id);
 
@@ -190,4 +191,14 @@ void return_Book(){
     if (book_found==0){
         printf("Book not found.\n");
     }
+}
+
+void Show_Borrowed_Books(){
+    Line2();
+    printf(" borrowed books\n");
+    Line();
+    // Display borrowed books
+    printf("Borrowed books are displayed here.\n");
+    Line2();
+    printf("\n");
 }

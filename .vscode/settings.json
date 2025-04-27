@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "other_func.h": "c",
+        "borrow_return_func.h": "c"
+    }
+}

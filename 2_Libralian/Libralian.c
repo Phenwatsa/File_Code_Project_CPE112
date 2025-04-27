@@ -22,7 +22,7 @@ void Book_Management(){
         // User Input
         scanf(" %s", Book_manag_choice);
         ClearScreen();
-        switch (check_Num(Book_manag_choice)){
+        switch (Check_Num(Book_manag_choice)){
             case 1:
                 // Add book
                 //showAllBooks();
@@ -48,7 +48,7 @@ void Book_Management(){
                 printf("\n Invalid choice. Please try again.\n");
                 Delay();
         }
-    } while (check_Num(Book_manag_choice) != 5);
+    } while (Check_Num(Book_manag_choice) != 5);
 }
 
 void Member_Management(){
@@ -69,7 +69,7 @@ void Member_Management(){
         // User Input
         scanf(" %s", Member_manag_choice);
         ClearScreen();
-        switch (check_Num(Member_manag_choice)){
+        switch (Check_Num(Member_manag_choice)){
             case 1:
                 // Register member
                 //registerMember();
@@ -91,7 +91,7 @@ void Member_Management(){
                 printf("\n Invalid choice. Please try again.\n");
                 Delay();
         }
-    } while (check_Num(Member_manag_choice) != 4);
+    } while (Check_Num(Member_manag_choice) != 4);
 }
 
 void Borrow_Management(){
@@ -110,7 +110,7 @@ void Borrow_Management(){
         // User Input
         scanf(" %s", Borrow_manag_choice);
         ClearScreen();
-        switch (check_Num(Borrow_manag_choice)){
+        switch (Check_Num(Borrow_manag_choice)){
             case 1:
                 // Borrow Book
                 break;
@@ -126,7 +126,7 @@ void Borrow_Management(){
                 printf("\n Invalid choice. Please try again.\n");
                 Delay();
         }
-    } while (check_Num(Borrow_manag_choice) != 3);
+    } while (Check_Num(Borrow_manag_choice) != 3);
 }
 
 void Top_Borrowed_Books(){
@@ -145,7 +145,7 @@ void Top_Borrowed_Books(){
         // User Input
         scanf(" %s", Top_Borrowed_choice);
         ClearScreen();
-        switch (check_Num(Top_Borrowed_choice)){
+        switch (Check_Num(Top_Borrowed_choice)){
             case 1:
                 // Show top borrowed books
                 break;
@@ -158,7 +158,7 @@ void Top_Borrowed_Books(){
                 printf("\n Invalid choice. Please try again.\n");
                 Delay();
         }
-    } while (check_Num(Top_Borrowed_choice) != 2);
+    } while (Check_Num(Top_Borrowed_choice) != 2);
 }
 
 void Menu_Librarian(){
@@ -179,7 +179,7 @@ void Menu_Librarian(){
         // User Input
         scanf(" %s", Libra_choice);
         ClearScreen();
-        switch (check_Num(Libra_choice)){
+        switch (Check_Num(Libra_choice)){
             case 1:
                 // Book management
                 Book_Management();
@@ -205,5 +205,5 @@ void Menu_Librarian(){
                 printf("\n Invalid choice. Please try again.\n");
                 Delay();
         }
-    } while (check_Num(Libra_choice) != 5);
+    } while (Check_Num(Libra_choice) != 5);
 }

@@ -22,9 +22,17 @@ void Delay(){
     sleep(2);
 }
 
-int check_Num(const char* str){
+int Check_Num(const char* str){
     if (strlen(str) == 1 && str[0] >= '1' && str[0] <= '9') {
         return str[0] - '0'; 
+    } else {
+        return 0; 
+    }
+}
+
+int Check_User_ID(const char* str){
+    if (strlen(str) == 8 && str[0] >= '1' && str[0] <= '9') {
+        return 1; 
     } else {
         return 0; 
     }
