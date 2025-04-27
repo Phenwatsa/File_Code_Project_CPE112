@@ -6,6 +6,8 @@
 #include <string.h>
 #include "Borrow_Return_Func.h"
 
+typedef struct BookQueue BookQueue; 
+
 #define max_char 30
 #define max_line 1000
 
@@ -18,7 +20,7 @@ typedef struct book {
     int year;
     int quantity;
     int available;
-    BookQueue reservationQueue;
+    BookQueue* reservationQueue;
 } book;
 
 // define number of category value and number of year value
