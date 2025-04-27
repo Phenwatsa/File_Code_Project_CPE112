@@ -93,7 +93,7 @@ int isQueueEmpty(BookQueue* queue){
     return (queue->front == NULL);
 }
 
-void InitializeLibrary(){
+void InitializeLibrary_Borrow(){
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
             Library[i][j].head = NULL;
@@ -102,8 +102,8 @@ void InitializeLibrary(){
             // Initialize reservation queue
             booksNode* temp = Library[i][j].head;
             while (temp != NULL) {
-                temp->data.reservationQueue.front = NULL;
-                temp->data.reservationQueue.rear = NULL;
+                temp->data.reservationQueue->front = NULL;
+                temp->data.reservationQueue->rear = NULL;
                 temp = temp->next;
             }
         }
@@ -136,8 +136,8 @@ void Borrowing_Queue(booksNode* temp){
         scanf(" %[^\n]", user_ID);
 
         // Add the user to the reservation queue
-        Enqueue(&temp->data.reservationQueue, user_ID);
-        PrintQueue(&temp->data.reservationQueue);
+        Enqueue(temp->data.reservationQueue, user_ID);
+        PrintQueue(temp->data.reservationQueue);
     } else {
         printf("Reservation cancelled.\n");
     }
@@ -171,8 +171,8 @@ void return_Book(){
                         temp->data.available++;
                         printf("You have successfully returned the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
 
-                        if (isQueueEmpty(&temp->data.reservationQueue) == 0) {
-                            Dequeue(&temp->data.reservationQueue);
+                        if (isQueueEmpty(temp->data.reservationQueue) == 0) {
+                            Dequeue(temp->data.reservationQueue);
                         }
                         else{
                             printf("No one is waiting for this book.\n");

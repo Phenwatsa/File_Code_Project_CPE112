@@ -1,5 +1,6 @@
 //[ploy]
 #include "User.h"
+#include "../3_Function/Borrow_Return_Func.h"
 #include "../3_Function/Other_Func.h"
 
 void Menu_User(){
@@ -9,7 +10,7 @@ void Menu_User(){
     // User ID input
     ClearScreen();
     Line2();
-    printf("                 Please enter your ID\n");
+    printf("               Please enter your ID\n");
     Line2();
     printf("Enter your ID: ");
     scanf(" %[^\n]", temp_User_ID);
@@ -42,11 +43,11 @@ void Menu_User(){
                 break;
             case 3:
                 // Search book
-
+                
                 break;
             case 4:
                 // Return book
-                //checkDataEachList();
+                return_Book();
                 break;
             case 5:
                 // Exit program

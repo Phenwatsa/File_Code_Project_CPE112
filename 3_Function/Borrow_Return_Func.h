@@ -6,12 +6,8 @@
 #include <string.h>
 #include "Data_Func.h"
 #include "Other_Func.h"
-#include "Borrow_Return_Func.h"
 
-// Function to borrow a book
-void borrow_Book();
-
-// Function Book Borrowing Queue
+typedef struct booksNode booksNode;
 typedef struct QueueNode{
     char User_ID[20];
     struct QueueNode* next;
@@ -22,12 +18,17 @@ typedef struct BookQueue{
     QueueNode* rear;
 } BookQueue;
 
+// Function Book Borrowing Queue
+
 void Enqueue(BookQueue* queue, char* user_ID);
 void Dequeue(BookQueue* queue);
 int isQueueEmpty(BookQueue* queue);
-void InitializeLibrary();
+void InitializeLibrary_Borrow();
 void PrintQueue(BookQueue* queue);
 void Borrowing_Queue(booksNode* temp);
+
+// Function to borrow a book
+void borrow_Book();
 
 // Function returning a book
 void return_Book();
