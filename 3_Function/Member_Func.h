@@ -1,19 +1,14 @@
 #ifndef MEMBER_H
 #define MEMBER_H
-<<<<<<< HEAD
-#include<stdio.h>
-#include<string.h>
-#define MAX_MEMBERS 100
-#define MAX_LEN_ID 10
-#define MAX_LEN_FN 50
-#define MAX_LEN_LN 50
-=======
 
 #define MAX_ID 10
 #define MAX_NAME 20
 #define MAX_PHONE 15
 #define MAX_EMAIL 50
->>>>>>> d80f37263999ff9f76010afcf268c9ab8d36e9dd
+
+#define MAX_LINE 256
+#define MAX_TITLE 256
+
 
 typedef struct 
 {
@@ -34,9 +29,10 @@ typedef struct memberNode
 memberNode *insertMember(memberNode *root, Member data);
 memberNode *searchMember(memberNode *root, const char *id);
 void updateMember(memberNode *root);
-void saveMember(memberNode *root, FILE* fp);
-void loadMember(memberNode **root);
+void saveMember(memberNode *root, const char *fileName);
+void loadMember(memberNode **root, const char *fileName);
 void displayMember(memberNode *root);
 void freeMemberTree(memberNode *root);
+void checkBorrowingHistory(const char *memberID);
 
 #endif
