@@ -150,6 +150,7 @@ void return_Book(){
 
     // Prompt user for book name
     void Show_Borrowed_Books();
+    Line();
     printf("Enter the ID of the book you want to return : ");
     scanf(" %[^\n]", book_id);
 

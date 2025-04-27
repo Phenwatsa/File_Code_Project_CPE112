@@ -1,6 +1,7 @@
 //[ploy]
 #include <stdio.h>
 #include "Libralian.h"
+#include "../3_Function/Book_Management_Func.h"
 #include "../3_Function/Other_Func.h"
 
 void Book_Management(){
@@ -25,19 +26,19 @@ void Book_Management(){
         switch (Check_Num(Book_manag_choice)){
             case 1:
                 // Add book
-                //showAllBooks();
+                addBook();
                 break;
             case 2:
                 // Update book
-                //filterCategory();
+                editBook();
                 break;
             case 3:
                 // Delete book
-                //searchBook();
+                
                 break;
             case 4:
                 // Show all books
-                //checkDataEachList();
+                showAllBooks();
                 break;
             case 5:
                 // Exit program

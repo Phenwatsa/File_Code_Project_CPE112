@@ -6,17 +6,19 @@
 #include "Book_Management_Func.h"
 
 void searchBook() {
-
-    printf("-- Welcome to search function --\n");
-
-    printf(" -- Search by id or Name of the book :");
+    Line2();
+    printf("             Welcome to search function\n");
+    Line();
+    printf(" Search by id or Name of the book : ");
 
     // read the string data 
     char UserFil[max_char];
     scanf("%s", UserFil);
 
+    Line2();
     // for user to enter the category filter
     printf("Using filter for category\n");
+    Line();
     int cateFil = filterCategory(categoryNames, numCategory);   
 
 
@@ -70,9 +72,9 @@ int filterCategory(char listName[][max_char], int number_list) {
     for (int i = 0; i < number_list; i++) {
         printf("-- Enter %d to use %s --\n", i+1, listName[i]);
     }
-
+    Line();
     printf("-- Enter 0 to not use the filter\n");
-
+    Line2();
     int cateFilIndex;
 
     do {
@@ -432,7 +434,7 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
 void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
     
     // for book number 
-        char bookNumber[5];
+        char bookNumber[6];
         // plus the last number of book index
         for (int i = 0; i < 5; i++) {
             bookNumber[i] = id[i+5];

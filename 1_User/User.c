@@ -1,5 +1,6 @@
 //[ploy]
 #include "User.h"
+#include "../3_Function/Book_Management_Func.h"
 #include "../3_Function/Borrow_Return_Func.h"
 #include "../3_Function/Other_Func.h"
 
@@ -47,7 +48,8 @@ void Menu_User(){
         switch (Check_Num(User_choice)){
             case 1:
                 // Show all books
-                //showAllBooks();
+                showAllBooks();
+                Exit();
                 break;
             case 2:
                 // Top borrowed books
@@ -55,7 +57,7 @@ void Menu_User(){
                 break;
             case 3:
                 // Search book
-                
+                searchBook();
                 break;
             case 4:
                 // Return book

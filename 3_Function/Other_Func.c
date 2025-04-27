@@ -22,6 +22,14 @@ void Delay(){
     sleep(2);
 }
 
+void Exit(){
+    char Enter_Exit[1];
+    if (getchar() == '\n') {
+        printf(" Enter to Exit");
+        scanf("%s", Enter_Exit);
+    }
+}
+
 int Check_Num(const char* str){
     if (strlen(str) == 1 && str[0] >= '1' && str[0] <= '9') {
         return str[0] - '0'; 
@@ -37,3 +45,4 @@ int Check_User_ID(const char* str){
         return 0; 
     }
 }
+
