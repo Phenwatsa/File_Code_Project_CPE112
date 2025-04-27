@@ -144,6 +144,7 @@ void addBook() {
     
 }
 
+
 // edit book
 void editBook() {
 
@@ -336,7 +337,7 @@ void saveCSV() {
             
             while (temp != NULL) {
                 book data = temp->data;
-                fprintf(file, "%s,%s,%s,%s,%d %d,%d", data.id, data.title, data.author, data.category, data.year, data.quantity, data.available);
+                fprintf(file, "%s,%s,%s,%s,%d %d,%d\n", data.id, data.title, data.author, data.category, data.year, data.quantity, data.available);
 
                 temp = temp->next;
             }
@@ -344,6 +345,7 @@ void saveCSV() {
     }
 
     printf("Update successfully!\n");
+    fclose(file);
     return;
 }
 
@@ -388,7 +390,6 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
 
         // Convert bookNumber to string
         sprintf(bookIDNumber, "%05d", bookIdInt);
-        printf("Book id number : %d, book id : %s\n", bookIdInt, bookIDNumber);
         
         char yearID[5] = "";
         // Convert year value to string 
@@ -428,13 +429,9 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
     printf("Add successfully\n");
 }
 
-<<<<<<< HEAD
-int* extractID(char id[15]) {
-=======
 
 
 void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
->>>>>>> d80f37263999ff9f76010afcf268c9ab8d36e9dd
     
     // for book number 
         char bookNumber[5];
@@ -445,8 +442,6 @@ void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
 
         bookNumber[5] = '\0';
 
-        // Convert bookNumber to string
-        sprintf(bookNumber, "%05d", *bookNumberInt);
 
     // for year number 
         char bookYear[5];
@@ -498,6 +493,7 @@ void showBookList(booksNode* temp) {
     }
 }
 
+
 void showBookData(booksNode* temp) {
     printf(" ---- BOOKS ----\n");
     printf(" ID : %s\n", temp->data.id);
@@ -510,6 +506,8 @@ void showBookData(booksNode* temp) {
     printf(" ------------ \n");
 }
 
+
+
 int checkDataEachList(booksListInfo linkList, char userInput[]) {
     
     booksNode* temp = linkList.head;
@@ -519,12 +517,12 @@ int checkDataEachList(booksListInfo linkList, char userInput[]) {
     while (temp != NULL) {
 
         if (strstr(temp->data.author, userInput) != NULL) {
-            showBookList(temp);
+            showBookData(temp);
             numBooks += 1;
         }
     
         else if (strstr(temp->data.id, userInput) != NULL) {
-            showBookList(temp);
+            showBookData(temp);
             numBooks += 1;
         }
 
@@ -534,6 +532,8 @@ int checkDataEachList(booksListInfo linkList, char userInput[]) {
 
     return numBooks;
 }
+
+
 
 int isNotInteger(const char* str) {
     // Check for empty string
