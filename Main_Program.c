@@ -11,17 +11,13 @@
 int main() {
     char choice[100];
 
-    printf("DEBUG: Entering InitializeLibrary\n");
     InitializeLibrary();
-    printf("DEBUG: Finished InitializeLibrary\n");
-
     printf("DEBUG: Entering csvToStruct\n");
-    csvToStruct();
+    csvToStruct(pathFile);
     printf("DEBUG: Finished csvToStruct\n");
 
     printf("DEBUG: Entering showAllBooks\n");
     showAllBooks();
-    printf("DEBUG: Finished showAllBooks\n");
 
     do {
         // UI design format
