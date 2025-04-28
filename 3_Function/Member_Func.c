@@ -262,7 +262,7 @@ void flushInputBuffer()
     
 }
 
-/*
+
 
 int main() {
     memberNode* root = NULL;
@@ -316,4 +316,4 @@ int main() {
     freeMemberTree(root);
     return 0;
 }
-    */
+    
