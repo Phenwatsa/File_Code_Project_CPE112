@@ -1,3 +1,5 @@
-Member_Func.dSYM/
 .DS_Store
+*.dSYM
 DATA/.DS_Store
+**/.DS_Store
+
