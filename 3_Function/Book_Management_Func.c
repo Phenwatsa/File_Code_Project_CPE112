@@ -146,7 +146,6 @@ void addBook() {
     
 }
 
-
 // edit book
 void editBook() {
 
@@ -429,8 +428,6 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
     printf("Add successfully\n");
 }
 
-
-
 void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
     
     // for book number 
@@ -505,8 +502,6 @@ void showBookData(booksNode* temp) {
     printf(" ------------ \n");
 }
 
-
-
 int checkDataEachList(booksListInfo linkList, char userInput[]) {
     
     booksNode* temp = linkList.head;
@@ -531,8 +526,6 @@ int checkDataEachList(booksListInfo linkList, char userInput[]) {
 
     return numBooks;
 }
-
-
 
 int isNotInteger(const char* str) {
     // Check for empty string
