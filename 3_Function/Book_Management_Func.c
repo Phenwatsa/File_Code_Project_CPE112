@@ -515,7 +515,7 @@ int checkDataEachList(booksListInfo linkList, char userInput[]) {
 
     while (temp != NULL) {
 
-        if (strstr(temp->data.author, userInput) != NULL) {
+        if (strstr(temp->data.title, userInput) != NULL) {
             showBookData(temp);
             numBooks += 1;
         }
