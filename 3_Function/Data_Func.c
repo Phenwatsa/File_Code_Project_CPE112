@@ -31,7 +31,8 @@ int year2yearIndex(int year) {
     return yearIndex;
 }
 
-void csvToStruct() {
+/*void csvToStruct() {
+    printf("DEBUG: Opening file %s\n", pathFile);
     FILE* csvFile = fopen(pathFile, "r");
 
     if (csvFile == NULL) {
@@ -116,4 +117,26 @@ void csvToStruct() {
         // set the location of tail value
         Library[categoryIndex][yearIndex].tail = newBookNode;
     } while (fgets(line, sizeof(line), csvFile));
-} 
+}*/
+
+void csvToStruct() {
+    printf("DEBUG: Opening file %s\n", pathFile);
+    FILE* csvFile = fopen(pathFile, "r");
+
+    if (csvFile == NULL) {
+        printf("ERROR: File not found: %s\n", pathFile);
+        return;
+    }
+
+    char line[max_line];
+    printf("DEBUG: Reading file...\n");
+
+    while (fgets(line, sizeof(line), csvFile)) {
+        printf("DEBUG: Read line: %s\n", line);
+        // Process the line here
+    }
+
+    fclose(csvFile);
+    printf("DEBUG: Finished reading file\n");
+
+}
