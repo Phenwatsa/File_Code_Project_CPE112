@@ -17,7 +17,7 @@ void searchBook() {
 
     Line2();
     // for user to enter the category filter
-    printf("Using filter for category\n");
+    printf(" Using filter for category\n");
     Line();
     int cateFil = filterCategory(categoryNames, numCategory);   
 
