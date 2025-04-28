@@ -5,18 +5,20 @@
 #include "Other_Func.h"
 #include "Book_Management_Func.h"
 
-int searchBook() {
-
-    printf("-- Welcome to search function --\n");
-
-    printf(" -- Search by id or Name of the book :");
+void searchBook() {
+    Line2();
+    printf("             Welcome to search function\n");
+    Line();
+    printf(" Search by id or Name of the book : ");
 
     // read the string data 
     char UserFil[max_char];
     scanf("%s", UserFil);
 
+    Line2();
     // for user to enter the category filter
-    printf("Using filter for category\n");
+    printf(" Using filter for category\n");
+    Line();
     int cateFil = filterCategory(categoryNames, numCategory);   
 
 
@@ -70,9 +72,9 @@ int filterCategory(char listName[][max_char], int number_list) {
     for (int i = 0; i < number_list; i++) {
         printf("-- Enter %d to use %s --\n", i+1, listName[i]);
     }
-
+    Line();
     printf("-- Enter 0 to not use the filter\n");
-
+    Line2();
     int cateFilIndex;
 
     do {
@@ -203,7 +205,7 @@ void editBook() {
             // for year value 
             do {
                 printf("Enter new published year : ");
-                scanf("%s", &newYearStr);
+                scanf("%s", newYearStr);
             } while (isNotInteger(newYearStr));
 
             newYear = atoi(newYearStr);
@@ -213,7 +215,7 @@ void editBook() {
             // for quantity value
             do {
                 printf("Enter new quantity : ");
-                scanf("%s", &newQuantityStr);
+                scanf("%s", newQuantityStr);
             } while (isNotInteger(newQuantityStr));
             newQuantity = atoi(newQuantityStr);
 
@@ -227,8 +229,7 @@ void editBook() {
             if (newCategoryIndex != oldCateIndex || newYearIndex != oldYearIndex) {
                 
                 // delete 
-                deleteBook(Library[oldCateIndex][oldYearIndex].head, Library[oldCateIndex][oldYear].tail,prev, temp);
-
+                deleteBook(&Library[oldCateIndex][oldYearIndex].head, &Library[oldCateIndex][oldYearIndex].tail, prev, temp);
                 // add to the new array
                 addBookParam(newCategoryIndex, newYear, newTitle, newAuthor, newQuantity);
             }
@@ -289,8 +290,7 @@ void delete() {
     int found = 0;
     while (temp != NULL) {
         if (strcmp(temp->data.id, bookId) == 0) {
-            deleteBook(Library[cateIndex][yearIndex].head, Library[cateIndex][yearIndex].tail, prev, temp);
-        }
+            deleteBook(&Library[cateIndex][yearIndex].head, &Library[cateIndex][yearIndex].tail, prev, temp);        }
 
         prev = temp;
         temp = temp->next;
@@ -370,7 +370,7 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
     // for id check the last id in tail
         
         char lastId[15];
-        char bookNumber[5];
+        char bookNumber[6];
         int bookIdInt = 1;
         
         if (Library[cateIndex][yearIndex].tail != NULL) {
@@ -434,7 +434,7 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
 void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
     
     // for book number 
-        char bookNumber[5];
+        char bookNumber[6];
         // plus the last number of book index
         for (int i = 0; i < 5; i++) {
             bookNumber[i] = id[i+5];

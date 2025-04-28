@@ -6,7 +6,9 @@ void Line();
 void Line2();
 void ClearScreen();
 void Delay();
+void Exit();
 
-int check_Num(const char* str);
+int Check_Num(const char* str);
+int Check_User_ID(const char* str);
 
 #endif

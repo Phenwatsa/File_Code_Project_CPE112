@@ -1,18 +1,32 @@
 //[ploy]
 #include "User.h"
-#include "3_Function/Other_Func.h"
+#include "../3_Function/Book_Management_Func.h"
+#include "../3_Function/Borrow_Return_Func.h"
+#include "../3_Function/Other_Func.h"
 
 void Menu_User(){
-    char User_choice[100];
-    char temp_User_ID[10];
+    char User_choice[100], temp_User_ID[10];
+    int check_UserID = 0;
 
     // User ID input
     ClearScreen();
     Line2();
-    printf("                 Please enter your ID\n");
+    printf("               Please enter your ID\n");
     Line2();
-    printf("Enter your ID: ");
+    printf("Enter your ID : ");
     scanf(" %[^\n]", temp_User_ID);
+    check_UserID = Check_User_ID(temp_User_ID);
+    while (check_UserID == 0) {
+        ClearScreen();
+        Line2();
+        printf(" Invalid ID. Please try again.\n");
+        Line();
+        printf(" Please enter your ID\n");
+        Line2();
+        printf("Enter your ID : ");
+        scanf(" %[^\n]", temp_User_ID);
+        check_UserID = Check_User_ID(temp_User_ID);
+    }
 
     do{
         // UI design format
@@ -31,10 +45,11 @@ void Menu_User(){
         // User Input
         scanf(" %s", User_choice);
         ClearScreen();
-        switch (check_Num(User_choice)){
+        switch (Check_Num(User_choice)){
             case 1:
                 // Show all books
-                //showAllBooks();
+                showAllBooks();
+                Exit();
                 break;
             case 2:
                 // Top borrowed books
@@ -42,11 +57,11 @@ void Menu_User(){
                 break;
             case 3:
                 // Search book
-
+                searchBook();
                 break;
             case 4:
                 // Return book
-                //checkDataEachList();
+                return_Book();
                 break;
             case 5:
                 // Exit program
@@ -57,5 +72,5 @@ void Menu_User(){
                 printf("\n Invalid choice. Please try again.\n");
                 Delay();
         }
-    } while (check_Num(User_choice) != 5);
+    } while (Check_Num(User_choice) != 5);
 }
