@@ -11,6 +11,9 @@
 int main() {
     char choice[100];
 
+    InitializeLibrary();
+    csvToStruct();
+    showAllBooks();
     do {
         // UI design format
         //ClearScreen();
