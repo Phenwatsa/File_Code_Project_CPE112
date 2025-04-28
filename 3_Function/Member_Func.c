@@ -174,7 +174,7 @@ void checkBorrowingHistory(const char *memberId)
         {
             if (strcmp(CurrentMemberID, memberId) != 0) continue;
 
-            printf("%-10s %-256s %-15s\n" , "Book_ID", "Title", "Status");
+            printf("%-10s %-256s %-15s\n" , Book_ID, Title, Status);
             found = 1;
             
         }
@@ -200,6 +200,7 @@ void loadMember(memberNode **root, const char *fileName)
 
     char line[MAX_LINE];
     fgets(line, sizeof(line), fp);
+
     while (fgets(line, sizeof(line), fp))
     {
         whitespace(line);
@@ -207,7 +208,7 @@ void loadMember(memberNode **root, const char *fileName)
         Member info = {0};
 
         
-        if (sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^\n]",info.ID,info.FirstName,info.LastName,info.Phone,info.Email) == 5)
+        if (sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^\n]", info.ID, info.FirstName, info.LastName, info.Phone, info.Email) == 5)
         {
             *root = insertMember(*root, info);
         }else{
@@ -263,12 +264,13 @@ void flushInputBuffer()
 }
 
 
-/*
+
 int main() {
     memberNode* root = NULL;
     const char* filename = "member.csv";
 
     loadMember(&root, filename);
+    
 
     int choice;
     do {
@@ -318,4 +320,3 @@ int main() {
 }
     
 
-*/
