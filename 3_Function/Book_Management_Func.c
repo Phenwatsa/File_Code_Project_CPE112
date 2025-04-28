@@ -439,10 +439,10 @@ void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
         for (int i = 0; i < 5; i++) {
             bookNumber[i] = id[i+5];
         }
-
+        
         bookNumber[5] = '\0';
-
-
+        
+        
     // for year number 
         char bookYear[5];
         for (int i = 0; i < 4; i++) {
@@ -492,7 +492,6 @@ void showBookList(booksNode* temp) {
         temp = temp->next;
     }
 }
-
 
 void showBookData(booksNode* temp) {
     printf(" ---- BOOKS ----\n");
