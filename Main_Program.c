@@ -12,12 +12,7 @@ int main() {
     char choice[100];
 
     InitializeLibrary();
-    printf("DEBUG: Entering csvToStruct\n");
-    csvToStruct(pathFile);
-    printf("DEBUG: Finished csvToStruct\n");
-
-    printf("DEBUG: Entering showAllBooks\n");
-    showAllBooks();
+    csvToStruct();
 
     do {
         // UI design format

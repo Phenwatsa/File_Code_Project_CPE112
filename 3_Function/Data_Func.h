@@ -8,7 +8,7 @@
 
 typedef struct BookQueue BookQueue; 
 
-#define max_char 30
+#define max_char 100
 #define max_line 1000
 
 // create a book information
