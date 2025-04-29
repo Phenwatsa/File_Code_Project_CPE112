@@ -13,7 +13,7 @@ int main() {
 
     InitializeLibrary();
     csvToStruct();
-    //loadMember();
+    loadMember(&root, "DATA/member.csv");
 
     do {
         // UI design format

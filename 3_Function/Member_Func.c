@@ -5,6 +5,9 @@
 #include<stdlib.h>
 #include "Member_Func.h"
 
+memberNode* root = NULL;
+const char* filename = "DATA/member.csv";
+
 memberNode *insertMember(memberNode *root, Member data)
 {
     if (root == NULL)
@@ -23,7 +26,6 @@ memberNode *insertMember(memberNode *root, Member data)
         root->right = insertMember(root->right, data);
     }
     return root;
-
 }
 
 memberNode *searchMember(memberNode *root, const char *id)
@@ -223,8 +225,9 @@ void displayMemberTree(memberNode *node)
 {
     if (!node) return;
     displayMemberTree(node->left);
-    printf("%-10s %-20s %-20s %-15s %-50s\n", node->data.ID, node->data.FirstName, node->data.LastName, node->data.Phone, node->data.Email);
+    printf("%-10s %-20s %-20s %-15s %-10s\n", node->data.ID, node->data.FirstName, node->data.LastName, node->data.Phone, node->data.Email); ///////////// ui
     displayMemberTree(node->right);
+    
 }
 
 void displayMember(memberNode *root)
@@ -263,11 +266,16 @@ void flushInputBuffer()
     
 }
 
+void debugMemberTree(memberNode* node) {
+    if (!node) return;
+    debugMemberTree(node->left);
+    printf("DEBUG: ID=%s, FirstName=%s\n", node->data.ID, node->data.FirstName);
+    debugMemberTree(node->right);
+}
 
 
-int main() {
-    memberNode* root = NULL;
-    const char* filename = "member.csv";
+/*int main() {
+    
 
     loadMember(&root, filename);
     
@@ -317,6 +325,4 @@ int main() {
 
     freeMemberTree(root);
     return 0;
-}
-    
-
+}*/

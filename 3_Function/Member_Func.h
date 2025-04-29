@@ -6,7 +6,7 @@
 #include<stdlib.h>
 #include "Other_Func.h"
 #define MAX_ID 10
-#define MAX_NAME 20
+#define MAX_NAME 50
 #define MAX_PHONE 15
 #define MAX_EMAIL 50
 
@@ -44,4 +44,5 @@ void loadMember(memberNode **root, const char *fileName);
 void displayMemberTree(memberNode *node);
 void freeMemberTree(memberNode *root);
 void flushInputBuffer();
+void debugMemberTree(memberNode* node);
 #endif
