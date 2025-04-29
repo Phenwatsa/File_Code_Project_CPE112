@@ -45,4 +45,8 @@ void displayMemberTree(memberNode *node);
 void freeMemberTree(memberNode *root);
 void flushInputBuffer();
 void debugMemberTree(memberNode* node);
+
+void Register_Member();
+void Check_Borrowing_History();
+
 #endif

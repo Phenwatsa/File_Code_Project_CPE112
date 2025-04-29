@@ -63,8 +63,9 @@ void Member_Management(){
         Line2();
         printf(" [1] | Register Member\n");
         printf(" [2] | Update Member\n");
-        printf(" [3] | Check Borrowing History\n");
-        printf(" [4] | Exit\n");
+        printf(" [3] | Display All Members\n");
+        printf(" [4] | Check Borrowing History\n");
+        printf(" [5] | Exit\n");
         Line2();
         printf(" Please select an option : ");
         
@@ -74,18 +75,22 @@ void Member_Management(){
         switch (Check_Num(Member_manag_choice)){
             case 1:
                 // Register member
-                displayMember(root);
+                Register_Member();
                 Exit();
                 break;
             case 2:
                 // Update member
-                //updateMember();
+                updateMember(root);
                 break;
             case 3:
-                // Check borrowing history
-                //checkBorrowingHistory();
+                // Display All Members
+                displayMember(root); 
                 break;
             case 4:
+                // Check borrowing history
+                Check_Borrowing_History();
+                break;
+            case 5:
                 // Exit program
                 printf("\n Exiting the program . . .\n\n");
                 break;
@@ -94,7 +99,7 @@ void Member_Management(){
                 printf("\n Invalid choice. Please try again.\n");
                 Delay();
         }
-    } while (Check_Num(Member_manag_choice) != 4);
+    } while (Check_Num(Member_manag_choice) != 5);
 }
 
 void Borrow_Management(){

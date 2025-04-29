@@ -266,63 +266,19 @@ void flushInputBuffer()
     
 }
 
-void debugMemberTree(memberNode* node) {
-    if (!node) return;
-    debugMemberTree(node->left);
-    printf("DEBUG: ID=%s, FirstName=%s\n", node->data.ID, node->data.FirstName);
-    debugMemberTree(node->right);
+void Register_Member(){
+    Member newMember;
+    inputMemberData(&newMember);
+    root = insertMember(root, newMember);
+    saveMember(root, filename);
+    printf("Member added successfully.\n");
+    
 }
 
-
-/*int main() {
-    
-
-    loadMember(&root, filename);
-    
-
-    int choice;
-    do {
-        printf("\n=== Member Management ===\n");
-        printf("1. Add Member\n");
-        printf("2. Update Member\n");
-        printf("3. Display All Members\n");
-        printf("4. Check Borrowing History\n");
-        printf("5. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-        flushInputBuffer();
-
-        switch (choice) {
-            case 1: {
-                Member newMember;
-                inputMemberData(&newMember);
-                root = insertMember(root, newMember);
-                saveMember(root, filename);
-                printf("Member added successfully.\n");
-                break;
-            }
-            case 2:
-                updateMember(root);
-                break;
-            case 3:
-                displayMember(root);
-                break;
-            case 4: {
-                char memberId[MAX_ID];
-                printf("Enter Member ID to check history: ");
-                fgets(memberId, MAX_ID, stdin);
-                whitespace(memberId);
-                checkBorrowingHistory(memberId);
-                break;
-            }
-            case 5:
-                printf("Exiting program...\n");
-                break;
-            default:
-                printf("Invalid choice! Please try again.\n");
-        }
-    } while (choice != 5);
-
-    freeMemberTree(root);
-    return 0;
-}*/
+void Check_Borrowing_History(){
+    char memberId[MAX_ID];
+    printf("Enter Member ID to check history: ");
+    fgets(memberId, MAX_ID, stdin);
+    whitespace(memberId);
+    checkBorrowingHistory(memberId);
+}
