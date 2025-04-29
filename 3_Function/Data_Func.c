@@ -106,5 +106,4 @@ void csvToStruct() {
     }
 
     fclose(csvFile);
-
 }

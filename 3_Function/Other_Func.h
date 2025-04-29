@@ -4,6 +4,8 @@
 // UI design format
 void Line();
 void Line2();
+void Line3();
+void Line4();
 void ClearScreen();
 void Delay();
 void Exit();

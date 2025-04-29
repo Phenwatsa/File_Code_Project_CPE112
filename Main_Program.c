@@ -14,6 +14,7 @@ int main() {
     InitializeLibrary();
     csvToStruct();
     loadMember(&root, "DATA/member.csv");
+    showAllBooks();
 
     do {
         // UI design format
@@ -54,6 +55,6 @@ int main() {
                 break;
         }
     } while (Check_Num(choice) != 3); 
-
+    csvToStruct();
     return 0;
 }

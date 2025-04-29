@@ -28,18 +28,22 @@ void Book_Management(){
             case 1:
                 // Add book
                 addBook();
+                Exit();
                 break;
             case 2:
                 // Update book
                 editBook();
+                Exit();
                 break;
             case 3:
                 // Delete book
                 delete();
+                Exit();
                 break;
             case 4:
                 // Show all books
                 showAllBooks();
+                Exit();
                 break;
             case 5:
                 // Exit program
