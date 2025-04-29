@@ -32,7 +32,6 @@ int year2yearIndex(int year) {
 }
 
 void csvToStruct() {
-    printf("DEBUG: Opening file %s\n", pathFile);
     FILE* csvFile = fopen(pathFile, "r");
 
     if (csvFile == NULL) {
@@ -107,5 +106,5 @@ void csvToStruct() {
     }
 
     fclose(csvFile);
-    printf("DEBUG: Finished reading file\n");
+
 }

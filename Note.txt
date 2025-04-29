@@ -1,7 +1,4 @@
 gcc Main_Program.c 1_User/User.c 2_Libralian/Libralian.c 3_Function/Book_Management_Func.c 3_Function/Member_Func.c 3_Function/Borrow_Return_Func.c 3_Function/Other_Func.c 3_Function/Data_Func.c -o LibrarySystem
 
-gcc Main_Program.c 1_User/User.c 2_Libralian/Libralian.c 3_Function/Book_Management_Func.c 3_Function/Borrow_Return_Func.c 3_Function/Other_Func.c 3_Function/Data_Func.c -I3_Function -o LibrarySystem
-./LibrarySystem
-
-gcc -g Main_Program.c 1_User/User.c 2_Libralian/Libralian.c 3_Function/Book_Management_Func.c 3_Function/Borrow_Return_Func.c 3_Function/Data_Func.c 3_Function/Other_Func.c -I3_Function -o LibrarySystem
+gcc -g Main_Program.c 1_User/User.c 2_Libralian/Libralian.c 3_Function/Book_Management_Func.c 3_Function/Borrow_Return_Func.c 3_Function/Data_Func.c 3_Function/Member_Func.c 3_Function/Other_Func.c -I3_Function -o LibrarySystem
 ./LibrarySystem
