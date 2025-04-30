@@ -87,7 +87,7 @@ int filterCategory(char listName[][max_char], int number_list) {
 
     while (cateFilIndex == -1);
     
-    return cateFilIndex;
+    return cateFilIndex-1;
 }
 
 int filterUsable(char filter[], int number_filter) {
@@ -105,7 +105,7 @@ int filterUsable(char filter[], int number_filter) {
     }
 
     // return the int value
-    return atoi(filter)-1;
+    return atoi(filter);
 }
 
 // adding book
@@ -404,7 +404,7 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
         char newID[16] =  "";
         printf("3.3\n");
         // Concatenate bookCate
-
+        
         strcat(newID, cateShortNames[cateIndex]);
         printf("%s\n", newID);
         printf("3.4\n");

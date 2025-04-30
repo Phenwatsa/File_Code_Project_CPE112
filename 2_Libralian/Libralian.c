@@ -89,6 +89,7 @@ void Member_Management(){
             case 3:
                 // Display All Members
                 displayMember(root); 
+                Exit();
                 break;
             case 4:
                 // Check borrowing history

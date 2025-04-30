@@ -15,6 +15,8 @@ int main() {
     csvToStruct();
     loadMember(&root, "DATA/member.csv");
 
+    addBook();
+
     do {
         // UI design format
         //ClearScreen();
