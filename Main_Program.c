@@ -5,7 +5,7 @@
 #include "3_Function/Book_Management_Func.h"
 #include "3_Function/Borrow_Return_Func.h"
 #include "3_Function/Data_Func.h"
-//#include "3_Function/Member_Func.h"
+#include "3_Function/Member_Func.h"
 #include "3_Function/Other_Func.h"
 
 int main() {
@@ -13,6 +13,9 @@ int main() {
 
     InitializeLibrary();
     csvToStruct();
+    loadMember(&root, "DATA/member.csv");
+    
+    saveCSV();
 
     do {
         // UI design format
@@ -53,6 +56,6 @@ int main() {
                 break;
         }
     } while (Check_Num(choice) != 3); 
-
+    csvToStruct();
     return 0;
 }

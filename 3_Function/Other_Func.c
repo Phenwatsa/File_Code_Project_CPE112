@@ -15,17 +15,23 @@ void Line(){
 void Line2(){
     printf("==================================================\n");
 }
+void Line3(){
+    printf("------------------------------------------------");
+}
+void Line4(){
+    printf("================================================");
+}
 void ClearScreen(){
     system("clear");
 }
 void Delay(){
-    sleep(2);
+    sleep(1);
 }
 
 void Exit(){
     char Enter_Exit[1];
     if (getchar() == '\n') {
-        printf(" Enter to Exit");
+        printf(" Enter to Exit s");
         scanf("%s", Enter_Exit);
     }
 }

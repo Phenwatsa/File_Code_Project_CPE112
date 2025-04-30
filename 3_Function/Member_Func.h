@@ -1,19 +1,17 @@
 #ifndef MEMBER_H
 #define MEMBER_H
-<<<<<<< HEAD
+
 #include<stdio.h>
 #include<string.h>
-#define MAX_MEMBERS 100
-#define MAX_LEN_ID 10
-#define MAX_LEN_FN 50
-#define MAX_LEN_LN 50
-=======
-
+#include<stdlib.h>
+#include "Other_Func.h"
 #define MAX_ID 10
-#define MAX_NAME 20
+#define MAX_NAME 50
 #define MAX_PHONE 15
 #define MAX_EMAIL 50
->>>>>>> d80f37263999ff9f76010afcf268c9ab8d36e9dd
+
+#define MAX_LINE 256
+#define MAX_TITLE 256
 
 typedef struct 
 {
@@ -31,12 +29,24 @@ typedef struct memberNode
     struct memberNode *right;
 } memberNode;
 
+extern memberNode* root;
+
 memberNode *insertMember(memberNode *root, Member data);
 memberNode *searchMember(memberNode *root, const char *id);
+int saveMemberTree(memberNode *node, FILE *fp);
+void displayMember(memberNode *node);
+void inputMemberData(Member *info);
+void whitespace(char *message);
 void updateMember(memberNode *root);
-void saveMember(memberNode *root, FILE* fp);
-void loadMember(memberNode **root);
-void displayMember(memberNode *root);
+int saveMember(memberNode *root, const char *fileName);
+void checkBorrowingHistory(const char *memberId);
+void loadMember(memberNode **root, const char *fileName);
+void displayMemberTree(memberNode *node);
 void freeMemberTree(memberNode *root);
+void flushInputBuffer();
+void debugMemberTree(memberNode* node);
+
+void Register_Member();
+void Check_Borrowing_History();
 
 #endif

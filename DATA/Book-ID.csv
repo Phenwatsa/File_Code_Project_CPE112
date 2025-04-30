@@ -1,11 +1,12 @@
-﻿FT01-00001-2004,Gilead,Marilynne Robinson,Fiction,2004,1,available,1
+﻿ID,Title,Author,Category,Year,Quantity,Available,Number of Borrows
+FT01-00001-2004,Gilead,Marilynne Robinson,Fiction,2004,1,available,1
 FT01-00002-1993,Rage of angels,Sidney Sheldon,Fiction,1993,2,available,2
 FT01-00003-1995,Warhost of Vastmark,Janny Wurts,Fiction,1995,2,available,3
 FT01-00004-2002,Taken at the Flood,Agatha Christie,Fiction,2002,2,available,4
 FT01-00005-2002,The illustrated man,Ray Bradbury,Fiction,2002,1,available,5
 FT01-00006-2007,The Yiddish Policemen's Union,Michael Chabon,Fiction,2007,3,available,6
 FT01-00007-2002,Endless Night,Agatha Christie,Fiction,2002,3,available,7
-FT01-00008-2004,The Silmarillion,John Ronald Reuel Tolkien;Ted Nasmith,Fiction,2004,2,available,8
+FT01-00008-2004,The Silmarillion,John Ronald Reuel Tolkien [Ted Nasmith],Fiction,2004,2,available,8
 FT01-00009-2005,Tropic of Cancer,Henry Miller,Fiction,2005,3,available,9
 FT01-00010-1994,The Love of the Last Tycoon,F. Scott Fitzgerald,Fiction,1994,3,available,10
 FT01-00011-1992,The Song of Rhiannon,Evangeline Walton,Fiction,1992,2,available,11
@@ -81,7 +82,7 @@ HT02-00030-2005,Strategies of Containment,John Lewis Gaddis,History,2005,2,avail
 HT02-00031-2006,Acts of God,Ted Steinberg,History,2006,2,available,81
 HT02-00032-2000,The Crescent Obscured,Robert Allison,History,2000,3,available,82
 HT02-00033-2004,Philosophy in a Time of Terror,Jürgen Habermas;Giovanna Borradori;Jacques Derrida,History,2004,2,available,83
-HT02-00034-2005,"Love, Sex & Tragedy",Simon Goldhill,History,2005,2,available,84
+HT02-00034-2005,"Love Sex & Tragedy",Simon Goldhill,History,2005,2,available,84
 HT02-00035-1979,"The Progressive Historians--Turner, Beard, Parrington",Richard Hofstadter,History,1979,2,available,85
 HT02-00036-2001,The Collaborator,Alice Kaplan,History,2001,2,available,86
 HT02-00037-2003,Heat Wave,Eric Klinenberg,History,2003,3,available,87

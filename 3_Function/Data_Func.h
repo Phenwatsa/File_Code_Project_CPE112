@@ -8,7 +8,7 @@
 
 typedef struct BookQueue BookQueue; 
 
-#define max_char 30
+#define max_char 100
 #define max_line 1000
 
 // create a book information
@@ -46,7 +46,7 @@ categoryArray Library;
 // create list of category 
 // description of each category is on Data_Func.c : line 4
 extern char categoryNames[numCategory][max_char];
-extern char cateShortNames[numCategory][4];
+extern char cateShortNames[numCategory][5];
 
 // create list of year 
 // description of each year range is on Data_Func.c : line 7

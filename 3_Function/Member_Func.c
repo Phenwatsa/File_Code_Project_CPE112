@@ -5,6 +5,9 @@
 #include<stdlib.h>
 #include "Member_Func.h"
 
+memberNode* root = NULL;
+const char* filename = "DATA/member.csv";
+
 memberNode *insertMember(memberNode *root, Member data)
 {
     if (root == NULL)
@@ -13,7 +16,7 @@ memberNode *insertMember(memberNode *root, Member data)
         newNode->data = data;
         newNode->left = newNode->right = NULL;
         return newNode;
-
+     
     }
     if (strcmp(data.ID, root->data.ID) < 0)
     {
@@ -23,7 +26,6 @@ memberNode *insertMember(memberNode *root, Member data)
         root->right = insertMember(root->right, data);
     }
     return root;
-
 }
 
 memberNode *searchMember(memberNode *root, const char *id)
@@ -42,121 +44,202 @@ memberNode *searchMember(memberNode *root, const char *id)
 
 }
 
-<<<<<<< HEAD
-void updateMember(Member members[], int count) //ตรงนี้ว่าควรแก้เพราะยังดีไม่พอ เออควรแหละ อันนี้ไม่เหมาะกับระบบใหญ่นะ 
-=======
+int saveMemberTree(memberNode *node, FILE *fp);
+void displayMember(memberNode *node);
+void inputMemberData(Member *info);
+
+void whitespace(char *message)
+{
+    int i = strlen(message) - 1;
+    while (i >= 0 && (message[i] == ' ' || message[i] == '\t' || message[i] == '\n'))
+    {
+        message[i--] = '\0';
+    }
+    
+}
+
+void inputMemberData(Member *info)
+{
+    printf("Enter ID:  "); // /////////////////// ui เข้าสปอนที้
+    fgets(info->ID, MAX_ID, stdin); 
+    whitespace(info->ID);
+
+    printf("Enter First Name:  "); // /////////////////// ui เข้าสปอนที้
+    fgets(info->FirstName, MAX_NAME, stdin); 
+    whitespace(info->FirstName);
+
+    printf("Enter Last Name:  "); // /////////////////// ui เข้าสปอนที้
+    fgets(info->LastName, MAX_NAME, stdin); 
+    whitespace(info->LastName);
+
+    printf("Enter Phone Number:  "); // /////////////////// ui เข้าสปอนที้
+    fgets(info->Phone, MAX_PHONE, stdin); 
+    whitespace(info->Phone);
+
+    printf("Enter Email:  "); // /////////////////// ui เข้าสปอนที้
+    fgets(info->Email, MAX_EMAIL, stdin); 
+    whitespace(info->Email);
+}
+
+
 
 void updateMember(memberNode *root) 
->>>>>>> d80f37263999ff9f76010afcf268c9ab8d36e9dd
 {
-    char search_ID[MAX_ID];
-    printf("Enter Member ID to update: ");
-    scanf("%s", search_ID);
-
-    memberNode *target = searchMember(root, search_ID);
-    if (target)
+    if (!root)
     {
-        printf("Editing member: %s %s\n",target->data.FirstName, target->data.LastName);
-        printf("Enter new first name: ");
-        scanf("%s", target->data.FirstName);
-        printf("Enter new last name: ");
-        scanf("%s", target->data.LastName);
-        printf("Enter new phone number: ");
-        scanf("%s", target->data.Phone);
-        printf("Enter new email: ");
-        scanf("%s", target->data.Email);
-        FILE *fp = fopen("member.csv", "w");
-        if (fp)
-        {
-            saveMember(root, fp);
-            fclose(fp);
-        }
-        
-    }else{
-        printf("Member with ID %s not found.\n", search_ID);
-    }
-}
-
-void saveMember(memberNode *root, FILE *fp)
-{
-    if (!root) return;
-    saveMember(root->left, fp);
-    fprintf(fp, "%s,%s,%s,%s,%s\n", root->data.ID, root->data.FirstName, root->data.LastName, root->data.Phone, root->data.Email);
-    saveMember(root->right, fp);
-}
-
-<<<<<<< HEAD
-void checkBorrowingHistory(const char *memberId)
-{
-    FILE *fp = fopen("borrow_history.csv", "r"); //อย่าลืมสร้างไฟล์ยืมมมเปล่าๆด้วยนาจร้ะ
-    if (!fp)
-    {
-        printf("Cannot open borrow_history.csv\n");
+        printf("Member database is empty.\n");
         return;
     }
     
-    char perLine[256];
-    int found = 0;
-    printf("Borrow History for Member ID:  %s \n", memberId);
-    while (fgets(perLine, sizeof(perLine), fp))
-    {
-        char CurrentMemberID[20], Book_ID[20], Title[200], BorrowDate[15], ReturnDate[15];
-        int Read = sscanf(perLine, "%[^,],%[^,],%[^,],%[^,],%[^\n]",CurrentMemberID,Book_ID,Title,BorrowDate,ReturnDate);
-        if (Read != 5)
-        {
-            printf("Invalid data format in line: %s", perLine); // ui เข้าได้
-            continue;
-        }
-        
-        if (strcmp(CurrentMemberID, memberId)==0)
-        {
-        
-            if (strlen(Title)==0)
-            {
-                strcpy(Title, "UNKNOW");
-            }
+    char search_ID[MAX_ID];
+    printf("Enter Member ID to update: ");
+    fgets(search_ID, MAX_ID, stdin);
+    whitespace(search_ID);
 
-            if (strlen(ReturnDate)==0)
-            {
-                strcpy(ReturnDate,"-");
-            }
-            
-            printf("%s %s Borrowed: %s  Returned: %s\n",Book_ID,Title,BorrowDate,ReturnDate); // แก้ ui ตรงนี้ดั้ย
+    memberNode *target = searchMember(root, search_ID);
+    if (!target)
+    {
+        printf("Member with ID %s not found.\n", search_ID); ///////// ui
+        return;
+
+    }
+
+
+    printf("Editing member: %s %s\n", target->data.FirstName, target->data.LastName);
+    Member update_d =  target->data;
+    inputMemberData(&update_d);
+
+    target->data = update_d;
+
+    if (saveMember(root, "member.csv") == 0)
+    {
+        printf("Member updated successfully.\n");
+    }else
+    {
+        printf("Error saving changes.\n");  /////ui
+    }
+
+}
+
+int saveMemberTree(memberNode *node, FILE *fp)
+{
+    if (!node) return 0;
+
+    saveMemberTree(node->left, fp);
+    if (fprintf(fp, "%s,%s,%s,%s,%s\n", node->data.ID, node->data.FirstName, node->data.LastName, node->data.Phone, node->data.Email) < 0)
+    {
+        return -1;
+    }
+    saveMemberTree(node->right, fp);
+    return 0;
+}
+
+int saveMember(memberNode *root, const char *fileName) 
+{
+    if (!root) return 0;
+    FILE *fp = fopen(fileName, "w");
+    if (!fp)
+    {
+        perror("Error opening file for writing"); 
+        return -1; 
+    }
+    
+    fprintf(fp, "ID,FirstName,LastName,Phone,Email\n");
+    int result = saveMemberTree(root, fp);
+    fclose(fp);
+    return result;
+}
+
+
+
+void checkBorrowingHistory(const char *memberId)
+{
+    FILE *fp = fopen("borrow_history.csv", "r"); 
+    if (!fp)
+    {
+        printf("Cannot open borrow history file"); ////////////ui  ui ui
+        return;
+    }
+    
+    char line[MAX_LINE];
+    int found = 0;
+
+    fgets(line, sizeof(line), fp);
+    printf("Borrow History for Member ID:  %s\n", memberId); //////////////// ui
+    printf("%-10s %-256s %-15s\n", "Book ID", "Title", "Status"); //////////////// ui
+
+    while (fgets(line, sizeof(line), fp))
+    {
+        char CurrentMemberID[MAX_ID], Book_ID[20], Title[MAX_TITLE], Status[10];
+
+        if (sscanf(line, "%[^,],%[^,],%[^,],%[^\n]", CurrentMemberID, Book_ID, Title, Status) == 4)
+        {
+            if (strcmp(CurrentMemberID, memberId) != 0) continue;
+
+            printf("%-10s %-256s %-15s\n" , Book_ID, Title, Status);
             found = 1;
+            
         }
     }
     
     if (!found)
     {
-        printf("No borrowing history found.\n");
+        printf("No borrowing history found.\n"); ///////////////  ui      ui
     }
     fclose(fp);
 
 }
 
-void loadMemberBefore(Member members[], int *count)
-=======
-void loadMember(memberNode **root)
->>>>>>> d80f37263999ff9f76010afcf268c9ab8d36e9dd
+
+void loadMember(memberNode **root, const char *fileName)
 {
-    FILE *fp = fopen("member.csv", "r");
-    if (!fp) return;
-    Member temp;
-    while (fscanf(fp, "%[^,],%[^,],%[^,],%[^,],%[^\n]\n",temp.ID, temp.FirstName, temp.LastName, temp.Phone, temp.Email) == 5)
+    FILE *fp = fopen(fileName, "r");
+    if (!fp)
     {
-        *root = insertMember(*root, temp);
+        perror("Error opening member file");
+        return;
+    }
+
+    char line[MAX_LINE];
+    fgets(line, sizeof(line), fp);
+
+    while (fgets(line, sizeof(line), fp))
+    {
+        whitespace(line);
+        if (strlen(line)==0) continue;
+        Member info = {0};
+
+        
+        if (sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^\n]", info.ID, info.FirstName, info.LastName, info.Phone, info.Email) == 5)
+        {
+            *root = insertMember(*root, info);
+        }else{
+            fprintf(stderr, "Invalid data format:  %s\n", line); //////////ui
+        }
     }
     fclose(fp);
+    
+}
+
+void displayMemberTree(memberNode *node)
+{
+    if (!node) return;
+    displayMemberTree(node->left);
+    printf("%-10s %-20s %-20s %-15s %-10s\n", node->data.ID, node->data.FirstName, node->data.LastName, node->data.Phone, node->data.Email); ///////////// ui
+    displayMemberTree(node->right);
     
 }
 
 void displayMember(memberNode *root)
 {
-    if (!root) return;
-    displayMember(root->left);
-    printf("ID:  %s  Name:  %s  %s  Phone number:  %s   Email:  %s\n",root->data.ID, root->data.FirstName, root->data.LastName, root->data.Phone, root->data.Email); //ui สปอนเข้าทีค่ะ
-    displayMember(root->right);
-    
+    if (!root)
+    {
+        printf("No members to display.\n");
+        return;
+    }
+
+    printf("\n%-10s %-20s %-20s %-15s %-50s\n", "ID", "First Name", "Last Name", "Phone Number", "Email" );  /////////////////////////ีรร สปอนเข้าทีจ้า ui
+    displayMemberTree(root);
 }
 
 void freeMemberTree(memberNode *root)
@@ -168,3 +251,34 @@ void freeMemberTree(memberNode *root)
     
 }
 
+void flushInputBuffer()
+{
+    int cha;
+    while (1)
+    {
+        cha = getchar();
+        if (cha == '\n' || cha == EOF)
+        {
+            break;
+        }
+        
+    }
+    
+}
+
+void Register_Member(){
+    Member newMember;
+    inputMemberData(&newMember);
+    root = insertMember(root, newMember);
+    saveMember(root, filename);
+    printf("Member added successfully.\n");
+    
+}
+
+void Check_Borrowing_History(){
+    char memberId[MAX_ID];
+    printf("Enter Member ID to check history: ");
+    fgets(memberId, MAX_ID, stdin);
+    whitespace(memberId);
+    checkBorrowingHistory(memberId);
+}
