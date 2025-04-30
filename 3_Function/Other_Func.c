@@ -31,8 +31,8 @@ void Delay(){
 void Exit(){
     char Enter_Exit[1];
     if (getchar() == '\n') {
-        printf(" Enter to Exit s");
-        scanf("%s", Enter_Exit);
+        printf(" Enter to Exit : ");
+        scanf(" %s", Enter_Exit);
     }
 }
 
