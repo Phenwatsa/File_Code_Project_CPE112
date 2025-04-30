@@ -14,6 +14,7 @@ void searchBook() {
     // read the string data 
     char UserFil[max_char];
     scanf("%s", UserFil);
+    UserFil[strcspn(UserFil, "\n")] = '\0'; // Remove any trailing newline character
 
     Line2();
     // for user to enter the category filter
@@ -59,7 +60,7 @@ void searchBook() {
         numBooksShow = checkDataEachList(Library[cateFil][yearFil], UserFil);
     }
 
-    printf("Number of book found is : %d", numBooksShow);
+    printf("Number of book found is : %d\n", numBooksShow);
     
 }
 
@@ -87,7 +88,7 @@ int filterCategory(char listName[][max_char], int number_list) {
 
     while (cateFilIndex == -1);
     
-    return cateFilIndex;
+    return cateFilIndex - 1;
 }
 
 int filterUsable(char filter[], int number_filter) {
@@ -105,7 +106,7 @@ int filterUsable(char filter[], int number_filter) {
     }
 
     // return the int value
-    return atoi(filter)-1;
+    return atoi(filter);
 }
 
 // adding book
@@ -514,8 +515,7 @@ int checkDataEachList(booksListInfo linkList, char userInput[]) {
     int numBooks = 0;
 
     while (temp != NULL) {
-
-        if (strstr(temp->data.author, userInput) != NULL) {
+        if (strstr(temp->data.title, userInput) != NULL) {
             showBookData(temp);
             numBooks += 1;
         }

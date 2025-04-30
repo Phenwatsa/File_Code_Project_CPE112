@@ -13,7 +13,7 @@ int main() {
 
     InitializeLibrary();
     csvToStruct();
-    showAllBooks();
+
     do {
         // UI design format
         //ClearScreen();
