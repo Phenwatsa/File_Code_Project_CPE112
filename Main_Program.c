@@ -14,7 +14,6 @@ int main() {
     InitializeLibrary();
     csvToStruct();
     loadMember(&root, "DATA/member.csv");
-    showAllBooks();
 
     do {
         // UI design format

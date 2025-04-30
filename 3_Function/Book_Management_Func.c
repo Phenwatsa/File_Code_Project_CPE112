@@ -469,67 +469,37 @@ void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
 }
 
 // function to show all the books
-/*void showAllBooks() {
-
-    printf("-- List of the book --\n");
-    for (int i = 0; i < numCategory; i++) {
-
-        printf("Category of the book : %s\n", categoryNames[i]);
-        for (int j = 0; j < numYear; j++) {
-            
-            // print if found the the book in that year range
-            if (Library[i][j].head != NULL) 
-            printf("Publish year of the book : %s\n", yearNames[j]);
-
-            // loop and show the book data
-            showBookList(Library[i][j].head);
-
-        }
-    }
-}*/
-
 void showAllBooks() {
-    Line4(); Line4(); Line4();
-    printf("\n                                        List of Books                                        |\n");
-
+    ClearScreen();
+    Line4(); Line4(); Line4(); Line4();
+    printf("\n%100s\n","List of Books");
+    Line4(); Line4(); Line4(); Line4(); printf("\n");
     for (int i = 0; i < numCategory; i++) {
-        printf("\nCategory: %s\n", categoryNames[i]);
-        printf("------------------------------------------------------\n");
-
         for (int j = 0; j < numYear; j++) {
             // แสดงเฉพาะปีที่มีหนังสือ
             if (Library[i][j].head != NULL) {
-                printf("Year: %s\n", yearNames[j]);
-                printf("------------------------------------------------------\n");
+                printf(" Category : [%s]  | Year : [%s]\n", categoryNames[i], yearNames[j]);
+                Line3(); Line3(); Line3(); Line3(); printf("\n");
 
                 // แสดงหัวข้อของตาราง
-                printf("%-16s %-30s %-20s %-10s %-8s %-10s\n", 
+                printf("%-15s | %-90s | %-50s | %-5s | %-3s | %-8s\n", 
                        "ID", "Title", "Author", "Year", "Qty", "Available");
-                printf("------------------------------------------------------\n");
+                       Line3(); Line3(); Line3(); Line3(); printf("\n");
 
                 // แสดงข้อมูลหนังสือในลิงก์ลิสต์
                 showBookList(Library[i][j].head);
-                printf("------------------------------------------------------\n");
+                Line3(); Line3(); Line3(); Line3(); printf("\n");
             }
         }
     }
 
-    printf("======================================================\n");
+    Line4(); Line4(); Line4(); Line4(); printf("\n");
 }
 
 // Loop the linklist
-/*void showBookList(booksNode* temp) {
-    
-    while (temp != NULL) {
-        
-        showBookData(temp);
-        temp = temp->next;
-    }
-}*/
-
 void showBookList(booksNode* temp) {
     while (temp != NULL) {
-        printf("%-16s %-30s %-20s %-10d %-8d %-10d\n",
+        printf("%-15s | %-90s | %-50s | %-5d | %2d  | %-8d\n",
                temp->data.id,
                temp->data.title,
                temp->data.author,
