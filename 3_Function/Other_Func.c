@@ -31,7 +31,7 @@ void ClearScreen(){
     system("clear");
 }
 void Delay(){
-    sleep(1);
+    sleep(3);
 }
 
 void Exit(){

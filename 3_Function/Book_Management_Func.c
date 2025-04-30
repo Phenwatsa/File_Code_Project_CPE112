@@ -155,7 +155,7 @@ void addBook() {
 // edit book
 void editBook() {
     Line2();
-    printf("                    Edit book\n");
+    printf("%30s\n","Edit book");
     Line2();
     char bookId[16];
 
@@ -167,12 +167,14 @@ void editBook() {
     extractID(bookId, &oldCateIndex, &oldYear, &bookNumber);
 
     if (oldCateIndex > 11 || oldCateIndex < 0) {
-        printf("Invalid input category\n");
+        Line();
+        printf(" ! Invalid input category\n"); Line();
         return;
     }
 
     if (oldYear < 0 ) {
-        printf("Invalid input year\n");
+        Line();
+        printf(" ! Invalid input year\n"); Line();
         return;
     }
 
@@ -231,11 +233,8 @@ void editBook() {
             getchar();
             scanf("%[^\n]", newAuthor);
 
-            printf("%d %d\n", oldCateIndex, oldYearIndex);
-            printf("newCateIndex : %d, newYearIndex : %d\n", newCategoryIndex, newYearIndex);
             // check if category index or year is changed
             if (newCategoryIndex != oldCateIndex || newYearIndex != oldYearIndex) {
-                
                 // delete 
                 deleteBook(&Library[oldCateIndex][oldYearIndex].head, &Library[oldCateIndex][oldYearIndex].tail, prev, temp);
                 // add to the new array
@@ -253,6 +252,7 @@ void editBook() {
             }
             
             printf(" Change data!\n");
+            Line2();
             return;
         }
 
@@ -260,12 +260,16 @@ void editBook() {
         temp = temp->next;
     }
 
-    if (found == 0) printf(" Id is not found\n");
+    if (found == 0){
+        Line();
+        printf(" ! Id is not found\n"); Line();
+        return;
+    }
 }
 
 void delete() {
     Line2();
-    printf("                   delete book\n");
+    printf("%30s\n","delete book");
     Line2();
     char bookId[16];
 
@@ -277,12 +281,14 @@ void delete() {
     extractID(bookId, &cateIndex, &year, &bookNumber);
 
     if (cateIndex > 11 || cateIndex < 0) {
-        printf("Invalid input category\n");
+        Line();
+        printf(" ! Invalid input category\n"); Line();
         return;
     }
 
     if (year < 0 ) {
-        printf("Invalid input year\n");
+        Line();
+        printf(" ! Invalid input year\n"); Line();
         return;
     }
 
@@ -291,26 +297,31 @@ void delete() {
     // we can access to data
     booksNode* temp = Library[cateIndex][yearIndex].head;
     booksNode* prev = temp;
+    printf("%s %s\n", temp->data.id, bookId);
 
     if (Library[cateIndex][yearIndex].head == NULL) {
-        printf("Error: No books found in the specified category and year.\n");
+        ClearScreen();
+        printf(" Error: No books found in the specified category and year.\n");
+        Line();
         return;
     }
 
     int found = 0;
     while (temp != NULL) {
         if (strcmp(temp->data.id, bookId) == 0) {
-            deleteBook(&Library[cateIndex][yearIndex].head, &Library[cateIndex][yearIndex].tail, prev, temp);        }
+            deleteBook(&Library[cateIndex][yearIndex].head, &Library[cateIndex][yearIndex].tail, prev, temp);
+            found = 1;
+        }
 
         prev = temp;
         temp = temp->next;
     }
 
     if (found == 0) {
-        printf(" The id is not found\n");
+        Line();
+        printf(" ! The id is not found\n");
+        Line();
     }
-
-    
 }
 
 // delete Book
@@ -333,7 +344,7 @@ void deleteBook(booksNode** head, booksNode** tail, booksNode* prev, booksNode* 
 
 // save file to the csv
 void saveCSV() {
-    FILE* file = fopen("DATA/temp.csv", "w");
+    FILE* file = fopen("DATA/Book-ID.csv", "w");
 
     if (file == NULL) {
         printf("Couldn't open a file!");
@@ -438,7 +449,7 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
     Library[cateIndex][yearIndex].tail = book;
     printf("5\n");
     Line2();
-    printf("Add successfully\n");
+    printf(" Add successfully\n");
     Line2();
 }
 
@@ -477,29 +488,29 @@ void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
 // function to show all the books
 void showAllBooks() {
     ClearScreen();
-    Line4(200);
-    printf("\n%100s\n","List of Books");
-    Line4(200);
+    Line4(190);
+    printf("%100s\n","List of Books");
+    Line4(190);
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
             // แสดงเฉพาะปีที่มีหนังสือ
             if (Library[i][j].head != NULL) {
                 printf(" Category : [%s]  | Year : [%s]\n", categoryNames[i], yearNames[j]);
-                Line3(200);
+                Line3(190);
 
                 // แสดงหัวข้อของตาราง
                 printf("%-15s | %-90s | %-50s | %-5s | %-3s | %-8s\n", 
                        "ID", "Title", "Author", "Year", "Qty", "Available");
-                       Line3(200);
+                       Line3(190);
 
                 // แสดงข้อมูลหนังสือในลิงก์ลิสต์
                 showBookList(Library[i][j].head);
-                Line3(200);
+                Line3(190);
             }
         }
     }
 
-    Line4(200);
+    Line4(190);
 }
 
 // Loop the linklist
@@ -517,7 +528,9 @@ void showBookList(booksNode* temp) {
 }
 
 void showBookData(booksNode* temp) {
-    printf(" ---- BOOKS ----\n");
+    ClearScreen(); Line2();
+    printf("%27s\n","BOOKS");
+    Line();
     printf(" ID : %s\n", temp->data.id);
     printf(" title : %s\n", temp->data.title);
     printf(" Author : %s\n", temp->data.author);
@@ -525,7 +538,7 @@ void showBookData(booksNode* temp) {
     printf(" year : %d\n", temp->data.year);
     printf(" quantity : %d\n", temp->data.quantity);
     printf(" available : %d\n", temp->data.available);
-    printf(" ------------ \n");
+    Line2();
 }
 
 int checkDataEachList(booksListInfo linkList, char userInput[]) {

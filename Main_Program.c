@@ -14,12 +14,11 @@ int main() {
     InitializeLibrary();
     csvToStruct();
     loadMember(&root, "DATA/member.csv");
-    
+
     saveCSV();
 
     do {
         // UI design format
-        //ClearScreen();
         Line2();
         printf("%45s\n","Welcome to the Library Management System");
         Line2();

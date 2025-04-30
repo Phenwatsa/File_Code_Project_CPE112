@@ -20,7 +20,7 @@ FT01-00003-1995,Warhost of Vastmark,Janny Wurts,Fiction,1995 2,1
 FT01-00004-2002,Taken at the Flood,Agatha Christie,Fiction,2002 2,1
 FT01-00005-2002,The illustrated man,Ray Bradbury,Fiction,2002 1,1
 FT01-00007-2002,Endless Night,Agatha Christie,Fiction,2002 3,1
-FT01-00008-2004,The Silmarillion,John Ronald Reuel Tolkien [Ted Nasmith],Fiction,2004 2,1
+FT01-00008-2004,The Silmarillion,John Ronald Reuel Tolkien;Ted Nasmith,Fiction,2004 2,1
 FT01-00012-1995,Heart Songs and Other Stories,Annie Proulx,Fiction,1995 3,1
 FT01-00014-2004,Going Postal,Terry Pratchett,Fiction,2004 1,1
 FT01-00015-2003,Moonspinners,Mary Stewart,Fiction,2003 3,1
@@ -48,6 +48,8 @@ FT01-00029-2014,A Nose for Murder,Lee Charles Kelley,Fiction,2014 3,1
 FT01-00031-2005,Size 12 Is Not Fat,Meg Cabot,Fiction,2005 3,1
 FT01-00035-2006,Motor Mouth,Janet Evanovich,Fiction,2006 1,1
 FT01-00046-2005,Son of a Witch,Gregory Maguire,Fiction,2005 2,1
+FT01-00047-2006,new,phenwatsa,Fiction,2006 2,1
+FT01-00048-2006,new,phenwatsa,Fiction,2006 2,1
 HT02-00004-1960,Presidential Power and the Modern Presidents,Richard E. Neustadt,History,1960 1,1
 HT02-00008-1994,"Cathedral, Forge and Waterwheel",Joseph Gies,0 1994,0
 HT02-00013-1958,The World's Religions,Huston Smith,History,1958 3,1
@@ -56,6 +58,7 @@ HT02-00017-2002,"The Fall of Berlin, 1945",Antony Beevor,0 2002,0
 HT02-00019-1776,The Christians and the Fall of Rome,Edward Gibbon,History,1776 1,1
 HT02-00022-1941,Black Lamb and Grey Falcon,Rebecca West,History,1941 1,1
 HT02-00023-1938,Homage to Catalonia,George Orwell,History,1938 1,1
+HT02-00034-2005,"Love, Sex & Tragedy",Simon Goldhill,0 2005,0
 HT02-00035-1979,"The Progressive Historians--Turner, Beard, Parrington",0 0,0
 HT02-00050-2006,"Salonica, City of Ghosts",Mark Mazower,0 2006,0
 HT02-00001-1976,Spandau,Albert Speer,History,1976 2,1
@@ -99,7 +102,6 @@ HT02-00021-2005,The City of Falling Angels,John Berendt,History,2005 2,1
 HT02-00029-2005,Battle Cry of Freedom,James M. McPherson,History,2005 2,1
 HT02-00030-2005,Strategies of Containment,John Lewis Gaddis,History,2005 2,1
 HT02-00031-2006,Acts of God,Ted Steinberg,History,2006 2,1
-HT02-00034-2005,"Love Sex & Tragedy",Simon Goldhill,History,2005 2,1
 HT02-00051-2006,The Survivor,John F. Harris,History,2006 1,1
 SC03-00006-2006,"Power, Sex, Suicide",0 0,0
 SC03-00008-1994,Wrinkles in Time,George Smoot;Keay Davidson,Science,1994 2,1
@@ -118,7 +120,7 @@ BI04-00012-1993,Incest,Anaïs Nin,Biography & Autobiography,1993 1,1
 BI04-00013-1985,Moments of Being,Virginia Woolf,Biography & Autobiography,1985 3,1
 BI04-00003-2004,Alexander Hamilton,Ron Chernow,Biography & Autobiography,2004 3,1
 BI04-00004-2004,Buddha,Karen Armstrong,Biography & Autobiography,2004 1,1
-BI04-00007-1996,The Diary o f Anaïs Nin,Anaïs Nin,Biography & Autobiography,1996 1,1
+BI04-00007-1996,The Diary of Anaïs Nin,Anaïs Nin,Biography & Autobiography,1996 1,1
 BI04-00014-2002,A Memoir of Jane Austen,James Edward Austen-Leigh,Biography & Autobiography,2002 3,1
 BI04-00015-2001,Augustine: A Very Short Introduction,Henry Chadwick,Biography & Autobiography,2001 2,1
 BI04-00001-2005,Jane Austen,Carol Shields,Biography & Autobiography,2005 2,1

@@ -24,30 +24,35 @@ void Book_Management(){
         // User Input
         scanf(" %s", Book_manag_choice);
         ClearScreen();
+        printf("Debug: Entering Book Management\n");
         switch (Check_Num(Book_manag_choice)){
             case 1:
                 // Add book
+                printf("Debug: Entering Book Management\n");
                 addBook();
                 Exit();
                 break;
             case 2:
                 // Update book
+                printf("Debug: Entering Book Management\n");
                 editBook();
                 Exit();
                 break;
             case 3:
                 // Delete book
+                printf("Debug: Entering Book Management\n");
                 delete();
                 Exit();
                 break;
             case 4:
                 // Show all books
+                printf("Debug: Entering Book Management\n");
                 showAllBooks();
                 Exit();
                 break;
             case 5:
                 // Exit program
-                printf("\n Exiting the program . . .\n\n");
+                printf("\n Exiting the program . . .\n"); Delay();
                 break;
             default:
                 // Invalid choice
@@ -55,6 +60,8 @@ void Book_Management(){
                 Delay();
         }
     } while (Check_Num(Book_manag_choice) != 5);
+    printf("Debug: Entering Book Management\n");
+    saveCSV();
 }
 
 void Member_Management(){
