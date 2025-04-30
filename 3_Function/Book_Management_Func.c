@@ -250,7 +250,7 @@ void editBook() {
                 temp->data.year = newYear;
                 temp->data.quantity = newQuantity;
             }
-            
+            Line();
             printf(" Change data!\n");
             Line2();
             return;
