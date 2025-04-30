@@ -14,6 +14,7 @@ void searchBook() {
     // read the string data 
     char UserFil[max_char];
     scanf("%s", UserFil);
+    UserFil[strcspn(UserFil, "\n")] = '\0'; // Remove any trailing newline character
 
     Line2();
     // for user to enter the category filter
@@ -59,7 +60,7 @@ void searchBook() {
         numBooksShow = checkDataEachList(Library[cateFil][yearFil], UserFil);
     }
 
-    printf("Number of book found is : %d", numBooksShow);
+    printf("Number of book found is : %d\n", numBooksShow);
     
 }
 
@@ -126,7 +127,11 @@ void addBook() {
 
     // get the index of the category 
     printf(" Using filter for category\n"); Line();
-    int categoryIndex = filterCategory(categoryNames, numCategory);
+
+    int categoryIndex;
+    do {
+         categoryIndex = filterCategory(categoryNames, numCategory); 
+    } while (categoryIndex == -1);
 
     // get the value of the year 
     printf(" Published year : ");
@@ -144,7 +149,6 @@ void addBook() {
 
     // traverse to the library linklist and add at the end of the linklist 
     addBookParam(categoryIndex, year, title, author, quantity);
-    printf("!!!!");
 }
 
 // edit book
@@ -328,7 +332,7 @@ void deleteBook(booksNode** head, booksNode** tail, booksNode* prev, booksNode* 
 
 // save file to the csv
 void saveCSV() {
-    FILE* file = fopen(pathFile, "w");
+    FILE* file = fopen("DATA/temp.csv", "w");
 
     if (file == NULL) {
         printf("Couldn't open a file!");
@@ -348,9 +352,10 @@ void saveCSV() {
             }
         }
     }
+    
 
-    printf("Update successfully!\n");
     fclose(file);
+    printf("Update successfully!\n");
     return;
 }
 
@@ -406,7 +411,7 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
         // Concatenate bookCate
         
         strcat(newID, cateShortNames[cateIndex]);
-        printf("%s\n", newID);
+        printf("%d %s %s\n", cateIndex, cateShortNames[cateIndex], newID);
         printf("3.4\n");
         // Concatenate '-'
         strcat(newID, "-");
@@ -529,7 +534,6 @@ int checkDataEachList(booksListInfo linkList, char userInput[]) {
     int numBooks = 0;
 
     while (temp != NULL) {
-
         if (strstr(temp->data.title, userInput) != NULL) {
             showBookData(temp);
             numBooks += 1;
