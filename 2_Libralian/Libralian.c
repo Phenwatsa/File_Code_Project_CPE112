@@ -11,7 +11,7 @@ void Book_Management(){
         // UI design format
         ClearScreen();
         Line2();
-        printf("        Welcome to Book Management System\n");
+        printf(" %40s\n","Welcome to Book Management System");
         Line2();
         printf(" [1] | Add Book\n");
         printf(" [2] | Update Book\n");
@@ -85,6 +85,7 @@ void Member_Management(){
             case 2:
                 // Update member
                 updateMember(root);
+                Exit();
                 break;
             case 3:
                 // Display All Members
@@ -94,6 +95,7 @@ void Member_Management(){
             case 4:
                 // Check borrowing history
                 Check_Borrowing_History();
+                Exit();
                 break;
             case 5:
                 // Exit program

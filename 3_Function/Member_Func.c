@@ -58,54 +58,62 @@ void whitespace(char *message)
     
 }
 
+
+//อาจจะเจน ID ให้ member
 void inputMemberData(Member *info)
 {
-    printf("Enter ID:  "); // /////////////////// ui เข้าสปอนที้
+    Line2();
+    printf(" Enter ID : ");
     fgets(info->ID, MAX_ID, stdin); 
     whitespace(info->ID);
 
-    printf("Enter First Name:  "); // /////////////////// ui เข้าสปอนที้
+    printf(" Enter First Name : ");
     fgets(info->FirstName, MAX_NAME, stdin); 
     whitespace(info->FirstName);
 
-    printf("Enter Last Name:  "); // /////////////////// ui เข้าสปอนที้
+    printf(" Enter Last Name : ");
     fgets(info->LastName, MAX_NAME, stdin); 
     whitespace(info->LastName);
 
-    printf("Enter Phone Number:  "); // /////////////////// ui เข้าสปอนที้
+    printf(" Enter Phone Number : ");
     fgets(info->Phone, MAX_PHONE, stdin); 
     whitespace(info->Phone);
 
-    printf("Enter Email:  "); // /////////////////// ui เข้าสปอนที้
+    printf(" Enter Email : ");
     fgets(info->Email, MAX_EMAIL, stdin); 
     whitespace(info->Email);
 }
-
-
 
 void updateMember(memberNode *root) 
 {
     if (!root)
     {
+        
+       ClearScreen(); Line2();
         printf("Member database is empty.\n");
+        Line2();
         return;
     }
     
     char search_ID[MAX_ID];
-    printf("Enter Member ID to update: ");
+    getchar();
+    Line2();
+    printf(" Enter Member ID to update : ");
     fgets(search_ID, MAX_ID, stdin);
     whitespace(search_ID);
 
     memberNode *target = searchMember(root, search_ID);
     if (!target)
     {
-        printf("Member with ID %s not found.\n", search_ID); ///////// ui
+        ClearScreen(); Line2();
+        printf(" Member with ID [%s] not found.\n", search_ID);
+        Line2();
         return;
 
     }
 
 
-    printf("Editing member: %s %s\n", target->data.FirstName, target->data.LastName);
+    printf(" Editing member : %s %s\n", target->data.FirstName, target->data.LastName);
     Member update_d =  target->data;
     inputMemberData(&update_d);
 
@@ -113,10 +121,14 @@ void updateMember(memberNode *root)
 
     if (saveMember(root, "member.csv") == 0)
     {
+        Line2();
         printf("Member updated successfully.\n");
+        Line2(); return;
     }else
     {
-        printf("Error saving changes.\n");  /////ui
+        ClearScreen(); Line2();
+        printf("Error saving changes.\n");
+        Line2(); return;
     }
 
 }
@@ -140,7 +152,9 @@ int saveMember(memberNode *root, const char *fileName)
     FILE *fp = fopen(fileName, "w");
     if (!fp)
     {
-        perror("Error opening file for writing"); 
+        ClearScreen();
+        perror("Error opening file for writing ! ! !"); 
+
         return -1; 
     }
     
@@ -149,8 +163,6 @@ int saveMember(memberNode *root, const char *fileName)
     fclose(fp);
     return result;
 }
-
-
 
 void checkBorrowingHistory(const char *memberId)
 {
@@ -190,7 +202,6 @@ void checkBorrowingHistory(const char *memberId)
 
 }
 
-
 void loadMember(memberNode **root, const char *fileName)
 {
     FILE *fp = fopen(fileName, "r");
@@ -225,7 +236,7 @@ void displayMemberTree(memberNode *node)
 {
     if (!node) return;
     displayMemberTree(node->left);
-    printf("%-10s %-20s %-20s %-15s %-10s\n", node->data.ID, node->data.FirstName, node->data.LastName, node->data.Phone, node->data.Email); ///////////// ui
+    printf(" %-15s | %-20s | %-20s | %-15s | %-10s\n", node->data.ID, node->data.FirstName, node->data.LastName, node->data.Phone, node->data.Email); ///////////// ui
     displayMemberTree(node->right);
     
 }
@@ -234,12 +245,18 @@ void displayMember(memberNode *root)
 {
     if (!root)
     {
-        printf("No members to display.\n");
+        ClearScreen(); Line2();
+        printf(" No members to display.\n");
+        Line2();
         return;
     }
-
-    printf("\n%-10s %-20s %-20s %-15s %-50s\n", "ID", "First Name", "Last Name", "Phone Number", "Email" );  /////////////////////////ีรร สปอนเข้าทีจ้า ui
+    ClearScreen(); Line4(115);
+    printf("%65s\n","List of Members");
+    Line4(115);
+    printf(" %-15s | %-20s | %-20s | %-15s | %-50s\n", "ID", "First Name", "Last Name", "Phone Number", "Email" );
+    Line3(115);
     displayMemberTree(root);
+    Line4(115);
 }
 
 void freeMemberTree(memberNode *root)
@@ -268,11 +285,13 @@ void flushInputBuffer()
 
 void Register_Member(){
     Member newMember;
+    getchar();
     inputMemberData(&newMember);
     root = insertMember(root, newMember);
     saveMember(root, filename);
-    printf("Member added successfully.\n");
-    
+    Line2();
+    printf(" Member added successfully.\n");
+    Line2();
 }
 
 void Check_Borrowing_History(){

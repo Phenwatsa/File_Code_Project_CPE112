@@ -7,7 +7,7 @@
 
 void searchBook() {
     Line2();
-    printf("             Welcome to search function\n");
+    printf(" %45s\n","Welcome to search function");
     Line();
     printf(" Search by id or Name of the book : ");
 
@@ -65,13 +65,14 @@ void searchBook() {
 }
 
 // Function for user to describe how to use filter in search function
+// รับค่ามากก่า 9 ไม่่ได้
 int filterCategory(char listName[][max_char], int number_list) {
     
     char cateFil[2];
     Line();
     // show all filter that possible to use
     for (int i = 0; i < number_list; i++) {
-        printf("  [%-2d] to use %s\n", i+1, listName[i]);
+        printf("  [%d] to use %s\n", i+1, listName[i]);
     }
     Line();
     printf("  [0] to not use the filter\n");
@@ -83,7 +84,7 @@ int filterCategory(char listName[][max_char], int number_list) {
         scanf("%s", cateFil);
 
         // value will be transform from string to int but if it return -1 means invalid
-/*มีปัญหา*/        cateFilIndex = filterUsable(cateFil, number_list);
+        cateFilIndex = filterUsable(cateFil, number_list);
     }
 
     while (cateFilIndex == -1);
@@ -112,7 +113,7 @@ int filterUsable(char filter[], int number_filter) {
 // adding book
 void addBook() {
     Line2();
-    printf("                   Adding book\n");
+    printf("%30s\n","Adding book");
     // user given the input
     char title[max_char];
     char author[max_char];
@@ -122,11 +123,11 @@ void addBook() {
 
     Line2();
     printf(" Name of the book : ");
-    getchar();
-    scanf("%[^\n]", title);
+    scanf(" %[^\n]", title);
 
     // get the index of the category 
-    printf(" Using filter for category\n"); Line();
+    ClearScreen(); Line2();
+    printf(" Using filter for category\n");
 
     int categoryIndex;
     do {
@@ -360,7 +361,6 @@ void saveCSV() {
 }
 
 void addBookParam(int cateIndex, int year, char title[], char author[], int quantity) {
-    printf("%d\n",cateIndex);
     int yearIndex = year2yearIndex(year);
     // create a new book data
     book bookData;
@@ -407,7 +407,6 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
         sprintf(yearID, "%04d", year);
         
         char newID[16] =  "";
-        printf("3.3\n");
         // Concatenate bookCate
         
         strcat(newID, cateShortNames[cateIndex]);
@@ -438,7 +437,9 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
     }
     Library[cateIndex][yearIndex].tail = book;
     printf("5\n");
+    Line2();
     printf("Add successfully\n");
+    Line2();
 }
 
 void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
@@ -476,29 +477,29 @@ void extractID(char id[16], int* categoryIndex, int* year, int* bookNumberInt) {
 // function to show all the books
 void showAllBooks() {
     ClearScreen();
-    Line4(); Line4(); Line4(); Line4();
+    Line4(200);
     printf("\n%100s\n","List of Books");
-    Line4(); Line4(); Line4(); Line4(); printf("\n");
+    Line4(200);
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
             // แสดงเฉพาะปีที่มีหนังสือ
             if (Library[i][j].head != NULL) {
                 printf(" Category : [%s]  | Year : [%s]\n", categoryNames[i], yearNames[j]);
-                Line3(); Line3(); Line3(); Line3(); printf("\n");
+                Line3(200);
 
                 // แสดงหัวข้อของตาราง
                 printf("%-15s | %-90s | %-50s | %-5s | %-3s | %-8s\n", 
                        "ID", "Title", "Author", "Year", "Qty", "Available");
-                       Line3(); Line3(); Line3(); Line3(); printf("\n");
+                       Line3(200);
 
                 // แสดงข้อมูลหนังสือในลิงก์ลิสต์
                 showBookList(Library[i][j].head);
-                Line3(); Line3(); Line3(); Line3(); printf("\n");
+                Line3(200);
             }
         }
     }
 
-    Line4(); Line4(); Line4(); Line4(); printf("\n");
+    Line4(200);
 }
 
 // Loop the linklist

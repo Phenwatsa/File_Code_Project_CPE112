@@ -15,11 +15,17 @@ void Line(){
 void Line2(){
     printf("==================================================\n");
 }
-void Line3(){
-    printf("------------------------------------------------");
+void Line3(int num){
+    for (int i = 0; i < num; i++){
+        printf("-");
+    }
+    printf("\n");
 }
-void Line4(){
-    printf("================================================");
+void Line4(int num){
+    for (int i = 0; i < num; i++){
+        printf("=");
+    }
+    printf("\n");
 }
 void ClearScreen(){
     system("clear");
@@ -30,10 +36,11 @@ void Delay(){
 
 void Exit(){
     char Enter_Exit[1];
-    if (getchar() == '\n') {
-        printf(" Enter to Exit : ");
+    do{
+        printf(" Enter [E] to Exit : ");
         scanf(" %s", Enter_Exit);
-    }
+    }while (Enter_Exit[0] != 'E' && Enter_Exit[0] != 'e');
+    ClearScreen();
 }
 
 int Check_Num(const char* str){

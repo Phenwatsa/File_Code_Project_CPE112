@@ -21,7 +21,7 @@ int main() {
         // UI design format
         //ClearScreen();
         Line2();
-        printf("     Welcome to the Library Management System\n");
+        printf("%45s\n","Welcome to the Library Management System");
         Line2();
         printf(" [1] | Librarian\n");
         printf(" [2] | Member\n");
@@ -35,24 +35,21 @@ int main() {
         switch (Check_Num(choice)){
             case 1:
                 // For Librarian
-                printf("\n Librarian selected . . .\n");
-                Delay();
+                printf(" Librarian selected . . .\n"); Delay();
                 Menu_Librarian();
                 break;
             case 2:
                 // For Member
-                printf("\n Member selected . . .\n");
-                Delay();
+                printf(" Member selected . . .\n"); Delay();
                 Menu_User();
                 break;
             case 3:
                 // Exit program
-                printf("\n Exiting the program . . .\n\n");
+                printf(" Exiting the program . . .\n"); Delay();
                 break;
             default:
                 // Invalid choice
-                printf("\n Invalid choice. Please try again . . .\n");
-                Delay();
+                printf(" Invalid choice. Please try again . . .\n"); Delay();
                 break;
         }
     } while (Check_Num(choice) != 3); 
