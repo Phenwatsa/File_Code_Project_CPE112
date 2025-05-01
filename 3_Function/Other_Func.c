@@ -1,5 +1,5 @@
-// (boook recommendation)[Pi]
-// (top borrowed books)[Pi]
+// (top 5 borrowed books)[Phi]
+// (Top 3 Members With Returns)[Phi]
 // Other additional functions [ploy]
 
 #include <stdio.h>
@@ -138,4 +138,97 @@ void displayTop5BorrowedBooks(Book books[], int count)
     }
     
 
+}
+
+
+
+//Show Top 3 Members With Returns
+int compareByReturnCount(const void *a, const void *b) 
+{
+    MemberBorrowInfo *memA = (MemberBorrowInfo *)a;
+    MemberBorrowInfo *memB = (MemberBorrowInfo *)b;
+    return memB->RETURNED - memA->RETURNED;
+}
+
+int loadMembers(const char *fileName, MemberInfo members[], int maxMembers) 
+{
+    FILE *fp = fopen(fileName, "r");
+    if (!fp) {
+        printf("Error opening member file.\n");
+        return 0;
+    }
+
+    char line[MAX_LINE];
+    fgets(line, sizeof(line), fp);
+    int count = 0;
+
+    while (fgets(line, sizeof(line), fp) && count < maxMembers) 
+    {
+        sscanf(line, "%[^,],%[^,],%[^,]", members[count].MEMBER_ID,members[count].FirstName, members[count].LastName);
+        count++;
+    }
+    fclose(fp);
+    return count;
+}
+
+void showTop3MembersWithMostReturns(const char *borrowFile, const char *memberFile) {
+    FILE *fp = fopen(borrowFile, "r");
+    if (!fp) 
+    {
+        printf("Error opening borrow file.\n");
+        return;
+    }
+
+    MemberInfo member_list[MAX_MEMBERS];
+    int total_members = loadMembers(memberFile, member_list, MAX_MEMBERS);
+    MemberBorrowInfo borrow_info[MAX_MEMBERS];
+    int borrow_count = 0;
+    char line[MAX_LINE];
+    fgets(line, sizeof(line), fp); 
+
+    while (fgets(line, sizeof(line), fp)) 
+    {
+        char member_id[MAX_ID], book_id[MAX_ID], title[MAX_TITLE], status[MAX_STATUS];
+        sscanf(line, "%[^,],%[^,],%[^,],%s", member_id, book_id, title, status);
+        if (strcmp(status, "Returned") == 0) 
+        {
+            int found = 0;
+            for (int i = 0; i < borrow_count; i++) 
+            {
+                if (strcmp(borrow_info[i].MEMBER_ID, member_id) == 0) 
+                {
+                    borrow_info[i].RETURNED++;
+                    found = 1;
+                    break;
+                }
+            }
+            if (!found && borrow_count < MAX_MEMBERS) 
+            {
+                strcpy(borrow_info[borrow_count].MEMBER_ID, member_id);
+                borrow_info[borrow_count].RETURNED = 1;
+                borrow_count++;
+            }
+        }
+    }
+
+    fclose(fp);
+
+    qsort(borrow_info, borrow_count, sizeof(MemberBorrowInfo), compareByReturnCount);
+
+    printf("Top 3 members with most borred books:\n");
+    for (int i = 0; i < 3 && i < borrow_count; i++) 
+    {
+        char *first = "Unknown";
+        char *last = "Unknow";
+        for (int j = 0; j < total_members; j++) 
+        {
+            if (strcmp(borrow_info[i].MEMBER_ID, member_list[j].MEMBER_ID) == 0) 
+            {
+                first = member_list[j].FirstName;
+                last = member_list[j].LastName;
+                break;
+            }
+        }
+        printf("%-3d. %-20s  %-20s %-20s (%-3d books returned)\n",i + 1, borrow_info[i].MEMBER_ID,first,last,borrow_info[i].RETURNED);  ////////////ui
+    }
 }
