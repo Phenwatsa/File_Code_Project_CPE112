@@ -5,13 +5,12 @@
 #include<string.h>
 #include<stdlib.h>
 #include "Other_Func.h"
-#define MAX_ID 10
 #define MAX_NAME 50
 #define MAX_PHONE 15
 #define MAX_EMAIL 50
 
 #define MAX_LINE 256
-#define MAX_TITLE 256
+#define MAX_TITLE 200
 
 typedef struct 
 {
