@@ -3,12 +3,139 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Member_Func.h"
 #include "Data_Func.h"
 #include "Other_Func.h"
 #include "Borrow_Return_Func.h"
 
+void AddBorrowedBook(memberNode* member, const char* bookID, const char* title, const char* status) {
+    BookBorrowing* NewBorrow = (BookBorrowing*)malloc(sizeof(BookBorrowing));
+    if (NewBorrow == NULL) {
+        printf(" !!! Error : Memory allocation failed.\n");
+        return;
+    }
+
+    strcpy(NewBorrow->Member_ID, member->data.ID);
+    strcpy(NewBorrow->Book_ID, bookID);
+    strcpy(NewBorrow->Title, title);
+    NewBorrow->next = NULL;
+
+    if (member->borrowList == NULL) {
+        member->borrowList = NewBorrow;
+    } else {
+        BookBorrowing* temp = member->borrowList;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = NewBorrow;
+    }    
+}
+
+void LoadBorrowHistory(const char* filename, memberNode* root){
+    FILE* ptFile = fopen(filename, "r");
+    if (ptFile == NULL){
+        printf(" !!! Error : Could not open file %s\n", filename);
+        return;
+    }
+
+    char line[MAX_LINE];
+    while (fgets(line, sizeof(line), ptFile)) {
+        char* userID = strtok(line, ",");
+        char* bookID = strtok(NULL, ",");
+        char* title = strtok(NULL, ",");
+        char* status = strtok(NULL, ",");
+
+        if (!userID || !bookID || !title || !status) {
+            printf(" !!! Error : Invalid line format: %s\n", line);
+            continue;
+        }
+
+        status[strcspn(status, "\n")] = '\0';
+
+        if (strcmp(status, "Borrowed") == 0) {
+            memberNode* member = searchMember(root, userID);
+            if (member == NULL) {
+                printf(" !!! Warning : Member with ID [%s] not found.\n", userID);
+                continue;
+            }
+            AddBorrowedBook(member, bookID, title, status);
+        }
+    }
+    fclose(ptFile);
+    Line2();
+    printf(" Borrow history loaded successfully.\n");
+    Line2();
+}
+
+void DisplayBorrowing(memberNode* Borrowing_Member){
+    if (Borrowing_Member->borrowList == NULL){
+        Line2();
+        printf(" Member [%s] has no Book Borrowed.\n", Borrowing_Member->data.ID);
+        Line2(); Exit();
+        return;
+    }
+
+    Line2();
+    printf(" Borrowing Books List\n"); 
+    Line2();
+
+    BookBorrowing* temp = Borrowing_Member->borrowList;
+    printf(" %-20s %-50s\n", "Book ID", "Title");
+    while (temp != NULL) {
+        printf(" %-20s %-50s\n", temp->Book_ID, temp->Title);
+        temp = temp->next;
+    }
+}
+
+int CountBorrowedBooks(memberNode* member){
+    int count = 0;
+    BookBorrowing* temp = member->borrowList;
+    while (temp != NULL) {
+        count++;
+        temp = temp->next;
+    }
+    return count;
+}
+
+void LoadBorrowQueue(const char* filename, booksNode* root){
+    FILE* ptFile = fopen(filename, "r");
+    if (ptFile == NULL){
+        printf(" !!! Error : Could not open file %s\n", filename);
+        return;
+    }
+
+    char line[MAX_LINE];
+    while (fgets(line, sizeof(line), ptFile)) {
+        char* bookID = strtok(line, ",");
+        char* userID = strtok(NULL, ",");
+
+        if (!bookID || !userID) {
+            printf(" !!! Error : Invalid line format: %s\n", line);
+            continue;
+        }
+
+        userID[strcspn(userID, "\n")] = '\0';
+
+        booksNode* book = searchBook(root, bookID);
+        if (book == NULL) {
+            printf(" !!! Warning : Book with ID [%s] not found.\n", bookID);
+            continue;
+        }
+        Enqueue(book->data.reservationQueue, userID);
+    }
+    fclose(ptFile);
+    Line2();
+    printf(" Borrowing Queue loaded successfully.\n");
+    Line2();
+}
+
 // Function to borrow a book
-void borrow_Book(){
+void borrow_Book(memberNode* member){
+    if (CountBorrowedBooks(member) >= 3) {
+        printf(" You cannot borrow more than 3 books at a time.\n");
+        return;
+    }
+
     char book_id[20];
     int book_found = 0;
 
@@ -24,27 +151,36 @@ void borrow_Book(){
             while (temp != NULL){
                 if (strcmp(temp->data.id, book_id)==0){
                     book_found = 1;
-                    printf("Book found: %s (ID: %s)\n", temp->data.title, temp->data.id);
-                    printf("Quantity available: %d\n", temp->data.available);
+                    Line();
+                    printf(" Book found: %s (ID : %s)\n", temp->data.title, temp->data.id);
+                    printf(" Quantity available : %d\n", temp->data.available);
+                    Line();
 
                     //Check if the book is available
                     char Confirm;
-                    printf("Do you want to borrow this book? (Y/N): ");
-                        //ใส่ฟังชั่นเช็คคำตอบเพิ่ม
-                    scanf(" %c", &Confirm);
+                    do {
+                        printf(" Do you want to borrow this book? (Y/N) : ");
+                        scanf(" %c", &Confirm);
+                    } while (Confirm != 'Y' && Confirm != 'y' && Confirm != 'N' && Confirm != 'n');
 
                     if (Confirm == 'Y' || Confirm == 'y'){
                         if (temp->data.available > 0){
                             temp->data.available--;
-                            printf("You have successfully borrowed the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
+                            AddBorrowedBook(member, temp->data.id, temp->data.title, "Borrowed");
+                            Line();
+                            printf(" You have successfully borrowed the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
+                            Line2();
                         }
                         else{
-                            printf("Sorry, this book is not available for borrowing.\n");
+                            Line();
+                            printf(" Sorry, this book is not available for borrowing.\n");
                             Borrowing_Queue(temp);
                         }
                     }
                     else if (Confirm == 'N' || Confirm == 'n'){
-                        printf("Borrowing cancelled.\n");                        
+                        Line();
+                        printf(" Borrowing cancelled.\n");                        
+                        Line2();
                     }
                     return;
                 }                    
@@ -54,7 +190,9 @@ void borrow_Book(){
     }
 
     if (book_found==0){
-        printf("Book not found.\n");
+        Line();
+        printf(" Book not found.\n");
+        Line2();
     }
 }
 

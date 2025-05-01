@@ -63,13 +63,7 @@ int Check_User_ID(const char* str){
     return 1;
 }
 
-
-
-
-
-
 //Display top 5 borrowed books
-
 int loadBooksFromCSV(const char *fileName, Book books[])
 {
     FILE *fp = fopen(fileName, "r");
@@ -97,10 +91,7 @@ int loadBooksFromCSV(const char *fileName, Book books[])
         books[count].ID[len_id] = '\0';
         
         sscanf(comma_firstposi + 1, "%[^,],%*[^,],%*[^,],%*d,%*d,%*[^,],%d",books[count].TITLE,&books[count].BORROWED);
-        count++;
-        
-      
-        
+        count++;  
     }
 
     fclose(fp);
@@ -139,8 +130,6 @@ void displayTop5BorrowedBooks(Book books[], int count)
     
 
 }
-
-
 
 //Show Top 3 Members With Returns
 int compareByReturnCount(const void *a, const void *b) 

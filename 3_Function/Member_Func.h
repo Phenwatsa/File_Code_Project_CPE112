@@ -4,6 +4,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include "Borrow_Return_Func.h"
 #include "Other_Func.h"
 #define MAX_NAME 50
 #define MAX_PHONE 15
@@ -26,6 +27,7 @@ typedef struct memberNode
     Member data;
     struct memberNode *left;
     struct memberNode *right;
+    BookBorrowing *borrowList;
 } memberNode;
 
 extern memberNode* root;
