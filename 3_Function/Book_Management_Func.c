@@ -343,13 +343,15 @@ void deleteBook(booksNode** head, booksNode** tail, booksNode* prev, booksNode* 
 }
 
 // save file to the csv
-void saveCSV() {
+/*void saveCSV() {
     FILE* file = fopen("DATA/Book-ID.csv", "w");
 
     if (file == NULL) {
         printf("Couldn't open a file!");
         return;
     }
+
+    fprintf(file, "Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed\n");
 
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
@@ -364,11 +366,43 @@ void saveCSV() {
             }
         }
     }
-    
-
     fclose(file);
     printf("Update successfully!\n");
     return;
+}*/
+void saveCSV() {
+    FILE* file = fopen("DATA/Book-ID.csv", "w");
+
+    if (file == NULL) {
+        printf("Couldn't open a file!");
+        return;
+    }
+
+    // เขียน header ลงไฟล์
+    fprintf(file, "Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed\n");
+
+    for (int i = 0; i < numCategory; i++) {
+        for (int j = 0; j < numYear; j++) {
+            booksNode* temp = Library[i][j].head;
+
+            while (temp != NULL) {
+                book data = temp->data;
+
+                // Debug ข้อมูลที่เขียนลงไฟล์
+                printf("Debug: Writing book ID: %s\n", data.id);
+
+                // เขียนข้อมูลลงไฟล์
+                fprintf(file, "%s,%s,%s,%s,%d,%d,%d,%d\n", 
+                        data.id, data.title, data.author, data.category, 
+                        data.year, data.quantity, data.available, data.borrowCount);
+
+                temp = temp->next;
+            }
+        }
+    }
+
+    fclose(file);
+    printf("Update successfully!\n");
 }
 
 void addBookParam(int cateIndex, int year, char title[], char author[], int quantity) {

@@ -20,6 +20,7 @@ typedef struct book {
     int year;
     int quantity;
     int available;
+    int borrowCount;
     BookQueue* reservationQueue;
 } book;
 

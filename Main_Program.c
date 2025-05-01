@@ -15,8 +15,6 @@ int main() {
     csvToStruct();
     loadMember(&root, "DATA/member.csv");
 
-    saveCSV();
-
     do {
         // UI design format
         Line2();

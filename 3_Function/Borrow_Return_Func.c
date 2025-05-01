@@ -13,7 +13,8 @@ void borrow_Book(){
     int book_found = 0;
 
     // Prompt user for book name
-    printf("Enter the ID of the book you want to borrow : ");
+    Line2();
+    printf(" Enter the ID of the book you want to borrow : ");
     scanf(" %[^\n]", book_id);
 
     // Search for the book in the list
@@ -24,6 +25,7 @@ void borrow_Book(){
                 if (strcmp(temp->data.id, book_id)==0){
                     book_found = 1;
                     printf("Book found: %s (ID: %s)\n", temp->data.title, temp->data.id);
+                    printf("Quantity available: %d\n", temp->data.available);
 
                     //Check if the book is available
                     char Confirm;
@@ -151,7 +153,7 @@ void return_Book(){
     // Prompt user for book name
     void Show_Borrowed_Books();
     Line();
-    printf("Enter the ID of the book you want to return : ");
+    printf(" Enter the ID of the book you want to return : ");
     scanf(" %[^\n]", book_id);
 
     // Search for the book in the list
@@ -161,16 +163,17 @@ void return_Book(){
             while (temp != NULL){
                 if (strcmp(temp->data.id, book_id)==0){
                     book_found = 1;
-                    printf("Book found: %s (ID: %s)\n", temp->data.title, temp->data.id);
+                    printf(" Book found: %s (ID: %s)\n", temp->data.title, temp->data.id);
 
                     // Check if the book is available
                     char Confirm;
-                    printf("Do you want to return this book? (Y/N): ");
+                    printf(" Do you want to return this book? (Y/N): ");
                         //ใส่ฟังชั่นเช็คคำตอบเพิ่ม
                     scanf(" %c", &Confirm);
 
                     if (Confirm == 'Y' || Confirm == 'y'){
                         temp->data.available++;
+                        temp->data.borrowCount++;
                         printf("You have successfully returned the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
 
                         if (isQueueEmpty(temp->data.reservationQueue) == 0) {

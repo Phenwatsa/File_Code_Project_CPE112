@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <string.h>
 #include "Other_Func.h"
+#include "Member_Func.h"
 
 //UI design format
 void Line(){
@@ -52,10 +53,13 @@ int Check_Num(const char* str){
 }
 
 int Check_User_ID(const char* str){
-    if (strlen(str) == 8 && str[0] >= '1' && str[0] <= '9') {
-        return 1; 
-    } else {
-        return 0; 
+    memberNode *target = searchMember(root, str);
+    if (!target){
+        ClearScreen();
+        printf(" Member with ID [%s] not found.\n", str);
+        Line();
+        return 0 ;
     }
+    return 1;
 }
 

@@ -11,9 +11,10 @@ void Menu_User(){
     // User ID input
     ClearScreen();
     Line2();
+    
     printf("               Please enter your ID\n");
     Line2();
-    printf("Enter your ID : ");
+    printf(" Enter your ID : ");
     scanf(" %[^\n]", temp_User_ID);
     check_UserID = Check_User_ID(temp_User_ID);
     while (check_UserID == 0) {
@@ -23,7 +24,7 @@ void Menu_User(){
         Line();
         printf(" Please enter your ID\n");
         Line2();
-        printf("Enter your ID : ");
+        printf(" Enter your ID : ");
         scanf(" %[^\n]", temp_User_ID);
         check_UserID = Check_User_ID(temp_User_ID);
     }

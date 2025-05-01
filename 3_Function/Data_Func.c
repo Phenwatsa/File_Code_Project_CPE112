@@ -59,8 +59,10 @@ void csvToStruct() {
         char* yearStr = strtok(NULL, ",");
         char* quantityStr = strtok(NULL, ",");
         char* availableStr = strtok(NULL, ",");
+        char* borrowCountStr = strtok(NULL, ",");
+        
 
-        if (!id || !title || !author || !category || !yearStr || !quantityStr || !availableStr) {
+        if (!id || !title || !author || !category || !yearStr || !quantityStr || !availableStr || !borrowCountStr) {
             printf("ERROR: Invalid line format: %s\n", line);
             continue;
         }
@@ -71,6 +73,7 @@ void csvToStruct() {
         int categoryIndex = 10 * (id[2] - '0') + (id[3] - '0') - 1;
         int year = atoi(yearStr);
         int yearIndex = year2yearIndex(year);
+        int borrowCount = atoi(borrowCountStr);
 
         if (categoryIndex < 0 || categoryIndex >= numCategory || yearIndex < 0 || yearIndex >= numYear) {
             printf("ERROR: Invalid categoryIndex (%d) or yearIndex (%d)\n", categoryIndex, yearIndex);
@@ -92,6 +95,7 @@ void csvToStruct() {
         newBooks.available = available;
         newBooks.quantity = quantity;
         newBooks.year = year;
+        newBooks.borrowCount = borrowCount;
 
         newBookNode->data = newBooks;
         newBookNode->next = NULL;
@@ -106,4 +110,21 @@ void csvToStruct() {
     }
 
     fclose(csvFile);
+}
+
+void BorrowQueue(booksNode* bookNode) {
+    if (bookNode == NULL) {
+        printf("ERROR: Book node is NULL\n");
+        return;
+    }
+
+    if (bookNode->data.available == 0) {
+        printf("ERROR: Book is not available for borrowing\n");
+        return;
+    }
+
+    bookNode->data.available = 0;
+    bookNode->data.borrowCount += 1;
+
+    printf("Book borrowed successfully: %s\n", bookNode->data.title);
 }
