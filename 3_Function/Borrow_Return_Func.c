@@ -351,16 +351,15 @@ void Borrowing_Queue(booksNode* temp){
 }
 
 // Function returning a book
-void return_Book(char userID[]){
+void return_Book(memberNode* member){
     char book_id[20];
     int book_found = 0;
 
     // Prompt user for book name
-    memberNode* member = searchMember(root, userID);
     if (member != NULL) {
         DisplayBorrowing(member); // เรียกฟังก์ชันเพื่อแสดงรายการยืมของสมาชิก
     } else {
-        printf(" !!! Warning : Member with ID [%s] not found.\n", userID);
+        printf(" !!! Warning : Member with ID [%s] not found.\n", member->data.ID);
     }
     Line();
     printf(" Enter the ID of the book you want to return : ");
@@ -388,7 +387,7 @@ void return_Book(char userID[]){
                             temp->data.available = 1;
                         }
                         
-                        changingStatusToReturn(userID, temp->data.id);
+                        changingStatusToReturn(member->data.ID, temp->data.id);
                         printf("You have successfully returned the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
 
                         if (isQueueEmpty(temp->data.reservationQueue) == 0) {
