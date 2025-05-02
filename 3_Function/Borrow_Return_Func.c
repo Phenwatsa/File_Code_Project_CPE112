@@ -214,7 +214,7 @@ void borrow_Book(memberNode* member){
                     book_found = 1;
                     Line();
                     printf(" Book found: %s (ID : %s)\n", temp->data.title, temp->data.id);
-                    printf(" Quantity available : %d\n", temp->data.available);
+                    printf(" Quantity available : %d\n", temp->data.quantity);
                     Line();
 
                     //Check if the book is available
@@ -225,9 +225,9 @@ void borrow_Book(memberNode* member){
                     } while (Confirm != 'Y' && Confirm != 'y' && Confirm != 'N' && Confirm != 'n');
 
                     if (Confirm == 'Y' || Confirm == 'y'){
-                        if (temp->data.available > 0){
-                            temp->data.available--;
-                            if (temp->data.available == 0){
+                        if (temp->data.quantity > 0){
+                            temp->data.quantity--;
+                            if (temp->data.quantity == 0){
                                 temp->data.available = 0;
                             }
                             AddBorrowedBook(member, temp->data.id, temp->data.title, "Borrowed");
@@ -379,9 +379,9 @@ void return_Book(char userID[]){
                     scanf(" %c", &Confirm);
 
                     if (Confirm == 'Y' || Confirm == 'y'){
-                        temp->data.available++;
+                        temp->data.quantity++;
                         temp->data.borrowCount++;
-                        if (temp->data.available == 1){
+                        if (temp->data.quantity == 1){
                             temp->data.available = 1;
                         }
                         
