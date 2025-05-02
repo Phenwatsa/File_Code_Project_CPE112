@@ -231,6 +231,8 @@ void borrow_Book(memberNode* member){
                                 temp->data.available = 0;
                             }
                             AddBorrowedBook(member, temp->data.id, temp->data.title, "Borrowed");
+                            writeBorrowHistoryToCSVFile(member->data.ID, temp->data.id, temp->data.title, "Borrowed");
+                            updateBorrowCount(temp->data.id);
                             Line();
                             printf(" You have successfully borrowed the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
                             Line2();
@@ -385,6 +387,7 @@ void return_Book(char userID[]){
                             temp->data.available = 1;
                         }
                         
+                        changingStatusToReturn(userID, temp->data.id);
                         printf("You have successfully returned the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
 
                         if (isQueueEmpty(temp->data.reservationQueue) == 0) {
@@ -470,6 +473,126 @@ void Display_All_Borrowing_Queue(BookQueue* queue) {
     Line2();
 }
 
+
+//Funcion write borrow history to csv
+int writeBorrowHistoryToCSVFile(const char *memberID,const char *bookID, const char *title, const char *status)
+{
+    FILE *fp = fopen("DATA/borrow_history.csv", "a");
+    if (!fp)
+    {
+        perror("Error opening file.\n");
+        return 0;
+    }
+    fprintf(fp,"%s,%s,%s,%s\n",memberID,bookID,title,status);
+    fclose(fp);
+    return 1;
+    
+}
+
+
+
+
+
 void Show_Borrowed_Books(){
     
+}
+
+
+//Funcion update borrowed count
+void updateBorrowCount(const char *bookID) 
+{
+    if (bookID == NULL) 
+    {
+        fprintf(stderr, "Error: bookID is NULL\n");
+        return;
+    }
+    FILE *fp = fopen("DATA/Book-ID.csv", "r");
+    if (fp == NULL) 
+    {
+        perror("Error opening Book-ID.csv");
+        return;
+    }
+
+    FILE *temp = fopen("temp.csv", "w");
+    if (temp == NULL) 
+    {
+        perror("Error creating temp file");
+        fclose(fp);
+        return;
+    }
+
+    char line[256];
+    while (fgets(line, sizeof(line), fp)) 
+    {
+        char id[20], title[200], author[100], category[50], year[6], status[20];
+        int quantity, borrowCount;
+
+        int fields = sscanf(line, "%19[^,],%199[^,],%99[^,],%49[^,],%5[^,],%d,%19[^,],%d",id, title, author, category, year, &quantity, status, &borrowCount);
+        if (fields != 8) 
+        {
+            fputs(line, temp);
+            continue;
+        }
+
+        if (strcmp(id, bookID) == 0) 
+        {
+            borrowCount+=1;
+        }
+
+        fprintf(temp, "%s,%s,%s,%s,%s,%d,%s,%d\n", id, title, author, category, year, quantity, status, borrowCount);
+    }
+
+    fclose(fp);
+    fclose(temp);
+
+
+    
+    if (remove("Book-ID.csv") != 0) 
+    {
+        perror("Error deleting original file");
+        return;
+    }
+    if (rename("temp.csv", "Book-ID.csv") != 0) 
+    {
+        perror("Error renaming temp file");
+    }
+}
+
+
+
+//Funcion changing status to return in history csv file
+int changingStatusToReturn(const char *memberId, const char *bookId)
+{
+    FILE *fp = fopen("DATA/borrow_history.csv", "r+");
+    FILE *tem = fopen("tem.csv", "w");
+    if (!fp || !tem)
+    {
+        perror("Error opening file.\n");
+        return 0;
+    }
+    
+    char line[256];
+    int found = 0;
+    while (fgets(line, sizeof(line), fp)) 
+    {
+        char member[20], book[20], title[200], status[20];
+        sscanf(line,"%[^,],%[^,],%[^,],%[^\n]", member, book, title, status);
+
+        if((strcmp(member, memberId)== 0) && (strcmp(book, bookId)== 0) && (strcmp(status, "Borrowed") == 0))
+        {
+            fprintf(tem, "%s,%s,%s,Returned\n", member, book,title);
+            found = 1;
+        } else
+        {
+            fprintf(tem, "%s", line);
+        }
+        
+    }
+
+    fclose(fp);
+    fclose(tem);
+    remove("borrow_history.csv");
+    rename("tem.csv", "borrow_history.csv");
+    return found;
+
 }

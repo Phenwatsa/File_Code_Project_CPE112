@@ -59,4 +59,13 @@ void displayBorrowingMemberTree(memberNode *node);
 void Display_All_Borrowing(memberNode* Borrowing_Member);
 void Display_All_Borrowing_Queue(BookQueue* queue);
 
+//Funcion write borrow history to csv
+int writeBorrowHistoryToCSVFile(const char *memberID,const char *bookID, const char *title, const char *status);
+
+//Funcion update borrowed count
+void updateBorrowCount(const char *bookID);
+
+//Funcion changing status to return in history csv file
+int changingStatusToReturn(const char *memberId, const char *bookId);
+
 #endif
