@@ -49,7 +49,15 @@ void csvToStruct() {
         }
     }
 
+    int count = 0;
+
     while (fgets(line, sizeof(line), csvFile)) {
+
+        if (count == 0) {
+            count = 1;
+            continue;
+        }
+
         line[strcspn(line, "\n")] = '\0';
 
         char* id = strtok(line, ",");
@@ -119,7 +127,7 @@ void BorrowQueue(booksNode* bookNode) {
     }
 
     if (bookNode->data.available == 0) {
-        printf("ERROR: Book is not available for borrowing\n");
+        printf("ERROR: Book ip not available for borrowing\n");
         return;
     }
 

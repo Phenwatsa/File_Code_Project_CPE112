@@ -66,6 +66,7 @@ void Menu_User(memberNode* root) {
             case 4:
                 // Return book
                 return_Book(temp_User_ID);
+                printf("\n ------------Book returned successfully.\n");
                 Exit();
                 break;
             case 5:
