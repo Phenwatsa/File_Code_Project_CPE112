@@ -100,11 +100,11 @@ void csvToStruct() {
         strcpy(newBooks.title, title);
         strcpy(newBooks.author, author);
         strcpy(newBooks.category, category);
+        newBooks.year = year;
         newBooks.available = available;
         newBooks.quantity = quantity;
-        newBooks.year = year;
         newBooks.borrowCount = borrowCount;
-
+        newBooks.reservationQueue = NULL;
         newBookNode->data = newBooks;
         newBookNode->next = NULL;
 

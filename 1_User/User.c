@@ -85,5 +85,5 @@ void Menu_User(memberNode* root) {
         }
     } while (Check_Num(User_choice) != 5);
     saveCSV();
-    printf(" Saving data to CSV files . . .\n"); Delay();
+    saveBorrowQueue("DATA/Borrowing_Queue.csv", root);
 }
