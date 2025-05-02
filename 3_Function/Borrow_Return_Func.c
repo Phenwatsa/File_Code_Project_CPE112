@@ -232,6 +232,7 @@ void borrow_Book(memberNode* member){
                             }
                             AddBorrowedBook(member, temp->data.id, temp->data.title, "Borrowed");
                             writeBorrowHistoryToCSVFile(member->data.ID, temp->data.id, temp->data.title, "Borrowed");
+                            saveCSV();
                             updateBorrowCount(temp->data.id);
                             Line();
                             printf(" You have successfully borrowed the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
@@ -489,10 +490,6 @@ int writeBorrowHistoryToCSVFile(const char *memberID,const char *bookID, const c
     
 }
 
-
-
-
-
 void Show_Borrowed_Books(){
     
 }
@@ -550,7 +547,7 @@ void updateBorrowCount(const char *bookID)
         perror("Error deleting original file");
         return;
     }
-    if (rename("DATA/temp.csv", "DATA/Book-ID.csv") != 0) 
+    if (rename("temp.csv", "DATA/Book-ID.csv") != 0) 
     {
         perror("Error renaming temp file");
     }

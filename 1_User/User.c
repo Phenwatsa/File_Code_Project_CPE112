@@ -29,11 +29,17 @@ void Menu_User(memberNode* root) {
         scanf(" %[^\n]", temp_User_ID);
         check_UserID = Check_User_ID(temp_User_ID);
     }
+    memberNode* currentUser = searchMember(root, temp_User_ID);
+    if (currentUser == NULL) {
+        printf(" !!! Error: Member with ID [%s] not found.\n", temp_User_ID);
+        return;
+    }
 
     do{
         // UI design format
         ClearScreen();
         Line2();
+        printf(" Hello %s %s [%s]\n", currentUser->data.FirstName, currentUser->data.LastName, currentUser->data.ID);
         printf("       Welcome to Member Management System\n");
         Line2();
         printf(" [1] | Show All Books\n");
@@ -60,7 +66,7 @@ void Menu_User(memberNode* root) {
             case 3:
                 // Search book
                 searchBook();
-                borrow_Book(root);
+                borrow_Book(currentUser);
                 Exit();
                 break;
             case 4:
@@ -79,4 +85,5 @@ void Menu_User(memberNode* root) {
                 Delay();
         }
     } while (Check_Num(User_choice) != 5);
+    saveCSV();
 }
