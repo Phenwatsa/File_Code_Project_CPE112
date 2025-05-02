@@ -17,7 +17,7 @@ int main() {
     loadMember(&root, "DATA/member.csv");
     booksNode* bookRoot = Library[0][0].head;
     LoadBorrowHistory("DATA/borrow_history.csv", root);
-    //LoadBorrowQueue("DATA/Borrowing_Queue.csv", root, bookRoot);
+    LoadBorrowQueue("DATA/Borrowing_Queue.csv", root, bookRoot);
 
     do {
         // UI design format

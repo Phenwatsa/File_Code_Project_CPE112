@@ -1,5 +1,5 @@
 Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed
-FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,3,0,12
+FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,0,0,12
 FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,0,11
 FT01-00048-1965,Airs Above the Ground,Mary Stewart,Fiction,1965,2,0,0
 FT01-00019-1972,The Terminal Man,Michael Crichton,Fiction,1972,2,0,2

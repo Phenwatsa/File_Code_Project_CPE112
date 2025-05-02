@@ -144,7 +144,7 @@ int CountBorrowedBooks(memberNode* member){
     return count;
 }
 
-void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bookRoot) {
+void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bookRoot){
     FILE* ptFile = fopen(filename, "r");
     if (ptFile == NULL) {
         printf(" !!! Error : Could not open file %s\n", filename);
@@ -153,36 +153,35 @@ void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bo
 
     char line[MAX_LINE];
     fgets(line, sizeof(line), ptFile); // Skip header line
+
     while (fgets(line, sizeof(line), ptFile)) {
         char* userID = strtok(line, ",");
         char* bookID = strtok(NULL, ",");
         char* title = strtok(NULL, ",");
-        char* status = strtok(NULL, ",");
+        char* Queue_Position = strtok(NULL, "\n");
 
-        if (!userID || !bookID || !title || !status) {
+        if (!userID || !bookID || !title || !Queue_Position) {
             printf(" !!! Error : Invalid line format: %s\n", line);
             continue;
         }
 
-        status[strcspn(status, "\n")] = '\0';
-
-        if (strcmp(status, "Borrowed") == 0) {
-            memberNode* member = searchMember(memberRoot, userID); 
-            if (member == NULL) {
-                printf(" !!! Warning : Member with ID [%s] not found.\n", userID);
-                continue;
-            }
-            AddBorrowedBook(member, bookID, title, status);
-        } else if (strcmp(status, "Reserved") == 0) {
-            booksNode* book = searchBook_ID(bookRoot, bookID); 
-            if (book == NULL) {
-                printf(" !!! Warning : Book with ID [%s] not found.\n", bookID);
-                continue;
-            }
-            Enqueue(book->data.reservationQueue, userID);
+        Queue_Position[strcspn(Queue_Position, "\n")] = '\0';
+        
+        booksNode* book = searchBook_ID(bookRoot, bookID);
+        if (book == NULL) {
+            printf(" !!! Warning : Book with ID [%s] not found.\n", bookID);
+            continue;
         }
-    }
 
+        if (book->data.reservationQueue == NULL) {
+            book->data.reservationQueue = (BookQueue*)malloc(sizeof(BookQueue));
+            book->data.reservationQueue->front = NULL;
+            book->data.reservationQueue->rear = NULL;
+        }
+        printf("Adding user %s to the reservation queue for book %s\n", userID, bookID);
+        Enqueue(book->data.reservationQueue, userID);
+        printf("ok.......");
+    }
     fclose(ptFile);
 }
 
@@ -286,19 +285,28 @@ void borrow_Book(memberNode* member){
 }
 
 // Function Book Borrowing Queue
-void Enqueue(BookQueue* queue, char* user_ID){
+void Enqueue(BookQueue* queue, char* user_ID) {
+    if (queue == NULL) {
+        printf("Error: Queue is NULL.\n");
+        return;
+    }
     QueueNode* newNode = (QueueNode*)malloc(sizeof(QueueNode));
+    if (newNode == NULL) {
+        printf("Error: Memory allocation failed for newNode.\n");
+        return;
+    }
+
     strcpy(newNode->User_ID, user_ID);
     newNode->next = NULL;
-
-    if (queue->rear == NULL){
+    
+    if (queue->rear == NULL) {
         queue->front = newNode;
         queue->rear = newNode;
-    }
-    else{
+    } else {
         queue->rear->next = newNode;
         queue->rear = newNode;
     }
+
     printf("User %s added to the queue.\n", user_ID);
 }
 
