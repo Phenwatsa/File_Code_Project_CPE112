@@ -13,7 +13,11 @@ int main() {
 
     InitializeLibrary();
     csvToStruct();
+
     loadMember(&root, "DATA/member.csv");
+    booksNode* bookRoot = Library[0][0].head;
+    LoadBorrowHistory("DATA/borrow_history.csv", root);
+    LoadBorrowQueue("DATA/borrow_queue.csv", root, bookRoot);
 
     do {
         // UI design format

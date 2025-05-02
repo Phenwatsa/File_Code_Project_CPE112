@@ -39,9 +39,7 @@ typedef struct {
 int loadBooksFromCSV(const char *fileName, Book books[]);
 void displayTop5BorrowedBooks(Book books[], int count);
 
-
 //Show Top 3 Members With Returns
-
 typedef struct {
     char MEMBER_ID[20];
     int RETURNED;

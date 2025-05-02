@@ -41,7 +41,7 @@ memberNode *searchMember(memberNode *root, const char *id)
     {
         return searchMember(root->right, id);
     }
-
+    return NULL;
 }
 
 int saveMemberTree(memberNode *node, FILE *fp);

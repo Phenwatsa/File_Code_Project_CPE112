@@ -3,10 +3,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include "Book_Management_Func.h"
 #include "Member_Func.h"
 #include "Data_Func.h"
 #include "Other_Func.h"
 #include "Borrow_Return_Func.h"
+
+booksNode* searchBook_ID(booksNode* root, const char* bookID) {
+    booksNode* current = root;
+    while (current != NULL) {
+        if (strcmp(current->data.id, bookID) == 0) {
+            return current; 
+        }
+        current = current->next;
+    }
+    return NULL; 
+}
 
 void AddBorrowedBook(memberNode* member, const char* bookID, const char* title, const char* status) {
     BookBorrowing* NewBorrow = (BookBorrowing*)malloc(sizeof(BookBorrowing));
@@ -97,32 +110,45 @@ int CountBorrowedBooks(memberNode* member){
     return count;
 }
 
-void LoadBorrowQueue(const char* filename, booksNode* root){
+void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bookRoot) {
     FILE* ptFile = fopen(filename, "r");
-    if (ptFile == NULL){
+    if (ptFile == NULL) {
         printf(" !!! Error : Could not open file %s\n", filename);
         return;
     }
 
     char line[MAX_LINE];
+    fgets(line, sizeof(line), ptFile); // Skip header line
     while (fgets(line, sizeof(line), ptFile)) {
-        char* bookID = strtok(line, ",");
-        char* userID = strtok(NULL, ",");
+        char* userID = strtok(line, ",");
+        char* bookID = strtok(NULL, ",");
+        char* title = strtok(NULL, ",");
+        char* status = strtok(NULL, ",");
 
-        if (!bookID || !userID) {
+        if (!userID || !bookID || !title || !status) {
             printf(" !!! Error : Invalid line format: %s\n", line);
             continue;
         }
 
-        userID[strcspn(userID, "\n")] = '\0';
+        status[strcspn(status, "\n")] = '\0';
 
-        booksNode* book = searchBook(root, bookID);
-        if (book == NULL) {
-            printf(" !!! Warning : Book with ID [%s] not found.\n", bookID);
-            continue;
+        if (strcmp(status, "Borrowed") == 0) {
+            memberNode* member = searchMember(memberRoot, userID); 
+            if (member == NULL) {
+                printf(" !!! Warning : Member with ID [%s] not found.\n", userID);
+                continue;
+            }
+            AddBorrowedBook(member, bookID, title, status);
+        } else if (strcmp(status, "Reserved") == 0) {
+            booksNode* book = searchBook_ID(bookRoot, bookID); 
+            if (book == NULL) {
+                printf(" !!! Warning : Book with ID [%s] not found.\n", bookID);
+                continue;
+            }
+            Enqueue(book->data.reservationQueue, userID);
         }
-        Enqueue(book->data.reservationQueue, userID);
     }
+
     fclose(ptFile);
     Line2();
     printf(" Borrowing Queue loaded successfully.\n");

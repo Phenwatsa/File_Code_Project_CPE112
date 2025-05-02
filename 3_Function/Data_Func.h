@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Borrow_Return_Func.h"
+#include "Member_Func.h"
 
 typedef struct BookQueue BookQueue; 
 

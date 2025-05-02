@@ -13,6 +13,8 @@
 #define MAX_LINE 256
 #define MAX_TITLE 200
 
+typedef struct BookBorrowing BookBorrowing;
+
 typedef struct 
 {
     char ID[MAX_ID];
