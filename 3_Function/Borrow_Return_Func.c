@@ -44,6 +44,32 @@ void AddBorrowedBook(memberNode* member, const char* bookID, const char* title, 
     }    
 }
 
+void DeleteBorrowedBook(memberNode* member, const char* bookID) {
+    if (member == NULL || member->borrowList == NULL) {
+        return;
+    }
+
+    BookBorrowing* current = member->borrowList;
+    BookBorrowing* previous = NULL;
+
+    while (current != NULL && strcmp(current->Book_ID, bookID) != 0) {
+        previous = current;
+        current = current->next;
+    }
+
+    if (current == NULL) {
+        printf(" !!! Error : Book with ID [%s] not found in borrow list.\n", bookID);
+        return;
+    }
+
+    if (previous == NULL) {
+        member->borrowList = current->next; 
+    } else {
+        previous->next = current->next; 
+    }
+    free(current);
+}
+
 void LoadBorrowHistory(const char* filename, memberNode* root){
     FILE* ptFile = fopen(filename, "r");
     if (ptFile == NULL){
@@ -160,10 +186,6 @@ void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bo
     fclose(ptFile);
 }
 
-void saveBorrowHistory(const char* filename, memberNode* root) {
-    
-}
-
 void saveBorrowQueue(const char* filename, memberNode* root){
     FILE* ptFile = fopen(filename, "w");
     if (ptFile == NULL) {
@@ -227,7 +249,7 @@ void borrow_Book(memberNode* member){
                     if (Confirm == 'Y' || Confirm == 'y'){
                         if (temp->data.quantity > 0){
                             temp->data.quantity--;
-                            if (temp->data.quantity == 0){
+                            if (temp->data.quantity <= 0){
                                 temp->data.available = 0;
                             }
                             AddBorrowedBook(member, temp->data.id, temp->data.title, "Borrowed");
@@ -383,15 +405,17 @@ void return_Book(memberNode* member){
                     if (Confirm == 'Y' || Confirm == 'y'){
                         temp->data.quantity++;
                         temp->data.borrowCount++;
-                        if (temp->data.quantity == 1){
+                        if (temp->data.quantity >0 ){
                             temp->data.available = 1;
                         }
                         
                         changingStatusToReturn(member->data.ID, temp->data.id);
+                        DeleteBorrowedBook(member, temp->data.id);
+                        updateBorrowCount(temp->data.id);
                         printf("You have successfully returned the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
 
                         if (isQueueEmpty(temp->data.reservationQueue) == 0) {
-                            Dequeue(temp->data.reservationQueue);
+                            //Dequeue(temp->data.reservationQueue);
                         }
                         else{
                             printf("No one is waiting for this book.\n");
@@ -473,7 +497,6 @@ void Display_All_Borrowing_Queue(BookQueue* queue) {
     Line2();
 }
 
-
 //Funcion write borrow history to csv
 int writeBorrowHistoryToCSVFile(const char *memberID,const char *bookID, const char *title, const char *status)
 {
@@ -552,8 +575,6 @@ void updateBorrowCount(const char *bookID)
     }
 }
 
-
-
 //Funcion changing status to return in history csv file
 int changingStatusToReturn(const char *memberId, const char *bookId)
 {
@@ -585,8 +606,8 @@ int changingStatusToReturn(const char *memberId, const char *bookId)
 
     fclose(fp);
     fclose(tem);
-    remove("borrow_history.csv");
-    rename("tem.csv", "borrow_history.csv");
+    remove("DATA/borrow_history.csv");
+    rename("tem.csv", "DATA/borrow_history.csv");
     return found;
 
 }

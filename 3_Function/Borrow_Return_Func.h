@@ -32,10 +32,10 @@ booksNode* searchBook_ID(booksNode* root, const char* bookID);
 
 // Function csvToStruct
 void AddBorrowedBook(memberNode* member, const char* bookID, const char* title, const char* status);
+void DeleteBorrowedBook(memberNode* member, const char* bookID);
 void LoadBorrowHistory(const char* filename, memberNode* root);
 void DisplayBorrowing(memberNode* Borrowing_Member);
 int CountBorrowedBooks(memberNode* member);
-void saveBorrowHistory(const char* filename, memberNode* root);
 void saveBorrowQueue(const char* filename, memberNode* root);
 
 void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bookRoot);
@@ -52,7 +52,7 @@ void Borrowing_Queue(booksNode* temp);
 void borrow_Book(memberNode* member);
 
 // Function returning a book
-void return_Book(char userID[]);
+void return_Book(memberNode* member);
 void Show_Borrowed_Books();
 
 void displayBorrowingMemberTree(memberNode *node);

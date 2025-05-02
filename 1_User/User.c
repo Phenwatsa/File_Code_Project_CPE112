@@ -61,7 +61,7 @@ void Menu_User(memberNode* root) {
                 break;
             case 2:
                 // Top borrowed books
-                //filterCategory();
+                showTop3MembersWithMostReturns("DATA/borrow_history.csv", "DATA/member.csv");
                 break;
             case 3:
                 // Search book
@@ -71,8 +71,7 @@ void Menu_User(memberNode* root) {
                 break;
             case 4:
                 // Return book
-                return_Book(temp_User_ID);
-                printf("\n ------------Book returned successfully.\n");
+                return_Book(currentUser);
                 Exit();
                 break;
             case 5:
@@ -86,4 +85,5 @@ void Menu_User(memberNode* root) {
         }
     } while (Check_Num(User_choice) != 5);
     saveCSV();
+    printf(" Saving data to CSV files . . .\n"); Delay();
 }

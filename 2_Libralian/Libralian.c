@@ -131,6 +131,8 @@ void Borrow_Management(){
         switch (Check_Num(Borrow_manag_choice)){
             case 1:
                 // Borrow Book
+                Display_All_Borrowing(root);
+                Exit();
                 break;
             case 2:
                 // Borroeing Queue
@@ -166,6 +168,7 @@ void Top_Borrowed_Books(){
         switch (Check_Num(Top_Borrowed_choice)){
             case 1:
                 // Show top borrowed books
+                showTop3MembersWithMostReturns("DATA/borrow_history.csv", "DATA/member.csv");
                 break;
             case 2:
                 // Exit program
