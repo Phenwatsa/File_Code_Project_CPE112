@@ -8,6 +8,6 @@
 #include "../3_Function/Member_Func.h"
 #include "../3_Function/Other_Func.h"
 
-void Menu_User();
+void Menu_User(memberNode* root);
 
 #endif

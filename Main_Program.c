@@ -17,7 +17,7 @@ int main() {
     loadMember(&root, "DATA/member.csv");
     booksNode* bookRoot = Library[0][0].head;
     LoadBorrowHistory("DATA/borrow_history.csv", root);
-    LoadBorrowQueue("DATA/borrow_queue.csv", root, bookRoot);
+    LoadBorrowQueue("DATA/Borrowing_Queue.csv", root, bookRoot);
 
     do {
         // UI design format
@@ -42,7 +42,7 @@ int main() {
             case 2:
                 // For Member
                 printf(" Member selected . . .\n"); Delay();
-                Menu_User();
+                Menu_User(root);
                 break;
             case 3:
                 // Exit program

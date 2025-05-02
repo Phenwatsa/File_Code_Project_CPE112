@@ -6,14 +6,13 @@
 #include "../3_Function/Member_Func.h"
 #include "../3_Function/Other_Func.h"
 
-void Menu_User(){
-    char User_choice[100], temp_User_ID[10];
+void Menu_User(memberNode* root) {
+    char User_choice[100], temp_User_ID[9];
     int check_UserID = 0;
 
     // User ID input
     ClearScreen();
     Line2();
-    
     printf("               Please enter your ID\n");
     Line2();
     printf(" Enter your ID : ");
@@ -64,7 +63,15 @@ void Menu_User(){
                 break;
             case 4:
                 // Return book
-                return_Book();
+                {
+                    memberNode* member = searchMember(root, temp_User_ID);
+                    if (member != NULL) {
+                        DisplayBorrowing(member);
+                        return_Book();
+                    } else {
+                        printf(" !!! Warning : Member with ID [%s] not found.\n", temp_User_ID);
+                    }
+                }
                 break;
             case 5:
                 // Exit program

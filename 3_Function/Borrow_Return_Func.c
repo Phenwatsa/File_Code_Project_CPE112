@@ -75,21 +75,25 @@ void LoadBorrowHistory(const char* filename, memberNode* root){
         }
     }
     fclose(ptFile);
-    Line2();
-    printf(" Borrow history loaded successfully.\n");
-    Line2();
 }
 
 void DisplayBorrowing(memberNode* Borrowing_Member){
+    if (Borrowing_Member == NULL) {
+        Line2();
+        printf(" !!! Error: Invalid member.\n");
+        Line2();
+        return;
+    }
+
     if (Borrowing_Member->borrowList == NULL){
         Line2();
-        printf(" Member [%s] has no Book Borrowed.\n", Borrowing_Member->data.ID);
-        Line2(); Exit();
+        printf(" Member [%s] has no books borrowed.\n", Borrowing_Member->data.ID);
+        Line2();
         return;
     }
 
     Line2();
-    printf(" Borrowing Books List\n"); 
+    printf(" Borrowing Books List for Member [%s]\n", Borrowing_Member->data.ID); 
     Line2();
 
     BookBorrowing* temp = Borrowing_Member->borrowList;
@@ -98,6 +102,7 @@ void DisplayBorrowing(memberNode* Borrowing_Member){
         printf(" %-20s %-50s\n", temp->Book_ID, temp->Title);
         temp = temp->next;
     }
+    Line2();
 }
 
 int CountBorrowedBooks(memberNode* member){
@@ -150,9 +155,6 @@ void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bo
     }
 
     fclose(ptFile);
-    Line2();
-    printf(" Borrowing Queue loaded successfully.\n");
-    Line2();
 }
 
 // Function to borrow a book
