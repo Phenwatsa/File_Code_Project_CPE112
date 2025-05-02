@@ -1,220 +1,219 @@
-﻿Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowing_Returning
-FT01-00001-2004,Gilead,Marilynne Robinson,Fiction,2004,1,available,9
-FT01-00002-1993,Rage of angels,Sidney Sheldon,Fiction,1993,2,available,2
-FT01-00003-1995,Warhost of Vastmark,Janny Wurts,Fiction,1995,2,available,3
-FT01-00004-2002,Taken at the Flood,Agatha Christie,Fiction,2002,2,available,10
-FT01-00005-2002,The illustrated man,Ray Bradbury,Fiction,2002,1,available,9
-FT01-00006-2007,The Yiddish Policemen's Union,Michael Chabon,Fiction,2007,3,available,1
-FT01-00007-2002,Endless Night,Agatha Christie,Fiction,2002,3,available,10
-FT01-00008-2004,The Silmarillion,John Ronald Reuel Tolkien;Ted Nasmith,Fiction,2004,2,available,6
-FT01-00009-2005,Tropic of Cancer,Henry Miller,Fiction,2005,3,available,7
-FT01-00010-1994,The Love of the Last Tycoon,F. Scott Fitzgerald,Fiction,1994,3,available,5
-FT01-00011-1992,The Song of Rhiannon,Evangeline Walton,Fiction,1992,2,available,0
-FT01-00012-1995,Heart Songs and Other Stories,Annie Proulx,Fiction,1995,3,available,7
-FT01-00013-1986,The Short Stories of Ernest Hemingway,Ernest Hemingway,Fiction,1986,1,available,8
-FT01-00014-2004,Going Postal,Terry Pratchett,Fiction,2004,1,available,5
-FT01-00015-2003,Moonspinners,Mary Stewart,Fiction,2003,3,available,2
-FT01-00016-2002,She Went All the Way,Meg Cabot,Fiction,2002,2,available,0
-FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,2,available,0
-FT01-00018-1996,Lucy Sullivan Is Getting Married,Marian Keyes,Fiction,1996,3,available,1
-FT01-00019-1972,The Terminal Man,Michael Crichton,Fiction,1972,2,available,3
-FT01-00020-1998,Identity,Milan Kundera,Fiction,1998,2,available,9
-FT01-00021-1992,The thief of always,Clive Barker,Fiction,1992,3,available,1
-FT01-00022-1998,The Illustrated Alchemist,Paulo Coelho;Alan R. Clarke;Moebius,Fiction,1998,1,available,1
-FT01-00023-2002,Worlds Enough & Time,Dan Simmons,Fiction,2002,1,available,3
-FT01-00024-2001,The Cheese Monkeys,Chip Kidd,Fiction,2001,3,available,7
-FT01-00025-2006,Caesar,Colleen McCullough,Fiction,2006,2,available,6
-FT01-00026-1974,The Forever War,Joe Haldeman,Fiction,1974,3,available,10
-FT01-00027-2005,Anansi Boys,Neil Gaiman,Fiction,2005,1,available,5
-FT01-00028-2006,Fragile Things,Neil Gaiman,Fiction,2006,3,available,4
-FT01-00029-2014,A Nose for Murder,Lee Charles Kelley,Fiction,2014,3,available,9
-FT01-00030-2001,Happiness,Will Ferguson,Fiction,2001,1,available,6
-FT01-00031-2005,Size 12 Is Not Fat,Meg Cabot,Fiction,2005,3,available,6
-FT01-00032-2003,Warrior of the Light,Paulo Coelho,Fiction,2003,3,available,0
-FT01-00033-2000,The Devil and Miss Prym,Paulo Coelho,Fiction,2000,3,available,10
-FT01-00034-2004,Metro Girl,Janet Evanovich,Fiction,2004,2,available,1
-FT01-00035-2006,Motor Mouth,Janet Evanovich,Fiction,2006,1,available,1
-FT01-00036-2003,Mystic River,Dennis Lehane,Fiction,2003,1,available,7
-FT01-00037-1969,Great Short Works of Herman Melville,Herman Melville,Fiction,1969,3,available,11
-FT01-00038-1988,Thanksgiving,Janet Evanovich,Fiction,1988,1,available,8
-FT01-00039-1989,Love Overboard,Janet Evanovich,Fiction,1989,3,available,6
-FT01-00040-1989,Back to the Bedroom,Janet Evanovich,Fiction,1989,2,available,4
-FT01-00041-1991,The Rocky Road to Romance,Janet Evanovich,Fiction,1991,2,available,7
-FT01-00042-1992,Practical Demonkeeping,Christopher Moore,Fiction,1992,2,available,6
-FT01-00043-1997,Island of the Sequined Love Nun,Christopher Moore,Fiction,1997,3,available,8
-FT01-00044-1999,The Lust Lizard of Melancholy Cove,Christopher Moore,Fiction,1999,2,available,6
-FT01-00045-1995,Wicked Musical Tie-in Edition,Gregory Maguire,Fiction,1995,2,available,7
-FT01-00046-2005,Son of a Witch,Gregory Maguire,Fiction,2005,2,available,0
-FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,available,2
-FT01-00048-1965,Airs Above the Ground,Mary Stewart,Fiction,1965,2,available,0
-FT01-00049-1993,Charms for the Easy Life,Kaye Gibbons,Fiction,1993,1,available,5
-FT01-00050-2003,The Reading Group,Elizabeth Noble,Fiction,2003,3,available,7
-HT02-00001-1976,Spandau,Albert Speer,History,1976,2,available,7
-HT02-00002-1994,Tyranny of the Majority,Lani Guinier,History,1994,2,available,5
-HT02-00003-1984,The Origins of the Civil Rights Movement,Aldon D. Morris,History,1984,3,available,9
-HT02-00004-1960,Presidential Power and the Modern Presidents,Richard E. Neustadt,History,1960,1,available,2
-HT02-00005-2005,A Crack in the Edge of the World,Simon Winchester,History,2005,2,available,7
-HT02-00006-2006,Sex with the Queen,Eleanor Herman,History,2006,1,available,1
-HT02-00007-1981,The Chaneysville Incident,David Bradley,History,1981,2,available,8
-HT02-00008-1994,"Cathedral, Forge and Waterwheel",Joseph Gies,History,1994,2,available,7
-HT02-00009-2000,In the Footsteps of Mr. Kurtz,Michela Wrong,History,2000,1,available,5
-HT02-00010-1996,Europe,Norman Davies,History,1996,2,available,1
-HT02-00011-1997,Courtesans and Fishcakes,James Davidson,History,1997,3,available,0
-HT02-00012-1994,The Wit and Wisdom of Winston Churchill,James C. Humes,History,1994,2,available,6
-HT02-00013-1958,The World's Religions,Huston Smith,History,1958,3,available,1
-HT02-00014-1964,The Complete Works,Tacitus,History,1964,2,available,8
-HT02-00015-1978,Orientalism,Edward W. Said,History,1978,1,available,10
-HT02-00016-2002,Salt,Mark Kurlansky,History,2002,1,available,8
-HT02-00017-2002,"The Fall of Berlin, 1945",Antony Beevor,History,2002,2,available,3
-HT02-00018-2004,The United States of Europe,T. R. Reid,History,2004,2,available,5
-HT02-00019-1776,The Christians and the Fall of Rome,Edward Gibbon,History,1776,1,available,6
-HT02-00020-2005,Collapse,Jared M. Diamond,History,2005,2,available,6
-HT02-00021-2005,The City of Falling Angels,John Berendt,History,2005,2,available,6
-HT02-00022-1941,Black Lamb and Grey Falcon,Rebecca West,History,1941,1,available,5
-HT02-00023-1938,Homage to Catalonia,George Orwell,History,1938,1,available,1
-HT02-00024-2004,Egyptian Myth: A Very Short Introduction,Geraldine Pinch,History,2004,3,available,0
-HT02-00025-2003,The Histories,Herodotus,History,2003,2,available,10
-HT02-00026-1986,Augustine,Henry Chadwick,History,1986,3,available,7
-HT02-00027-1997,Masters of Small Worlds,Stephanie McCurry,History,1997,1,available,1
-HT02-00028-1997,Ride of the Second Horseman,Robert L. O'Connell,History,1997,3,available,3
-HT02-00029-2005,Battle Cry of Freedom,James M. McPherson,History,2005,2,available,3
-HT02-00030-2005,Strategies of Containment,John Lewis Gaddis,History,2005,2,available,1
-HT02-00031-2006,Acts of God,Ted Steinberg,History,2006,2,available,1
-HT02-00032-2000,The Crescent Obscured,Robert Allison,History,2000,3,available,0
-HT02-00033-2004,Philosophy in a Time of Terror,Jürgen Habermas;Giovanna Borradori;Jacques Derrida,History,2004,2,available,4
-HT02-00034-2005,"Love, Sex & Tragedy",Simon Goldhill,History,2005,2,available,16
-HT02-00035-1979,"The Progressive Historians--Turner, Beard, Parrington",Richard Hofstadter,History,1979,2,available,0
-HT02-00036-2001,The Collaborator,Alice Kaplan,History,2001,2,available,4
-HT02-00037-2003,Heat Wave,Eric Klinenberg,History,2003,3,available,6
-HT02-00038-2000,An Arab-Syrian Gentleman and Warrior in the Period of the Crusades,Usāmah ibn Munqidh;Philip Khuri Hitti,History,2000,1,available,10
-HT02-00039-1992,The Heights of Courage,Avigdor Kahalani,History,1992,3,available,9
-HT02-00040-1999,Long Day's Journey,Carlos A. Schwantes,History,1999,2,available,10
-HT02-00041-1986,The Shaping of America: A Geographical Perspective on 500 Years of History,D. W. Meinig,History,1986,3,available,13
-HT02-00042-2003,The Voices of Morebath,Eamon Duffy,History,2003,2,available,9
-HT02-00043-1992,Hannibal,Leonard Cottrell,History,1992,2,available,5
-HT02-00044-1994,The Collapse of the Third Republic,William Lawrence Shirer,History,1994,1,available,7
-HT02-00045-2002,Banvard's Folly,Paul Collins,History,2002,2,available,9
-HT02-00046-1998,Strangers from a Different Shore,Ronald Takaki,History,1998,1,available,3
-HT02-00047-2002,Crescent and Star,Stephen Kinzer,History,2002,1,available,7
-HT02-00048-2000,Crucible of War,Fred Anderson,History,2000,2,available,7
-HT02-00049-2003,Masters of Death,Richard Rhodes,History,2003,3,available,8
-HT02-00050-2006,"Salonica, City of Ghosts",Mark Mazower,History,2006,2,available,8
-HT02-00051-2006,The Survivor,John F. Harris,History,2006,1,available,3
-HT02-00052-1996,How the Irish Saved Civilization,Thomas Cahill,History,1996,1,available,8
-HT02-00053-2003,The Diary of Anne Frank,Anne Frank,History,2003,3,available,9
-SC03-00001-2002,Modern Mind,Peter Watson,Science,2002,3,available,10
-SC03-00002-2006,Genome,Matt Ridley,Science,2006,3,available,10
-SC03-00003-2006,The Making of the Fittest,Sean B. Carroll,Science,2006,2,available,2
-SC03-00004-2007,The Richness of Life,Stephen Jay Gould,Science,2007,2,available,5
-SC03-00005-2002,The Best American Science Writing 2002,Matt Ridley;Alan Lightman,Science,2002,2,available,6
-SC03-00006-2006,"Power, Sex, Suicide",Nick Lane,Science,2006,2,available,0
-SC03-00007-1996,Six Easy Pieces,Richard P. Feynman,Science,1996,1,available,4
-SC03-00008-1994,Wrinkles in Time,George Smoot;Keay Davidson,Science,1994,2,available,6
-SC03-00009-2002,How to Build a Time Machine,Paul Davies,Science,2002,2,available,2
-BI04-00001-2005,Jane Austen,Carol Shields,Biography & Autobiography,2005,2,available,1
-BI04-00002-2005,The Liars' Club,Mary Karr,Biography & Autobiography,2005,1,available,0
-BI04-00003-2004,Alexander Hamilton,Ron Chernow,Biography & Autobiography,2004,3,available,1
-BI04-00004-2004,Buddha,Karen Armstrong,Biography & Autobiography,2004,1,available,8
-BI04-00005-2006,Virginia Woolf,Julia Briggs,Biography & Autobiography,2006,3,available,7
-BI04-00006-2006,The Pirates Laffite,William C. Davis,Biography & Autobiography,2006,2,available,7
-BI04-00007-1996,The Diary of Anaïs Nin,Anaïs Nin,Biography & Autobiography,1996,1,available,7
-BI04-00008-1979,The Diary of Virginia Woolf: 1915-1919,Virginia Woolf,Biography & Autobiography,1979,3,available,3
-BI04-00009-1981,The Diary of Virginia Woolf: 1925-1930,Virginia Woolf,Biography & Autobiography,1981,2,available,4
-BI04-00010-1983,The Diary of Virginia Woolf: 1931-1935,Virginia Woolf,Biography & Autobiography,1983,3,available,10
-BI04-00011-1985,Diary Of Virginia Woolf Volume 5,Virginia Woolf,Biography & Autobiography,1985,1,available,10
-BI04-00012-1993,Incest,Anaïs Nin,Biography & Autobiography,1993,1,available,6
-BI04-00013-1985,Moments of Being,Virginia Woolf,Biography & Autobiography,1985,3,available,9
-BI04-00014-2002,A Memoir of Jane Austen,James Edward Austen-Leigh,Biography & Autobiography,2002,3,available,8
-BI04-00015-2001,Augustine: A Very Short Introduction,Henry Chadwick,Biography & Autobiography,2001,2,available,8
-PS05-00001-1984,Zen and the Art of Motorcycle Maintenance,Robert M. Pirsig,Psychology,1984,2,available,10
-PS05-00002-1979,DREAM & THE UNDERWOR,James Hillman,Psychology,1979,2,available,0
-PS05-00003-1990,The Dance of Intimacy,Harriet Lerner,Psychology,1990,2,available,1
-PS05-00004-1981,The Principles of Psychology,William James,Psychology,1981,3,available,7
-PS05-00005-1999,Soul Mates,Thomas Moore,Psychology,1999,1,available,1
-PS05-00006-1994,An Odyssey in Learning and Perception,Eleanor J. Gibson,Psychology,1994,3,available,10
-PS05-00007-2000,Inattentional Blindness,Arien Mack;Irvin Rock,Psychology,2000,1,available,5
-PS05-00008-1950,Psychoanalysis and Religion,Erich Fromm,Psychology,1950,2,available,10
-PS05-00009-2006,Social Intelligence,Daniel Goleman,Psychology,2006,2,available,7
-PS05-00010-2000,The Mating Mind,Geoffrey Miller,Psychology,2000,1,available,5
-RE06-00001-1956,Saint Thomas of Aquinas,Gilbert Keith Chesterton,Religion,1956,3,available,6
-RE06-00002-1949,Gilgamesh Epic and Old Testament Parallels,Alexander Heidel,Religion,1949,3,available,5
-RE06-00003-1988,"History of Religious Ideas, Volume 3",Mircea Eliade,Religion,1988,2,available,1
-RE06-00004-1978,Growing Old in America,David Hackett Fischer,Religion,1978,3,available,9
-RE06-00005-1998,Selected Philosophical Writings,Saint Thomas (Aquinas),Religion,1998,3,available,7
-RE06-00006-1995,Meeting Jesus Again for the First Time,Marcus J. Borg,Religion,1995,1,available,2
-RE06-00007-2002,Reading the Bible Again for the First Time,Marcus J. Borg,Religion,2002,1,available,5
-RE06-00008-1989,Shadow of the Almighty,Elisabeth Elliot,Religion,1989,1,available,10
-RE06-00009-2002,The Dance of the Dissident Daughter,Sue Monk Kidd,Religion,2002,1,available,6
-RE06-00010-2003,C.S. Lewis,C. S. Lewis,Religion,2003,3,available,2
-RE06-00011-1978,The Screwtape Letters,C. S. Lewis,Religion,1978,2,available,10
-RE06-00012-1996,Mere Christianity,C. S. Lewis,Religion,1996,3,available,9
-RE06-00013-1998,Learning to Love,Thomas Merton,Religion,1998,3,available,10
-RE06-00014-2006,When the Heart Waits,Sue Monk Kidd,Religion,2006,2,available,5
-RE06-00015-1984,A Circle of Quiet,Madeleine L'Engle,Religion,1984,2,available,4
-RE06-00016-1992,Holy Madness,Georg Feuerstein,Religion,1992,1,available,10
-RE06-00017-2003,"""A"" is for Abductive",Leonard I. Sweet;Brian D. McLaren;Jerry Haselmayer,Religion,2003,2,available,7
-RE06-00018-2003,Fanning the Flame,Christopher J. H. Wright,Religion,2003,1,available,3
-RE06-00019-2003,The Church on the Other Side,Brian D. McLaren,Religion,2003,2,available,6
-RE06-00020-2003,The Church in Emerging Culture,Andy Crouch,Religion,2003,1,available,4
-RE06-00021-2007,Becoming a Contagious Christian,Mark Mittelberg;Lee Strobel;Bill Hybels,Religion,2007,3,available,8
-RE06-00022-2005,Journey into God's Word,J. Scott Duvall;J. Daniel Hays,Religion,2005,2,available,0
-RE06-00023-2005,Zondervan Handbook to the Bible,David Alexander;Pat Alexander,Religion,2005,1,available,7
-RE06-00024-2005,Velvet Elvis,Rob Bell,Religion,2005,3,available,0
-RE06-00025-2007,A Search for What Makes Sense,Brian D. McLaren,Religion,2007,3,available,8
-RE06-00026-1983,The Complete Green Letters,Miles J. Stanford,Religion,1983,1,available,10
-BE07-00001-2002,Next: The Future Just Happened,Michael Lewis,Business & Economics,2002,2,available,1
-BE07-00002-2003,Moneyball: The Art of Winning an Unfair Game,Michael Lewis,Business & Economics,2003,2,available,2
-BE07-00003-2003,Naked Economics: Undressing the Dismal Science,Charles Wheelan,Business & Economics,2003,2,available,0
-BE07-00004-2001,The Road to Serfdom,Friedrich August Hayek,Business & Economics,2001,2,available,3
-BE07-00005-2006,The Coming Economic Collapse,Stephen Leeb;Glen Strathy,Business & Economics,2006,2,available,8
-BE07-00006-2004,Applied Economics,Thomas Sowell,Business & Economics,2004,3,available,4
-BE07-00007-2006,Personal Finance For Dummies,Eric Tyson,Business & Economics,2006,2,available,4
-BE07-00008-2006,Crash Proof,Peter D. Schiff;John Downes,Business & Economics,2006,3,available,9
-BE07-00009-2006,eBay For Dummies,Marsha Collier,Business & Economics,2006,2,available,8
-BE07-00010-2003,The Warren Buffett CEO,Robert P. Miles,Business & Economics,2003,2,available,10
-BE07-00011-1991,Hit Men,Fredric Dannen,Business & Economics,1991,1,available,4
-BE07-00012-2004,Reefer Madness,Eric Schlosser,Business & Economics,2004,2,available,10
-BE07-00013-2006,Power of An Hour,Dave Lakhani,Business & Economics,2006,1,available,1
-CP08-00001-2004,High performance MySQL,Jeremy D. Zawodny;Derek J. Balling,Computers,2004,2,available,9
-CP08-00002-2004,Hackers & Painters,Paul Graham,Computers,2004,1,available,7
-CP08-00003-2004,BSD Hacks,Dru Lavigne,Computers,2004,3,available,8
-CP08-00004-2004,IMovie 4 & IDVD,David Pogue,Computers,2004,1,available,10
-CP08-00005-2006,Ruby Cookbook,Lucas Carlson;Leonard Richardson,Computers,2006,1,available,8
-CP08-00006-2007,MySQL Cookbook,Paul DuBois,Computers,2007,3,available,5
-CP08-00007-2006,CSS Cookbook,Christopher Schmitt,Computers,2006,3,available,0
-CP08-00008-2006,Lego Star Wars,Michael Littlefield;Prima Games,Computers,2006,1,available,4
-CP08-00009-2000,Code,Charles Petzold,Computers,2000,1,available,1
-CP08-00010-2003,Writing Secure Code,Michael Howard;David LeBlanc,Computers,2003,1,available,7
-CP08-00011-2006,The Cognitive Style of PowerPoint,Edward R. Tufte,Computers,2006,3,available,2
-CP08-00012-2006,Beautiful Evidence,Edward R. Tufte,Computers,2006,3,available,5
-CK09-00001-2003,Cider,Annie Proulx;Lew Nichols,Cooking,2003,3,available,1
-CK09-00002-2006,Hemingway and Bailey's Bartending Guide to Great American Writers,Mark Bailey,Cooking,2006,2,available,17
-CK09-00003-2004,Not Your Mother's Slow Cooker Cookbook,Beth Hensperger;Julie Kaufmann,Cooking,2004,3,available,1
-CK09-00004-2004,Jamie's Dinners,Jamie Oliver,Cooking,2004,3,available,8
-CK09-00005-2006,Jamie's Italy,Jamie Oliver,Cooking,2006,3,available,7
-CK09-00006-2005,Eat This Book,Tyler Florence,Cooking,2005,3,available,10
-CK09-00007-2006,Tyler's Ultimate,Tyler Florence,Cooking,2006,1,available,10
-CK09-00008-2005,Everyday Italian,Giada De Laurentiis,Cooking,2005,2,available,9
-CK09-00009-2005,Being dead is no excuse,Gayden Metcalfe;Charlotte Hays,Cooking,2005,2,available,6
-MT10-00001-2007,The Essential John Nash,John Nash,Mathematics,2007,1,available,0
-MT10-00002-2005,God Created The Integers,Stephen Hawking,Mathematics,2005,1,available,8
-CG11-00001-2004,"John Constantine, Hellblazer: Setting sun",Warren Ellis,Comics & Graphic Novels,2004,1,available,5
-CG11-00002-2004,Superman,Mark Waid;Leinil Francis Yu,Comics & Graphic Novels,2004,2,available,9
-CG11-00003-2005,The Sgt. Rock Archives,Robert Kanigher;Bob Haney,Comics & Graphic Novels,2005,3,available,2
-CG11-00004-2004,Arkham Asylum,Grant Morrison;Dave McKean,Comics & Graphic Novels,2004,3,available,7
-CG11-00005-2006,Kid Eternity,Grant Morrison;Duncan Fegredo,Comics & Graphic Novels,2006,3,available,6
-CG11-00006-2006,Challengers of the Unknown,Howard Chaykin;Michelle Madsen,Comics & Graphic Novels,2006,3,available,1
-CG11-00007-2006,Maison Ikkoku,Rumiko Takahashi,Comics & Graphic Novels,2006,2,available,4
-CG11-00008-2006,Beauty is the Beast,Tomo Matsumoto,Comics & Graphic Novels,2006,1,available,8
-CG11-00009-2006,Bleach,Tite Kubo,Comics & Graphic Novels,2006,3,available,4
-CG11-00010-2006,Battle Angel Alita: Last Order,Yukito Kishiro,Comics & Graphic Novels,2006,3,available,8
-CG11-00011-2006,Ranma 1/2,Rumiko Takahashi,Comics & Graphic Novels,2006,3,available,1
-CG11-00012-2007,From Far Away,Kyoko Hikawa,Comics & Graphic Novels,2007,1,available,0
-CG11-00013-2006,Death Note,Tsugumi Ohba;Takeshi Obata,Comics & Graphic Novels,2006,2,available,3
-CG11-00014-2006,Hikaru no Go,Yumi Hotta,Comics & Graphic Novels,2006,2,available,0
-CG11-00015-2006,JoJo's Bizarre Adventure: Part 3--Stardust Crusaders,Hirohiko Araki,Comics & Graphic Novels,2006,1,available,2
-CG11-00016-2007,Yakitate!! Japan,Takashi Hashiguchi,Comics & Graphic Novels,2007,1,available,1
-CG11-00017-2007,Fullmetal Alchemist,Hiromu Arakawa,Comics & Graphic Novels,2007,3,available,8
-CG11-00018-2006,Angel's Vision,Yukito Kishiro,Comics & Graphic Novels,2006,2,available,2
-CG11-00019-2007,The Drifting Classroom,Kazuo Umezu,Comics & Graphic Novels,2007,3,available,1
-CG11-00020-2007,Ghost in the Shell 2: Innocence (Novel - Paperback),Hiromu Arakawa,Comics & Graphic Novels,2007,1,available,17
+Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed
+FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,2,1,0
+FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,1,2
+FT01-00048-1965,Airs Above the Ground,Mary Stewart,Fiction,1965,2,1,0
+FT01-00019-1972,The Terminal Man,Michael Crichton,Fiction,1972,2,1,3
+FT01-00026-1974,The Forever War,Joe Haldeman,Fiction,1974,3,1,10
+FT01-00037-1969,Great Short Works of Herman Melville,Herman Melville,Fiction,1969,3,1,11
+FT01-00002-1993,Rage of angels,Sidney Sheldon,Fiction,1993,2,1,2
+FT01-00010-1994,The Love of the Last Tycoon,F. Scott Fitzgerald,Fiction,1994,3,1,5
+FT01-00011-1992,The Song of Rhiannon,Evangeline Walton,Fiction,1992,2,1,0
+FT01-00013-1986,The Short Stories of Ernest Hemingway,Ernest Hemingway,Fiction,1986,1,1,8
+FT01-00021-1992,The thief of always,Clive Barker,Fiction,1992,3,1,1
+FT01-00038-1988,Thanksgiving,Janet Evanovich,Fiction,1988,1,1,8
+FT01-00039-1989,Love Overboard,Janet Evanovich,Fiction,1989,3,1,6
+FT01-00040-1989,Back to the Bedroom,Janet Evanovich,Fiction,1989,2,1,4
+FT01-00041-1991,The Rocky Road to Romance,Janet Evanovich,Fiction,1991,2,1,7
+FT01-00042-1992,Practical Demonkeeping,Christopher Moore,Fiction,1992,2,1,6
+FT01-00049-1993,Charms for the Easy Life,Kaye Gibbons,Fiction,1993,1,1,5
+FT01-00003-1995,Warhost of Vastmark,Janny Wurts,Fiction,1995,2,1,3
+FT01-00004-2002,Taken at the Flood,Agatha Christie,Fiction,2002,2,1,10
+FT01-00005-2002,The illustrated man,Ray Bradbury,Fiction,2002,1,1,9
+FT01-00007-2002,Endless Night,Agatha Christie,Fiction,2002,3,1,10
+FT01-00008-2004,The Silmarillion,John Ronald Reuel Tolkien;Ted Nasmith,Fiction,2004,2,1,6
+FT01-00012-1995,Heart Songs and Other Stories,Annie Proulx,Fiction,1995,3,1,7
+FT01-00014-2004,Going Postal,Terry Pratchett,Fiction,2004,1,1,5
+FT01-00015-2003,Moonspinners,Mary Stewart,Fiction,2003,3,1,2
+FT01-00016-2002,She Went All the Way,Meg Cabot,Fiction,2002,2,1,0
+FT01-00018-1996,Lucy Sullivan Is Getting Married,Marian Keyes,Fiction,1996,3,1,1
+FT01-00020-1998,Identity,Milan Kundera,Fiction,1998,2,1,9
+FT01-00022-1998,The Illustrated Alchemist,Paulo Coelho;Alan R. Clarke;Moebius,Fiction,1998,1,1,1
+FT01-00023-2002,Worlds Enough & Time,Dan Simmons,Fiction,2002,1,1,3
+FT01-00024-2001,The Cheese Monkeys,Chip Kidd,Fiction,2001,3,1,7
+FT01-00030-2001,Happiness,Will Ferguson,Fiction,2001,1,1,6
+FT01-00032-2003,Warrior of the Light,Paulo Coelho,Fiction,2003,3,1,0
+FT01-00033-2000,The Devil and Miss Prym,Paulo Coelho,Fiction,2000,3,1,10
+FT01-00034-2004,Metro Girl,Janet Evanovich,Fiction,2004,2,1,1
+FT01-00036-2003,Mystic River,Dennis Lehane,Fiction,2003,1,1,7
+FT01-00043-1997,Island of the Sequined Love Nun,Christopher Moore,Fiction,1997,3,1,8
+FT01-00044-1999,The Lust Lizard of Melancholy Cove,Christopher Moore,Fiction,1999,2,1,6
+FT01-00045-1995,Wicked Musical Tie-in Edition,Gregory Maguire,Fiction,1995,2,1,7
+FT01-00050-2003,The Reading Group,Elizabeth Noble,Fiction,2003,3,1,7
+FT01-00006-2007,The Yiddish Policemen's Union,Michael Chabon,Fiction,2007,3,1,1
+FT01-00009-2005,Tropic of Cancer,Henry Miller,Fiction,2005,3,1,7
+FT01-00025-2006,Caesar,Colleen McCullough,Fiction,2006,2,1,6
+FT01-00027-2005,Anansi Boys,Neil Gaiman,Fiction,2005,1,1,5
+FT01-00028-2006,Fragile Things,Neil Gaiman,Fiction,2006,3,1,4
+FT01-00029-2014,A Nose for Murder,Lee Charles Kelley,Fiction,2014,3,1,9
+FT01-00031-2005,Size 12 Is Not Fat,Meg Cabot,Fiction,2005,3,1,6
+FT01-00035-2006,Motor Mouth,Janet Evanovich,Fiction,2006,1,1,1
+FT01-00046-2005,Son of a Witch,Gregory Maguire,Fiction,2005,2,1,0
+HT02-00004-1960,Presidential Power and the Modern Presidents,Richard E. Neustadt,History,1960,1,1,2
+HT02-00008-1994,"Cathedral, Forge and Waterwheel",Joseph Gies,0,1994,0,0
+HT02-00013-1958,The World's Religions,Huston Smith,History,1958,3,1,1
+HT02-00014-1964,The Complete Works,Tacitus,History,1964,2,1,8
+HT02-00017-2002,"The Fall of Berlin, 1945",Antony Beevor,0,2002,0,0
+HT02-00019-1776,The Christians and the Fall of Rome,Edward Gibbon,History,1776,1,1,6
+HT02-00022-1941,Black Lamb and Grey Falcon,Rebecca West,History,1941,1,1,5
+HT02-00023-1938,Homage to Catalonia,George Orwell,History,1938,1,1,1
+HT02-00034-2005,"Love, Sex & Tragedy",Simon Goldhill,0,2005,0,0
+HT02-00035-1979,"The Progressive Historians--Turner, Beard, Parrington",0,0,0,2
+HT02-00050-2006,"Salonica, City of Ghosts",Mark Mazower,0,2006,0,0
+HT02-00001-1976,Spandau,Albert Speer,History,1976,2,1,7
+HT02-00003-1984,The Origins of the Civil Rights Movement,Aldon D. Morris,History,1984,3,1,9
+HT02-00007-1981,The Chaneysville Incident,David Bradley,History,1981,2,1,8
+HT02-00015-1978,Orientalism,Edward W. Said,History,1978,1,1,10
+HT02-00002-1994,Tyranny of the Majority,Lani Guinier,History,1994,2,1,5
+HT02-00012-1994,The Wit and Wisdom of Winston Churchill,James C. Humes,History,1994,2,1,6
+HT02-00026-1986,Augustine,Henry Chadwick,History,1986,3,1,7
+HT02-00039-1992,The Heights of Courage,Avigdor Kahalani,History,1992,3,1,9
+HT02-00041-1986,The Shaping of America: A Geographical Perspective on 500 Years of History,D. W. Meinig,History,1986,3,1,13
+HT02-00043-1992,Hannibal,Leonard Cottrell,History,1992,2,1,5
+HT02-00044-1994,The Collapse of the Third Republic,William Lawrence Shirer,History,1994,1,1,7
+HT02-00009-2000,In the Footsteps of Mr. Kurtz,Michela Wrong,History,2000,1,1,5
+HT02-00010-1996,Europe,Norman Davies,History,1996,2,1,1
+HT02-00011-1997,Courtesans and Fishcakes,James Davidson,History,1997,3,1,0
+HT02-00016-2002,Salt,Mark Kurlansky,History,2002,1,1,8
+HT02-00018-2004,The United States of Europe,T. R. Reid,History,2004,2,1,5
+HT02-00024-2004,Egyptian Myth: A Very Short Introduction,Geraldine Pinch,History,2004,3,1,0
+HT02-00025-2003,The Histories,Herodotus,History,2003,2,1,10
+HT02-00027-1997,Masters of Small Worlds,Stephanie McCurry,History,1997,1,1,1
+HT02-00028-1997,Ride of the Second Horseman,Robert L. O'Connell,History,1997,3,1,3
+HT02-00032-2000,The Crescent Obscured,Robert Allison,History,2000,3,1,0
+HT02-00033-2004,Philosophy in a Time of Terror,Jürgen Habermas;Giovanna Borradori;Jacques Derrida,History,2004,2,1,4
+HT02-00036-2001,The Collaborator,Alice Kaplan,History,2001,2,1,4
+HT02-00037-2003,Heat Wave,Eric Klinenberg,History,2003,3,1,6
+HT02-00038-2000,An Arab-Syrian Gentleman and Warrior in the Period of the Crusades,Usāmah ibn Munqidh;Philip Khuri Hitti,History,2000,1,1,10
+HT02-00040-1999,Long Day's Journey,Carlos A. Schwantes,History,1999,2,1,10
+HT02-00042-2003,The Voices of Morebath,Eamon Duffy,History,2003,2,1,9
+HT02-00045-2002,Banvard's Folly,Paul Collins,History,2002,2,1,9
+HT02-00046-1998,Strangers from a Different Shore,Ronald Takaki,History,1998,1,1,3
+HT02-00047-2002,Crescent and Star,Stephen Kinzer,History,2002,1,1,7
+HT02-00048-2000,Crucible of War,Fred Anderson,History,2000,2,1,7
+HT02-00049-2003,Masters of Death,Richard Rhodes,History,2003,3,1,8
+HT02-00052-1996,How the Irish Saved Civilization,Thomas Cahill,History,1996,1,1,8
+HT02-00053-2003,The Diary of Anne Frank,Anne Frank,History,2003,3,1,9
+HT02-00005-2005,A Crack in the Edge of the World,Simon Winchester,History,2005,2,1,7
+HT02-00006-2006,Sex with the Queen,Eleanor Herman,History,2006,1,1,1
+HT02-00020-2005,Collapse,Jared M. Diamond,History,2005,2,1,6
+HT02-00021-2005,The City of Falling Angels,John Berendt,History,2005,2,1,6
+HT02-00029-2005,Battle Cry of Freedom,James M. McPherson,History,2005,2,1,3
+HT02-00030-2005,Strategies of Containment,John Lewis Gaddis,History,2005,2,1,1
+HT02-00031-2006,Acts of God,Ted Steinberg,History,2006,2,1,1
+HT02-00051-2006,The Survivor,John F. Harris,History,2006,1,1,3
+SC03-00006-2006,"Power, Sex, Suicide",0,0,0,2
+SC03-00008-1994,Wrinkles in Time,George Smoot;Keay Davidson,Science,1994,2,1,6
+SC03-00001-2002,Modern Mind,Peter Watson,Science,2002,3,1,10
+SC03-00005-2002,The Best American Science Writing 2002,Matt Ridley;Alan Lightman,Science,2002,2,1,6
+SC03-00007-1996,Six Easy Pieces,Richard P. Feynman,Science,1996,1,1,4
+SC03-00009-2002,How to Build a Time Machine,Paul Davies,Science,2002,2,1,2
+SC03-00002-2006,Genome,Matt Ridley,Science,2006,3,1,10
+SC03-00003-2006,The Making of the Fittest,Sean B. Carroll,Science,2006,2,1,2
+SC03-00004-2007,The Richness of Life,Stephen Jay Gould,Science,2007,2,1,5
+BI04-00008-1979,The Diary of Virginia Woolf: 1915-1919,Virginia Woolf,Biography & Autobiography,1979,3,1,3
+BI04-00009-1981,The Diary of Virginia Woolf: 1925-1930,Virginia Woolf,Biography & Autobiography,1981,2,1,4
+BI04-00010-1983,The Diary of Virginia Woolf: 1931-1935,Virginia Woolf,Biography & Autobiography,1983,3,1,10
+BI04-00011-1985,Diary Of Virginia Woolf Volume 5,Virginia Woolf,Biography & Autobiography,1985,1,1,10
+BI04-00012-1993,Incest,Anaïs Nin,Biography & Autobiography,1993,1,1,6
+BI04-00013-1985,Moments of Being,Virginia Woolf,Biography & Autobiography,1985,3,1,9
+BI04-00003-2004,Alexander Hamilton,Ron Chernow,Biography & Autobiography,2004,3,1,1
+BI04-00004-2004,Buddha,Karen Armstrong,Biography & Autobiography,2004,1,1,8
+BI04-00007-1996,The Diary of Anaïs Nin,Anaïs Nin,Biography & Autobiography,1996,1,1,7
+BI04-00014-2002,A Memoir of Jane Austen,James Edward Austen-Leigh,Biography & Autobiography,2002,3,1,8
+BI04-00015-2001,Augustine: A Very Short Introduction,Henry Chadwick,Biography & Autobiography,2001,2,1,8
+BI04-00001-2005,Jane Austen,Carol Shields,Biography & Autobiography,2005,2,1,1
+BI04-00002-2005,The Liars' Club,Mary Karr,Biography & Autobiography,2005,1,1,0
+BI04-00005-2006,Virginia Woolf,Julia Briggs,Biography & Autobiography,2006,3,1,7
+BI04-00006-2006,The Pirates Laffite,William C. Davis,Biography & Autobiography,2006,2,1,7
+PS05-00008-1950,Psychoanalysis and Religion,Erich Fromm,Psychology,1950,2,1,10
+PS05-00001-1984,Zen and the Art of Motorcycle Maintenance,Robert M. Pirsig,Psychology,1984,2,1,10
+PS05-00002-1979,DREAM & THE UNDERWOR,James Hillman,Psychology,1979,2,1,0
+PS05-00004-1981,The Principles of Psychology,William James,Psychology,1981,3,1,7
+PS05-00003-1990,The Dance of Intimacy,Harriet Lerner,Psychology,1990,2,1,1
+PS05-00006-1994,An Odyssey in Learning and Perception,Eleanor J. Gibson,Psychology,1994,3,1,10
+PS05-00005-1999,Soul Mates,Thomas Moore,Psychology,1999,1,1,1
+PS05-00007-2000,Inattentional Blindness,Arien Mack;Irvin Rock,Psychology,2000,1,1,5
+PS05-00010-2000,The Mating Mind,Geoffrey Miller,Psychology,2000,1,1,5
+PS05-00009-2006,Social Intelligence,Daniel Goleman,Psychology,2006,2,1,7
+RE06-00001-1956,Saint Thomas of Aquinas,Gilbert Keith Chesterton,Religion,1956,3,1,6
+RE06-00002-1949,Gilgamesh Epic and Old Testament Parallels,Alexander Heidel,Religion,1949,3,1,5
+RE06-00003-1988,"History of Religious Ideas, Volume 3",Mircea Eliade,0,1988,0,0
+RE06-00004-1978,Growing Old in America,David Hackett Fischer,Religion,1978,3,1,9
+RE06-00011-1978,The Screwtape Letters,C. S. Lewis,Religion,1978,2,1,10
+RE06-00015-1984,A Circle of Quiet,Madeleine L'Engle,Religion,1984,2,1,4
+RE06-00026-1983,The Complete Green Letters,Miles J. Stanford,Religion,1983,1,1,10
+RE06-00008-1989,Shadow of the Almighty,Elisabeth Elliot,Religion,1989,1,1,10
+RE06-00016-1992,Holy Madness,Georg Feuerstein,Religion,1992,1,1,10
+RE06-00005-1998,Selected Philosophical Writings,Saint Thomas (Aquinas),Religion,1998,3,1,7
+RE06-00006-1995,Meeting Jesus Again for the First Time,Marcus J. Borg,Religion,1995,1,1,2
+RE06-00007-2002,Reading the Bible Again for the First Time,Marcus J. Borg,Religion,2002,1,1,5
+RE06-00009-2002,The Dance of the Dissident Daughter,Sue Monk Kidd,Religion,2002,1,1,6
+RE06-00010-2003,C.S. Lewis,C. S. Lewis,Religion,2003,3,1,2
+RE06-00012-1996,Mere Christianity,C. S. Lewis,Religion,1996,3,1,9
+RE06-00013-1998,Learning to Love,Thomas Merton,Religion,1998,3,1,10
+RE06-00017-2003,"""A"" is for Abductive",Leonard I. Sweet;Brian D. McLaren;Jerry Haselmayer,Religion,2003,2,1,7
+RE06-00018-2003,Fanning the Flame,Christopher J. H. Wright,Religion,2003,1,1,3
+RE06-00019-2003,The Church on the Other Side,Brian D. McLaren,Religion,2003,2,1,6
+RE06-00020-2003,The Church in Emerging Culture,Andy Crouch,Religion,2003,1,1,4
+RE06-00014-2006,When the Heart Waits,Sue Monk Kidd,Religion,2006,2,1,5
+RE06-00021-2007,Becoming a Contagious Christian,Mark Mittelberg;Lee Strobel;Bill Hybels,Religion,2007,3,1,8
+RE06-00022-2005,Journey into God's Word,J. Scott Duvall;J. Daniel Hays,Religion,2005,2,1,0
+RE06-00023-2005,Zondervan Handbook to the Bible,David Alexander;Pat Alexander,Religion,2005,1,1,7
+RE06-00024-2005,Velvet Elvis,Rob Bell,Religion,2005,3,1,0
+RE06-00025-2007,A Search for What Makes Sense,Brian D. McLaren,Religion,2007,3,1,8
+BE07-00011-1991,Hit Men,Fredric Dannen,Business & Economics,1991,1,1,4
+BE07-00001-2002,Next: The Future Just Happened,Michael Lewis,Business & Economics,2002,2,1,1
+BE07-00002-2003,Moneyball: The Art of Winning an Unfair Game,Michael Lewis,Business & Economics,2003,2,1,2
+BE07-00003-2003,Naked Economics: Undressing the Dismal Science,Charles Wheelan,Business & Economics,2003,2,1,0
+BE07-00004-2001,The Road to Serfdom,Friedrich August Hayek,Business & Economics,2001,2,1,3
+BE07-00006-2004,Applied Economics,Thomas Sowell,Business & Economics,2004,3,1,4
+BE07-00010-2003,The Warren Buffett CEO,Robert P. Miles,Business & Economics,2003,2,1,10
+BE07-00012-2004,Reefer Madness,Eric Schlosser,Business & Economics,2004,2,1,10
+BE07-00005-2006,The Coming Economic Collapse,Stephen Leeb;Glen Strathy,Business & Economics,2006,2,1,8
+BE07-00007-2006,Personal Finance For Dummies,Eric Tyson,Business & Economics,2006,2,1,4
+BE07-00008-2006,Crash Proof,Peter D. Schiff;John Downes,Business & Economics,2006,3,1,9
+BE07-00009-2006,eBay For Dummies,Marsha Collier,Business & Economics,2006,2,1,8
+BE07-00013-2006,Power of An Hour,Dave Lakhani,Business & Economics,2006,1,1,1
+CP08-00001-2004,High performance MySQL,Jeremy D. Zawodny;Derek J. Balling,Computers,2004,2,1,9
+CP08-00002-2004,Hackers & Painters,Paul Graham,Computers,2004,1,1,7
+CP08-00003-2004,BSD Hacks,Dru Lavigne,Computers,2004,3,1,8
+CP08-00004-2004,IMovie 4 & IDVD,David Pogue,Computers,2004,1,1,10
+CP08-00009-2000,Code,Charles Petzold,Computers,2000,1,1,1
+CP08-00010-2003,Writing Secure Code,Michael Howard;David LeBlanc,Computers,2003,1,1,7
+CP08-00005-2006,Ruby Cookbook,Lucas Carlson;Leonard Richardson,Computers,2006,1,1,8
+CP08-00006-2007,MySQL Cookbook,Paul DuBois,Computers,2007,3,1,5
+CP08-00007-2006,CSS Cookbook,Christopher Schmitt,Computers,2006,3,1,0
+CP08-00008-2006,Lego Star Wars,Michael Littlefield;Prima Games,Computers,2006,1,1,4
+CP08-00011-2006,The Cognitive Style of PowerPoint,Edward R. Tufte,Computers,2006,3,1,2
+CP08-00012-2006,Beautiful Evidence,Edward R. Tufte,Computers,2006,3,1,5
+CK09-00001-2003,Cider,Annie Proulx;Lew Nichols,Cooking,2003,3,1,1
+CK09-00003-2004,Not Your Mother's Slow Cooker Cookbook,Beth Hensperger;Julie Kaufmann,Cooking,2004,3,1,1
+CK09-00004-2004,Jamie's Dinners,Jamie Oliver,Cooking,2004,3,1,8
+CK09-00002-2006,Hemingway and Bailey's Bartending Guide to Great American Writers,Mark Bailey,Cooking,2006,2,1,17
+CK09-00005-2006,Jamie's Italy,Jamie Oliver,Cooking,2006,3,1,7
+CK09-00006-2005,Eat This Book,Tyler Florence,Cooking,2005,3,1,10
+CK09-00007-2006,Tyler's Ultimate,Tyler Florence,Cooking,2006,1,1,10
+CK09-00008-2005,Everyday Italian,Giada De Laurentiis,Cooking,2005,2,1,9
+CK09-00009-2005,Being dead is no excuse,Gayden Metcalfe;Charlotte Hays,Cooking,2005,2,1,6
+MT10-00001-2007,The Essential John Nash,John Nash,Mathematics,2007,1,1,0
+MT10-00002-2005,God Created The Integers,Stephen Hawking,Mathematics,2005,1,1,8
+CG11-00001-2004,"John Constantine, Hellblazer: Setting sun",Warren Ellis,0,2004,0,0
+CG11-00002-2004,Superman,Mark Waid;Leinil Francis Yu,Comics & Graphic Novels,2004,2,1,9
+CG11-00004-2004,Arkham Asylum,Grant Morrison;Dave McKean,Comics & Graphic Novels,2004,3,1,7
+CG11-00003-2005,The Sgt. Rock Archives,Robert Kanigher;Bob Haney,Comics & Graphic Novels,2005,3,1,2
+CG11-00005-2006,Kid Eternity,Grant Morrison;Duncan Fegredo,Comics & Graphic Novels,2006,3,1,6
+CG11-00006-2006,Challengers of the Unknown,Howard Chaykin;Michelle Madsen,Comics & Graphic Novels,2006,3,1,1
+CG11-00007-2006,Maison Ikkoku,Rumiko Takahashi,Comics & Graphic Novels,2006,2,1,4
+CG11-00008-2006,Beauty is the Beast,Tomo Matsumoto,Comics & Graphic Novels,2006,1,1,8
+CG11-00009-2006,Bleach,Tite Kubo,Comics & Graphic Novels,2006,3,1,4
+CG11-00010-2006,Battle Angel Alita: Last Order,Yukito Kishiro,Comics & Graphic Novels,2006,3,1,8
+CG11-00011-2006,Ranma 1/2,Rumiko Takahashi,Comics & Graphic Novels,2006,3,1,1
+CG11-00012-2007,From Far Away,Kyoko Hikawa,Comics & Graphic Novels,2007,1,1,0
+CG11-00013-2006,Death Note,Tsugumi Ohba;Takeshi Obata,Comics & Graphic Novels,2006,2,1,3
+CG11-00014-2006,Hikaru no Go,Yumi Hotta,Comics & Graphic Novels,2006,2,1,0
+CG11-00015-2006,JoJo's Bizarre Adventure: Part 3--Stardust Crusaders,Hirohiko Araki,Comics & Graphic Novels,2006,1,1,2
+CG11-00016-2007,Yakitate!! Japan,Takashi Hashiguchi,Comics & Graphic Novels,2007,1,1,1
+CG11-00017-2007,Fullmetal Alchemist,Hiromu Arakawa,Comics & Graphic Novels,2007,3,1,8
+CG11-00018-2006,Angel's Vision,Yukito Kishiro,Comics & Graphic Novels,2006,2,1,2
+CG11-00019-2007,The Drifting Classroom,Kazuo Umezu,Comics & Graphic Novels,2007,3,1,1
+CG11-00020-2007,Ghost in the Shell 2: Innocence (Novel - Paperback),Hiromu Arakawa,Comics & Graphic Novels,2007,1,1,17
