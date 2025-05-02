@@ -56,7 +56,11 @@ void LoadBorrowHistory(const char* filename, memberNode* root){
         char* userID = strtok(line, ",");
         char* bookID = strtok(NULL, ",");
         char* title = strtok(NULL, ",");
-        char* status = strtok(NULL, ",");
+        char* status = strtok(NULL, "\n");
+        if (status != NULL) {
+            while (isspace((unsigned char)*status)) status++;
+            status[strcspn(status, "\r\n")] = '\0';           
+        }
 
         if (!userID || !bookID || !title || !status) {
             printf(" !!! Error : Invalid line format: %s\n", line);
@@ -64,7 +68,6 @@ void LoadBorrowHistory(const char* filename, memberNode* root){
         }
 
         status[strcspn(status, "\n")] = '\0';
-
         if (strcmp(status, "Borrowed") == 0) {
             memberNode* member = searchMember(root, userID);
             if (member == NULL) {
@@ -405,31 +408,43 @@ void return_Book(char userID[]){
     }
 }
 
-void Display_All_Borrowing(memberNode* Borrowing_Member){
-    if (Borrowing_Member == NULL) {
-        Line2();
-        printf(" !!! Error: Invalid member.\n");
-        Line2();
-        return;
+void displayBorrowingMemberTree(memberNode *node) {
+    if (!node) return;
+
+    // Traverse the left subtree
+    displayBorrowingMemberTree(node->left);
+
+    // Display only members who are borrowing books
+    if (node->borrowList != NULL) {
+        printf(" Member ID: %s | Name: %s %s\n", node->data.ID, node->data.FirstName, node->data.LastName);
+        printf(" Borrowed Books:\n");
+
+        // Use a temporary pointer to traverse the borrowList
+        BookBorrowing* temp = node->borrowList;
+        while (temp != NULL) {
+            printf("  - %s: %s\n", temp->Book_ID, temp->Title);
+            temp = temp->next;
+        }
+        printf("\n");
     }
 
-    if (Borrowing_Member->borrowList == NULL){
-        Line2();
-        printf(" Member [%s] has no books borrowed.\n", Borrowing_Member->data.ID);
-        Line2();
+    // Traverse the right subtree
+    displayBorrowingMemberTree(node->right);
+}
+
+void Display_All_Borrowing(memberNode* root) {
+    if (root == NULL) {
+        printf(" !!! No borrowing history available.\n");
         return;
     }
 
     Line2();
-    printf(" Borrowing Books List for Member [%s]\n", Borrowing_Member->data.ID); 
+    printf(" All Borrowing Members and Their Borrowed Books\n");
     Line2();
 
-    BookBorrowing* temp = Borrowing_Member->borrowList;
-    printf(" %-20s %-50s\n", "Book ID", "Title");
-    while (temp != NULL) {
-        printf(" %-20s %-50s\n", temp->Book_ID, temp->Title);
-        temp = temp->next;
-    }
+    // Call the recursive function to display the borrowing tree
+    displayBorrowingMemberTree(root);
+
     Line2();
 }
 

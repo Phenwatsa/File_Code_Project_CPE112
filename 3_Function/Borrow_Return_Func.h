@@ -55,6 +55,7 @@ void borrow_Book(memberNode* member);
 void return_Book(char userID[]);
 void Show_Borrowed_Books();
 
+void displayBorrowingMemberTree(memberNode *node);
 void Display_All_Borrowing(memberNode* Borrowing_Member);
 void Display_All_Borrowing_Queue(BookQueue* queue);
 
