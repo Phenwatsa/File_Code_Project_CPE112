@@ -35,6 +35,8 @@ void AddBorrowedBook(memberNode* member, const char* bookID, const char* title, 
 void LoadBorrowHistory(const char* filename, memberNode* root);
 void DisplayBorrowing(memberNode* Borrowing_Member);
 int CountBorrowedBooks(memberNode* member);
+void saveBorrowHistory(const char* filename, memberNode* root);
+void saveBorrowQueue(const char* filename, memberNode* root);
 
 void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bookRoot);
 
@@ -52,5 +54,8 @@ void borrow_Book(memberNode* member);
 // Function returning a book
 void return_Book();
 void Show_Borrowed_Books();
+
+void Display_All_Borrowing(memberNode* Borrowing_Member);
+void Display_All_Borrowing_Queue(BookQueue* queue);
 
 #endif
