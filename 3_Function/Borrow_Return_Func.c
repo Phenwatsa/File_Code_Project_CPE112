@@ -545,14 +545,12 @@ void updateBorrowCount(const char *bookID)
     fclose(fp);
     fclose(temp);
 
-
-    
-    if (remove("Book-ID.csv") != 0) 
+    if (remove("DATA/Book-ID.csv") != 0) 
     {
         perror("Error deleting original file");
         return;
     }
-    if (rename("temp.csv", "Book-ID.csv") != 0) 
+    if (rename("DATA/temp.csv", "DATA/Book-ID.csv") != 0) 
     {
         perror("Error renaming temp file");
     }
