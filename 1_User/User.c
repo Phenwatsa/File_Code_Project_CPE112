@@ -60,18 +60,12 @@ void Menu_User(memberNode* root) {
             case 3:
                 // Search book
                 searchBook();
+                Exit();
                 break;
             case 4:
                 // Return book
-                {
-                    memberNode* member = searchMember(root, temp_User_ID);
-                    if (member != NULL) {
-                        DisplayBorrowing(member);
-                        return_Book();
-                    } else {
-                        printf(" !!! Warning : Member with ID [%s] not found.\n", temp_User_ID);
-                    }
-                }
+                return_Book(temp_User_ID);
+                Exit();
                 break;
             case 5:
                 // Exit program
