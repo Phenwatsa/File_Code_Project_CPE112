@@ -527,9 +527,9 @@ void Display_All_Borrowing(memberNode* root) {
 
 void Display_All_Borrowing_Queue_AllBooks() {
     int bookCount = 0; // ตัวนับจำนวนหนังสือที่มีคิว
-    Line4(115);
-    printf("%50s\n", "Borrowing Queue for All Books");
-    Line4(115);
+    Line4(100);
+    printf("%64s\n", "Borrowing Queue for All Books");
+    Line4(100);
 
     // วนลูปผ่านทุกหมวดหมู่และปีใน Library
     for (int i = 0; i < numCategory; i++) {
@@ -539,20 +539,28 @@ void Display_All_Borrowing_Queue_AllBooks() {
                 if (temp->data.reservationQueue != NULL && temp->data.reservationQueue->front != NULL) {
                     bookCount++;
                     // แสดงข้อมูลหนังสือ
-                    printf(" Book ID: %s | Title: %s\n", temp->data.id, temp->data.title);
-                    Line3(115);
-                    printf(" %-10s | %-20s\n", "Position", "User ID");
-                    Line3(115);
+                    printf(" Book ID: [%s] | Title: %s\n", temp->data.id, temp->data.title);
+                    Line3(100);
+                    printf(" %-10s | %-20s | %-30s\n", "Position", "User ID", "Member Name");
+                    Line3(100);
 
                     // แสดงข้อมูลคิวของหนังสือ
                     QueueNode* queueTemp = temp->data.reservationQueue->front;
                     int position = 1;
                     while (queueTemp != NULL) {
-                        printf(" %-10d | %-20s\n", position, queueTemp->User_ID);
+                        // ค้นหาชื่อสมาชิกจาก Member ID
+                        memberNode* member = searchMember(root, queueTemp->User_ID);
+                        char memberName[50] = "Unknown"; // ค่าเริ่มต้นหากไม่พบสมาชิก
+                        if (member != NULL) {
+                            snprintf(memberName, sizeof(memberName), "%s %s", member->data.FirstName, member->data.LastName);
+                        }
+
+                        // แสดงข้อมูลคิว
+                        printf(" %-10d | %-20s | %-30s\n", position, queueTemp->User_ID, memberName);
                         queueTemp = queueTemp->next;
                         position++;
                     }
-                    Line4(115);
+                    Line4(100);
                 }
                 temp = temp->next;
             }
@@ -562,7 +570,7 @@ void Display_All_Borrowing_Queue_AllBooks() {
     if (bookCount == 0) {
         printf(" No books have a borrowing queue.\n");
     }
-    Line4(115);
+    Line4(100);
     Exit();
 }
 
