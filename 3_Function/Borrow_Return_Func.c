@@ -283,15 +283,16 @@ void borrow_Book(memberNode* member){
         printf(" Book not found.\n");
         Line2();
     }
+    Exit();
 }
 
 // Function Book Borrowing Queue
 void Enqueue(BookQueue* queue, char* user_ID) {
     QueueNode* newNode = (QueueNode*)malloc(sizeof(QueueNode));
-    printf("1.1\n");
+
     strcpy(newNode->User_ID, user_ID);
     newNode->next = NULL;
-    printf("1.2\n");
+
     if (queue->rear == NULL) {
         queue->front = newNode;
         queue->rear = newNode;
@@ -299,7 +300,7 @@ void Enqueue(BookQueue* queue, char* user_ID) {
         queue->rear->next = newNode;
         queue->rear = newNode;
     }
-    printf("1.3\n");
+
 }
 
 void Dequeue(BookQueue* queue){
@@ -374,6 +375,7 @@ void Borrowing_Queue(booksNode* temp){
     }
     printf("3--------------------\n");
     saveBorrowQueue("DATA/Borrowing_Queue.csv", root);
+    Exit();
 }
 
 void NotifyReservationQueue(memberNode* member, booksNode* bookRoot){
@@ -481,6 +483,7 @@ void return_Book(memberNode* member){
     if (book_found==0){
         printf("Book not found.\n");
     }
+    Exit();
 }
 
 void displayBorrowingMemberTree(memberNode *node) {

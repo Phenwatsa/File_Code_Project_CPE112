@@ -389,7 +389,7 @@ void saveCSV() {
                 book data = temp->data;
 
                 // Debug ข้อมูลที่เขียนลงไฟล์
-                printf("Debug: Writing book ID: %s\n", data.id);
+
 
                 // เขียนข้อมูลลงไฟล์
                 fprintf(file, "%s,%s,%s,%s,%d,%d,%d,%d\n", 
@@ -402,7 +402,7 @@ void saveCSV() {
     }
 
     fclose(file);
-    printf("Update successfully!\n");
+
 }
 
 void addBookParam(int cateIndex, int year, char title[], char author[], int quantity) {
@@ -418,6 +418,8 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
     bookData.quantity = quantity;
     bookData.available = 1;
     bookData.year = year;
+    bookData.borrowCount = 0;
+    bookData.reservationQueue = NULL;
     
     book->data = bookData;
     book->next = NULL;
@@ -455,23 +457,22 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
         // Concatenate bookCate
         
         strcat(newID, cateShortNames[cateIndex]);
-        printf("%d %s %s\n", cateIndex, cateShortNames[cateIndex], newID);
-        printf("3.4\n");
+
         // Concatenate '-'
         strcat(newID, "-");
-        printf("3.5");
+
         // ID : FT01--2014
         // Concatenate bookIDNumber 
         strcat(newID, bookIDNumber);
-        printf("3.6\n");
+
         // Concatenate '-'
         strcat(newID, "-");
-        printf("3.7\n");
+
         // Concatenate year 
         strcat(newID, yearID);
-        printf("3.8\n");
+
     strcpy(book->data.id, newID);
-    printf("4\n");
+
     // if the book is not empty
     if (Library[cateIndex][yearIndex].tail != NULL) {
         Library[cateIndex][yearIndex].tail->next = book;
@@ -481,7 +482,7 @@ void addBookParam(int cateIndex, int year, char title[], char author[], int quan
         Library[cateIndex][yearIndex].head = book;
     }
     Library[cateIndex][yearIndex].tail = book;
-    printf("5\n");
+
     Line2();
     printf(" Add successfully\n");
     Line2();
@@ -545,6 +546,7 @@ void showAllBooks() {
     }
 
     Line4(190);
+    Exit();
 }
 
 // Loop the linklist

@@ -58,7 +58,6 @@ void Menu_User(memberNode* root) {
             case 1:
                 // Show all books
                 showAllBooks();
-                Exit();
                 break;
             case 2:
                 // Top borrowed books
@@ -68,24 +67,22 @@ void Menu_User(memberNode* root) {
                 // Search book
                 searchBook();
                 borrow_Book(currentUser);
-                Exit();
+                //Exit();
                 break;
             case 4:
                 // Return book
                 return_Book(currentUser);
-                Exit();
+                //Exit();
                 break;
             case 5:
                 // Exit program
-                printf("\n Exiting the program . . .\n");
+                printf("\n Exiting the program . . .\n"); Delay();
                 break;
             default:
                 // Invalid choice
-                printf("\n Invalid choice. Please try again.\n");
-                Delay();
+                printf("\n Invalid choice. Please try again.\n"); Delay();
         }
     } while (Check_Num(User_choice) != 5);
     saveCSV();
     saveBorrowQueue("DATA/Borrowing_Queue.csv", root);
-    return 1;
 }

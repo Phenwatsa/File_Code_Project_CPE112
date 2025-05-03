@@ -1,0 +1,2 @@
+InitializeLibrary();
+    csvToStruct();

@@ -32,7 +32,7 @@ void ClearScreen(){
     system("clear");
 }
 void Delay(){
-    sleep(3);
+    sleep(1);
 }
 
 void Exit(){
@@ -42,7 +42,6 @@ void Exit(){
         scanf(" %s", Enter_Exit);
     }while (Enter_Exit[0] != 'E' && Enter_Exit[0] != 'e');
     ClearScreen();
-    return 1;
 }
 
 int Check_Num(const char* str){

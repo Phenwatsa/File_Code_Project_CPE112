@@ -30,22 +30,22 @@ void Book_Management(){
             case 1:
                 // Add book
                 addBook();
-                Exit();
+                //Exit();
                 break;
             case 2:
                 // Update book
                 editBook();
-                Exit();
+                //Exit();
                 break;
             case 3:
                 // Delete book
                 delete();
-                Exit();
+                //Exit();
                 break;
             case 4:
                 // Show all books
                 showAllBooks();
-                Exit();
+                //Exit();
                 break;
             case 5:
                 // Exit program
@@ -185,6 +185,7 @@ void Top_Borrowed_Books(){
 void Menu_Librarian(){
     char Libra_choice[100];
     do{
+        printf("-------");
         // UI design format
         ClearScreen();
         Line2();

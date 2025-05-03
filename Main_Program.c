@@ -55,6 +55,7 @@ int main() {
                 break;
         }
     } while (Check_Num(choice) != 3); 
-    csvToStruct();
+    saveCSV();
+    saveBorrowQueue("DATA/Borrowing_Queue.csv", root);
     return 0;
 }
