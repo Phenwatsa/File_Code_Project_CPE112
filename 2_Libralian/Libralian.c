@@ -209,6 +209,7 @@ void Top_Borrowed_Books(){
             case 2:
                 // Show top 3 members who borrowed (and returned) the most books
                 showTop3MembersWithMostReturns("DATA/borrow_history.csv", "DATA/member.csv");
+                displayTop5BorrowedBooks();
                 break;
             case 3:
                 // Exit program

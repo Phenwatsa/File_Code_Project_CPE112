@@ -69,7 +69,8 @@ int loadBooksFromCSV(const char *fileName, Book books[])
     FILE *fp = fopen(fileName, "r");
     if (!fp)
     {
-        printf("Cannot open file"); ////////ui
+        perror("Error opening file"); ////////ui
+        printf("Tried to open: %s\n", fileName);
         return 0;
     }
     
@@ -109,8 +110,8 @@ void displayTop5BorrowedBooks()
 {
 
     Book books[MAX_BOOKS];
-    const char *filename = "DATA/Book-ID.csv";
-    int count = loadBooksFromCSV("DATA/Book-ID.csv", books);
+    const char *fileName = "DATA/Book-ID.csv";
+    int count = loadBooksFromCSV(fileName, books);
 
     qsort(books,count,sizeof(Book),compareByBorrowed);
     printf("Top 5 Most Borrowed Books\n");
@@ -130,7 +131,7 @@ void displayTop5BorrowedBooks()
         printf("%-20d %-90s %-20s\n",books[i].BORROWED,books[i].TITLE,books[i].ID); //////ีรรรร  uiiiii
 
     }
-    
+    Exit();
 
 }
 
