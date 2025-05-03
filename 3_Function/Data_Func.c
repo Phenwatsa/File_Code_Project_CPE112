@@ -76,7 +76,7 @@ void csvToStruct() {
         }
 
         int quantity = atoi(quantityStr);
-        int available = strcmp(availableStr, "available") == 0 ? 1 : 0;
+        int available = atoi(availableStr);
 
         int categoryIndex = 10 * (id[2] - '0') + (id[3] - '0') - 1;
         int year = atoi(yearStr);
