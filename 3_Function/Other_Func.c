@@ -105,8 +105,12 @@ int compareByBorrowed(const void *a, const void *b) {
     return bookB->BORROWED - bookA->BORROWED; 
 }
 
-void displayTop5BorrowedBooks(Book books[], int count)
+void displayTop5BorrowedBooks()
 {
+
+    Book books[MAX_BOOKS];
+    const char *filename = "DATA/Book-ID.csv";
+    int count = loadBooksFromCSV("DATA/Book-ID.csv", books);
 
     qsort(books,count,sizeof(Book),compareByBorrowed);
     printf("Top 5 Most Borrowed Books\n");

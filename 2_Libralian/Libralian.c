@@ -204,13 +204,7 @@ void Top_Borrowed_Books(){
         switch (Check_Num(Top_Borrowed_choice)){
             case 1: 
                 // Show Top 5 Most Borrowed Books
-                Book books[MAX_BOOKS];
-                int total = loadBooksFromCSV("DATA/books.csv", books);
-                if (total > 0) {
-                    displayTop5BorrowedBooks(books, total);
-                } else {
-                    perror("Failed to load book data.\n");
-                }
+                displayTop5BorrowedBooks();
                 break;
             case 2:
                 // Show top 3 members who borrowed (and returned) the most books
