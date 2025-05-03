@@ -464,7 +464,6 @@ void return_Book(memberNode* member){
                         if (temp->data.quantity >0 ){
                             temp->data.available = 1;
                         }
-                        
                         changingStatusToReturn(member->data.ID, temp->data.id);
                         DeleteBorrowedBook(member, temp->data.id);
                         updateBorrowCount(temp->data.id);
@@ -474,6 +473,7 @@ void return_Book(memberNode* member){
                     else if (Confirm == 'N' || Confirm == 'n'){
                         printf("Returning cancelled.\n");                        
                     }
+                    Exit();
                     return;
                 }
                 temp = temp->next;
