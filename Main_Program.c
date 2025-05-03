@@ -56,6 +56,5 @@ int main() {
         }
     } while (Check_Num(choice) != 3); 
     csvToStruct();
-    
     return 0;
 }
