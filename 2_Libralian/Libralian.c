@@ -7,6 +7,45 @@
 #include "../3_Function/Member_Func.h"
 #include "../3_Function/Other_Func.h"
 
+void Show_Books_Management(){
+    char Show_Books_choice[100];
+    do{
+        // UI design format
+        ClearScreen();
+        Line2();
+        printf("%44s\n","Welcome to Show Books Management System");
+        Line2();
+        printf(" [1] | Show All Books\n");
+        printf(" [2] | Search Book\n");
+        printf(" [3] | Exit\n");
+        Line2();
+        printf(" Please select an option : ");
+        
+        // User Input
+        scanf(" %s", Show_Books_choice);
+        ClearScreen();
+        switch (Check_Num(Show_Books_choice)){
+            case 1:
+                // Show all books
+                showAllBooks();
+                break;
+            case 2:
+                // Search book
+                searchBook();
+                Exit();
+                break;
+            case 3:
+                // Exit program
+                printf("\n Exiting the program . . .\n\n");
+                break;
+            default:
+                // Invalid choice
+                printf("\n Invalid choice. Please try again.\n");
+                Delay();
+        }
+    } while (Check_Num(Show_Books_choice) != 3);
+}
+
 void Book_Management(){
     char Book_manag_choice[100];
     do{
@@ -18,7 +57,7 @@ void Book_Management(){
         printf(" [1] | Add Book\n");
         printf(" [2] | Update Book\n");
         printf(" [3] | Delete Book\n");
-        printf(" [4] | Show All Books\n");
+        printf(" [4] | Show Books\n");
         printf(" [5] | Exit\n");
         Line2();
         printf(" Please select an option : ");
@@ -44,7 +83,7 @@ void Book_Management(){
                 break;
             case 4:
                 // Show all books
-                showAllBooks();
+                Show_Books_Management();
                 //Exit();
                 break;
             case 5:
@@ -157,8 +196,9 @@ void Top_Borrowed_Books(){
         Line2();
         printf("       Welcome to Top Borrowed Books System\n");
         Line2();
-        printf(" [1] | Show Top Borrowed Books\n");
-        printf(" [2] | Exit\n");
+        printf(" [1] | Show Top 5 Borrowed Books\n");
+        printf(" [2] | Show Top 3 Members with Most Returns\n");
+        printf(" [3] | Exit\n");
         Line2();
         printf(" Please select an option : ");
         
@@ -166,11 +206,14 @@ void Top_Borrowed_Books(){
         scanf(" %s", Top_Borrowed_choice);
         ClearScreen();
         switch (Check_Num(Top_Borrowed_choice)){
-            case 1:
+            case 1: 
+                // Show top borrowed books
+                break;
+            case 2:
                 // Show top borrowed books
                 showTop3MembersWithMostReturns("DATA/borrow_history.csv", "DATA/member.csv");
                 break;
-            case 2:
+            case 3:
                 // Exit program
                 printf("\n Exiting the program . . .\n\n");
                 break;
@@ -185,11 +228,10 @@ void Top_Borrowed_Books(){
 void Menu_Librarian(){
     char Libra_choice[100];
     do{
-        printf("-------");
         // UI design format
         ClearScreen();
         Line2();
-        printf("      Welcome to Librarian Management System\n");
+        printf("%44s\n","Welcome to Librarian Management System");
         Line2();
         printf(" [1] | Book Management\n");
         printf(" [2] | Member Management\n");

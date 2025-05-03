@@ -7,7 +7,7 @@
 
 void searchBook() {
     Line2();
-    printf(" %45s\n","Welcome to search function");
+    printf("%42s\n","Welcome to search function");
     Line();
     printf(" Search by id or Name of the book : ");
 
@@ -88,21 +88,20 @@ int filterCategory(char listName[][max_char], int number_list) {
     }
 
     while (cateFilIndex == -1);
-    
     return cateFilIndex-1;
 }
 
 int filterUsable(char filter[], int number_filter) {
     // if input number is not a digit 
     if (isNotInteger(filter) == 1) {
-        printf(" We aren't accept other type of data except integer");
+        printf(" We aren't accept other type of data except integer\n");
         return -1;
     }
 
     // if input number is over the range of number of the category
     // atoi use to transform string -> int like '30' -> 30
     if (atoi(filter) > number_filter || atoi(filter) < 0) {
-        printf(" The integer is out of our range of category");
+        printf(" The integer is out of our range of category\n");
         return -1;
     }
 
@@ -150,6 +149,7 @@ void addBook() {
 
     // traverse to the library linklist and add at the end of the linklist 
     addBookParam(categoryIndex, year, title, author, quantity);
+    Exit();
 }
 
 // edit book
@@ -253,6 +253,7 @@ void editBook() {
             Line();
             printf(" Change data!\n");
             Line2();
+            Exit();
             return;
         }
 
@@ -263,6 +264,7 @@ void editBook() {
     if (found == 0){
         Line();
         printf(" ! Id is not found\n"); Line();
+        Exit();
         return;
     }
 }
@@ -322,6 +324,7 @@ void delete() {
         printf(" ! The id is not found\n");
         Line();
     }
+    Exit();
 }
 
 // delete Book
