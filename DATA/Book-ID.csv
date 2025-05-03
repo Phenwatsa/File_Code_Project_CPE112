@@ -2,7 +2,7 @@ Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed
 FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,1,0,14
 FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,0,12
 FT01-00048-1965,Airs Above the Ground,Mary Stewart,Fiction,1965,2,0,0
-FT01-00049-0001,noe2,d,Fiction,1,1,1,0
+FT01-00049-0001,noe2,d,Fiction,1,1,0,0
 FT01-00019-1972,The Terminal Man,Michael Crichton,Fiction,1972,2,0,2
 FT01-00026-1974,The Forever War,Joe Haldeman,Fiction,1974,3,0,9
 FT01-00037-1969,Great Short Works of Herman Melville,Herman Melville,Fiction,1969,3,0,2
@@ -17,7 +17,7 @@ FT01-00040-1989,Back to the Bedroom,Janet Evanovich,Fiction,1989,2,0,3
 FT01-00041-1991,The Rocky Road to Romance,Janet Evanovich,Fiction,1991,2,0,7
 FT01-00042-1992,Practical Demonkeeping,Christopher Moore,Fiction,1992,2,0,7
 FT01-00049-1993,Charms for the Easy Life,Kaye Gibbons,Fiction,1993,1,0,4
-FT01-00001-2004,Gilead,Marilynne Robinson,Fiction,2004,1,0,6
+FT01-00001-2004,Gilead,Marilynne Robinson,Fiction,2004,1,0,7
 FT01-00003-1995,Warhost of Vastmark,Janny Wurts,Fiction,1995,2,0,4
 FT01-00004-2002,Taken at the Flood,Agatha Christie,Fiction,2002,2,0,9
 FT01-00005-2002,The illustrated man,Ray Bradbury,Fiction,2002,1,0,5
@@ -51,8 +51,8 @@ FT01-00031-2005,Size 12 Is Not Fat,Meg Cabot,Fiction,2005,3,0,9
 FT01-00035-2006,Motor Mouth,Janet Evanovich,Fiction,2006,1,0,2
 FT01-00046-2005,Son of a Witch,Gregory Maguire,Fiction,2005,2,0,0
 FT01-00047-2006,new,p,Fiction,2006,3,0,0
-FT01-00048-2007,new_1,pl,Fiction,2007,3,0,0
-FT01-00049-2006,New_2,pl,Fiction,2006,3,1,0
+FT01-00048-2007,new_1,pl,Fiction,2007,3,0,1
+FT01-00049-2006,New_2,pl,Fiction,2006,3,0,0
 HT02-00004-1960,Presidential Power and the Modern Presidents,Richard E. Neustadt,History,1960,1,0,7
 HT02-00013-1958,The World's Religions,Huston Smith,History,1958,3,0,6
 HT02-00014-1964,The Complete Works,Tacitus,History,1964,2,0,5
@@ -192,14 +192,14 @@ CP08-00011-2006,The Cognitive Style of PowerPoint,Edward R. Tufte,Computers,2006
 CP08-00012-2006,Beautiful Evidence,Edward R. Tufte,Computers,2006,3,0,8
 CK09-00001-2003,Cider,Annie Proulx;Lew Nichols,Cooking,2003,3,0,8
 CK09-00003-2004,Not Your Mother's Slow Cooker Cookbook,Beth Hensperger;Julie Kaufmann,Cooking,2004,3,0,5
-CK09-00004-2004,Jamie's Dinners,Jamie Oliver,Cooking,2004,3,0,9
+CK09-00004-2004,Jamie's Dinners,Jamie Oliver,Cooking,2004,2,0,9
 CK09-00002-2006,Hemingway and Bailey's Bartending Guide to Great American Writers,Mark Bailey,Cooking,2006,2,0,5
 CK09-00005-2006,Jamie's Italy,Jamie Oliver,Cooking,2006,3,0,6
 CK09-00006-2005,Eat This Book,Tyler Florence,Cooking,2005,3,0,10
 CK09-00007-2006,Tyler's Ultimate,Tyler Florence,Cooking,2006,1,0,5
 CK09-00008-2005,Everyday Italian,Giada De Laurentiis,Cooking,2005,2,0,6
 CK09-00009-2005,Being dead is no excuse,Gayden Metcalfe;Charlotte Hays,Cooking,2005,2,0,2
-MT10-00001-2007,The Essential John Nash,John Nash,Mathematics,2007,1,0,4
+MT10-00001-2007,The Essential John Nash,John Nash,Mathematics,2007,0,0,6
 MT10-00002-2005,God Created The Integers,Stephen Hawking,Mathematics,2005,5,0,13
 CG11-00001-2004,"John Constantine, Hellblazer: Setting sun",Warren Ellis,0,2004,0,0
 CG11-00002-2004,Superman,Mark Waid;Leinil Francis Yu,Comics & Graphic Novels,2004,2,0,4
@@ -220,4 +220,4 @@ CG11-00016-2007,Yakitate!! Japan,Takashi Hashiguchi,Comics & Graphic Novels,2007
 CG11-00017-2007,Fullmetal Alchemist,Hiromu Arakawa,Comics & Graphic Novels,2007,3,0,9
 CG11-00018-2006,Angel's Vision,Yukito Kishiro,Comics & Graphic Novels,2006,2,0,4
 CG11-00019-2007,The Drifting Classroom,Kazuo Umezu,Comics & Graphic Novels,2007,3,0,9
-CG11-00020-2007,Ghost in the Shell 2: Innocence (Novel - Paperback),Hiromu Arakawa,Comics & Graphic Novels,2007,1,0,10
+CG11-00020-2007,Ghost in the Shell 2: Innocence (Novel - Paperback),Hiromu Arakawa,Comics & Graphic Novels,2007,0,0,12
