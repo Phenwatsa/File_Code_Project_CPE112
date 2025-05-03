@@ -19,12 +19,14 @@ void searchBook() {
     Line2();
     // for user to enter the category filter
     printf(" Using filter for category\n");
-    int cateFil = filterCategory(categoryNames, numCategory);   
+    int cateFil = filterCategory(categoryNames, numCategory);  
+    printf("%d\n", cateFil); 
 
     Line2();
     // for user to enter the year filter
     printf(" Using filter for year\n");
     int yearFil = filterCategory(yearNames, numYear);
+    printf("%d\n", yearFil);
 
     ClearScreen();
     printf("%107s\n", "-- List of Book Below --"); Line3(190);
@@ -46,7 +48,7 @@ void searchBook() {
     // using category filter only
     else if (cateFil != -1 && yearFil == -1) {
         for (int j = 0; j < numYear; j++) {
-            numBooksShow = checkDataEachList(Library[cateFil][j], UserFil);
+            numBooksShow += checkDataEachList(Library[cateFil][j], UserFil);
         }
     }
 
@@ -67,10 +69,9 @@ void searchBook() {
 }
 
 // Function for user to describe how to use filter in search function
-// รับค่ามากก่า 9 ไม่่ได้
 int filterCategory(char listName[][max_char], int number_list) {
     
-    char cateFil[2];
+    char cateFil[3];
     Line();
     // show all filter that possible to use
     for (int i = 0; i < number_list; i++) {
