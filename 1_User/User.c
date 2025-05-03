@@ -11,18 +11,9 @@ void Menu_User(memberNode* root) {
     int check_UserID = 0;
 
     // User ID input
-    ClearScreen();
-    Line2();
-    printf("               Please enter your ID\n");
-    Line2();
-    printf(" Enter your ID : ");
-    scanf(" %[^\n]", temp_User_ID);
-    check_UserID = Check_User_ID(temp_User_ID);
     while (check_UserID == 0) {
         ClearScreen();
         Line2();
-        printf(" Invalid ID. Please try again.\n");
-        Line();
         printf(" Please enter your ID\n");
         Line2();
         printf(" Enter your ID : ");
@@ -31,17 +22,21 @@ void Menu_User(memberNode* root) {
     }
     memberNode* currentUser = searchMember(root, temp_User_ID);
     if (currentUser == NULL) {
+        ClearScreen();
         printf(" !!! Error: Member with ID [%s] not found.\n", temp_User_ID);
+        Delay();
         return;
     }
+
     NotifyReservationQueue(currentUser, Library[0][0].head);
 
     do{
         // UI design format
         ClearScreen();
         Line2();
-        printf(" Hello %s %s [%s]\n", currentUser->data.FirstName, currentUser->data.LastName, currentUser->data.ID);
         printf("       Welcome to Member Management System\n");
+        Line();
+        printf(" [%s] %s %s\n", currentUser->data.ID, currentUser->data.FirstName, currentUser->data.LastName);
         Line2();
         printf(" [1] | Show All Books\n");
         printf(" [2] | Top Borrowed Books\n");
@@ -61,26 +56,26 @@ void Menu_User(memberNode* root) {
                 break;
             case 2:
                 // Top borrowed books
-                showTop3MembersWithMostReturns("DATA/borrow_history.csv", "DATA/member.csv");
+
                 break;
             case 3:
                 // Search book
                 searchBook();
                 borrow_Book(currentUser);
-                //Exit();
+                Exit();
                 break;
             case 4:
                 // Return book
                 return_Book(currentUser);
-                //Exit();
+                Exit();
                 break;
             case 5:
                 // Exit program
-                printf("\n Exiting the program . . .\n"); Delay();
+                printf(" Exiting the program . . .\n"); Delay();
                 break;
             default:
                 // Invalid choice
-                printf("\n Invalid choice. Please try again.\n"); Delay();
+                printf(" Invalid choice. Please try again.\n"); Delay();
         }
     } while (Check_Num(User_choice) != 5);
     saveCSV();

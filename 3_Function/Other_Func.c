@@ -202,8 +202,9 @@ void showTop3MembersWithMostReturns(const char *borrowFile, const char *memberFi
     fclose(fp);
 
     qsort(borrow_info, borrow_count, sizeof(MemberBorrowInfo), compareByReturnCount);
-
-    printf("Top 3 members with most borred books:\n");
+    Line4(100);
+    printf("%-60s\n","Top 3 members with most borred books");
+    Line4(100);
     for (int i = 0; i < 3 && i < borrow_count; i++) 
     {
         char *first = "Unknown";
@@ -217,7 +218,8 @@ void showTop3MembersWithMostReturns(const char *borrowFile, const char *memberFi
                 break;
             }
         }
-        printf("%-3d. %-20s  %-20s %-20s (%-3d books returned)\n",i + 1, borrow_info[i].MEMBER_ID,first,last,borrow_info[i].RETURNED);  ////////////ui
+        printf(" [%-3d] %-15s %-15s %-15s (%-2d books returned)\n",i + 1, borrow_info[i].MEMBER_ID,first,last,borrow_info[i].RETURNED); 
     }
+    Line4(100);
     Exit();
 }
