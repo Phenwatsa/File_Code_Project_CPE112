@@ -108,6 +108,7 @@ void updateMember(memberNode *root)
         ClearScreen(); Line2();
         printf(" Member with ID [%s] not found.\n", search_ID);
         Line2();
+        Exit();
         return;
 
     }
@@ -122,15 +123,18 @@ void updateMember(memberNode *root)
     if (saveMember(root, "member.csv") == 0)
     {
         Line2();
-        printf("Member updated successfully.\n");
-        Line2(); return;
+        printf(" Member updated successfully.\n");
+        Line2(); 
+        Exit();
+        return;
     }else
     {
         ClearScreen(); Line2();
         printf("Error saving changes.\n");
-        Line2(); return;
+        Line2(); 
+        Exit();
+        return;
     }
-
 }
 
 int saveMemberTree(memberNode *node, FILE *fp)
@@ -166,10 +170,12 @@ int saveMember(memberNode *root, const char *fileName)
 
 void checkBorrowingHistory(const char *memberId)
 {
-    FILE *fp = fopen("borrow_history.csv", "r"); 
+    FILE *fp = fopen("DATA/borrow_history.csv", "r"); 
     if (!fp)
     {
-        printf("Cannot open borrow history file"); ////////////ui  ui ui
+        ClearScreen();
+        printf(" !!! Cannot open borrow history file");
+        Delay();
         return;
     }
     
@@ -177,8 +183,10 @@ void checkBorrowingHistory(const char *memberId)
     int found = 0;
 
     fgets(line, sizeof(line), fp);
-    printf("Borrow History for Member ID:  %s\n", memberId); //////////////// ui
-    printf("%-10s %-256s %-15s\n", "Book ID", "Title", "Status"); //////////////// ui
+    printf(" Borrow History for Member ID : %s\n", memberId);
+    Line3(115);
+    printf(" %-18s | %-80s | %-5s\n", "Book-ID", "Title", "Status");
+    Line3(115);
 
     while (fgets(line, sizeof(line), fp))
     {
@@ -187,8 +195,8 @@ void checkBorrowingHistory(const char *memberId)
         if (sscanf(line, "%[^,],%[^,],%[^,],%[^\n]", CurrentMemberID, Book_ID, Title, Status) == 4)
         {
             if (strcmp(CurrentMemberID, memberId) != 0) continue;
-
-            printf("%-10s %-256s %-15s\n" , Book_ID, Title, Status);
+            //printf(" %s !!!", Book_ID);
+            printf(" %-18s | %-80s | %-5s\n" , Book_ID, Title, Status);
             found = 1;
             
         }
@@ -196,9 +204,11 @@ void checkBorrowingHistory(const char *memberId)
     
     if (!found)
     {
-        printf("No borrowing history found.\n"); ///////////////  ui      ui
+        printf(" No borrowing history found.\n"); 
     }
     fclose(fp);
+    Line4(115);
+    Exit();
 
 }
 
@@ -257,6 +267,7 @@ void displayMember(memberNode *root)
     Line3(115);
     displayMemberTree(root);
     Line4(115);
+    Exit();
 }
 
 void freeMemberTree(memberNode *root)
@@ -292,12 +303,16 @@ void Register_Member(){
     Line2();
     printf(" Member added successfully.\n");
     Line2();
+    Exit();
 }
 
 void Check_Borrowing_History(){
+    getchar();
     char memberId[MAX_ID];
-    printf("Enter Member ID to check history: ");
+    Line4(115);
+    printf(" Enter Member ID to check history : ");
     fgets(memberId, MAX_ID, stdin);
+    Line3(115);
     whitespace(memberId);
     checkBorrowingHistory(memberId);
 }

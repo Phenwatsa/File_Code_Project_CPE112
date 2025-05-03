@@ -494,16 +494,16 @@ void displayBorrowingMemberTree(memberNode *node) {
 
     // Display only members who are borrowing books
     if (node->borrowList != NULL) {
-        printf(" Member ID: %s | Name: %s %s\n", node->data.ID, node->data.FirstName, node->data.LastName);
-        printf(" Borrowed Books:\n");
-
-        // Use a temporary pointer to traverse the borrowList
+        printf(" Member ID: [%s] | Name: [%s %s]\n", node->data.ID, node->data.FirstName, node->data.LastName);
+        Line3(115);
+        // ใช้ตัวชี้ชั่วคราวเพื่อวนลูป borrowList
         BookBorrowing* temp = node->borrowList;
         while (temp != NULL) {
-            printf("  - %s: %s\n", temp->Book_ID, temp->Title);
+            printf("\t- Book-ID: %-17s  Title: %-80s\n", temp->Book_ID, temp->Title);
             temp = temp->next;
         }
         printf("\n");
+        Line4(115); 
     }
 
     // Traverse the right subtree
@@ -516,36 +516,54 @@ void Display_All_Borrowing(memberNode* root) {
         return;
     }
 
-    Line2();
-    printf(" All Borrowing Members and Their Borrowed Books\n");
-    Line2();
+    Line4(115);
+    printf("%81s\n","All Borrowing Members and Their Borrowed Books");
+    Line4(115);
 
     // Call the recursive function to display the borrowing tree
     displayBorrowingMemberTree(root);
-
-    Line2();
+    Exit();
 }
 
-void Display_All_Borrowing_Queue(BookQueue* queue) {
-    if (queue == NULL || queue->front == NULL) {
-        printf("The borrowing queue is empty.\n");
-        return;
+void Display_All_Borrowing_Queue_AllBooks() {
+    int bookCount = 0; // ตัวนับจำนวนหนังสือที่มีคิว
+    Line4(115);
+    printf("%50s\n", "Borrowing Queue for All Books");
+    Line4(115);
+
+    // วนลูปผ่านทุกหมวดหมู่และปีใน Library
+    for (int i = 0; i < numCategory; i++) {
+        for (int j = 0; j < numYear; j++) {
+            booksNode* temp = Library[i][j].head;
+            while (temp != NULL) {
+                if (temp->data.reservationQueue != NULL && temp->data.reservationQueue->front != NULL) {
+                    bookCount++;
+                    // แสดงข้อมูลหนังสือ
+                    printf(" Book ID: %s | Title: %s\n", temp->data.id, temp->data.title);
+                    Line3(115);
+                    printf(" %-10s | %-20s\n", "Position", "User ID");
+                    Line3(115);
+
+                    // แสดงข้อมูลคิวของหนังสือ
+                    QueueNode* queueTemp = temp->data.reservationQueue->front;
+                    int position = 1;
+                    while (queueTemp != NULL) {
+                        printf(" %-10d | %-20s\n", position, queueTemp->User_ID);
+                        queueTemp = queueTemp->next;
+                        position++;
+                    }
+                    Line4(115);
+                }
+                temp = temp->next;
+            }
+        }
     }
 
-    QueueNode* temp = queue->front;
-    int position = 1; // ตำแหน่งในคิว
-    Line2();
-    printf(" Borrowing Queue:\n");
-    Line();
-    printf(" %-10s | %-20s\n", "Position", "User ID");
-    Line();
-
-    while (temp != NULL) {
-        printf(" %-10d | %-20s\n", position, temp->User_ID);
-        temp = temp->next;
-        position++;
+    if (bookCount == 0) {
+        printf(" No books have a borrowing queue.\n");
     }
-    Line2();
+    Line4(115);
+    Exit();
 }
 
 //Funcion write borrow history to csv

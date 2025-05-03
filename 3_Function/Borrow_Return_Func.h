@@ -57,7 +57,7 @@ void Show_Borrowed_Books();
 
 void displayBorrowingMemberTree(memberNode *node);
 void Display_All_Borrowing(memberNode* Borrowing_Member);
-void Display_All_Borrowing_Queue(BookQueue* queue);
+void Display_All_Borrowing_Queue_AllBooks();
 
 //Funcion write borrow history to csv
 int writeBorrowHistoryToCSVFile(const char *memberID,const char *bookID, const char *title, const char *status);

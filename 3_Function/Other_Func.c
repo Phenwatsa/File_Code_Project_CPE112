@@ -36,11 +36,11 @@ void Delay(){
 }
 
 void Exit(){
-    char Enter_Exit[1];
+    char Enter_Exit;
     do{
         printf(" Enter [E] to Exit : ");
-        scanf(" %s", Enter_Exit);
-    }while (Enter_Exit[0] != 'E' && Enter_Exit[0] != 'e');
+        scanf(" %c", &Enter_Exit);
+    }while (Enter_Exit != 'E' && Enter_Exit != 'e');
     ClearScreen();
 }
 
@@ -219,4 +219,5 @@ void showTop3MembersWithMostReturns(const char *borrowFile, const char *memberFi
         }
         printf("%-3d. %-20s  %-20s %-20s (%-3d books returned)\n",i + 1, borrow_info[i].MEMBER_ID,first,last,borrow_info[i].RETURNED);  ////////////ui
     }
+    Exit();
 }

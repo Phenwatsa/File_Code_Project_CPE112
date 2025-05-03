@@ -7,7 +7,7 @@
 
 void searchBook() {
     Line2();
-    printf("%42s\n","Welcome to search function");
+    printf("%38s\n","Welcome to search function");
     Line();
     printf(" Search by id or Name of the book : ");
 
@@ -19,16 +19,18 @@ void searchBook() {
     Line2();
     // for user to enter the category filter
     printf(" Using filter for category\n");
-    Line();
     int cateFil = filterCategory(categoryNames, numCategory);   
 
-
+    Line2();
     // for user to enter the year filter
-    printf("Using filter for year\n");
+    printf(" Using filter for year\n");
     int yearFil = filterCategory(yearNames, numYear);
 
-    printf("-- List of book below -- \n");
-    
+    ClearScreen();
+    printf("%107s\n", "-- List of Book Below --"); Line3(190);
+    printf(" %-15s | %-80s | %-40s | %-25s | %-5s | %-3s | %-3s\n", 
+        "ID", "Title", "Author", "Category", "Year", "Qty", "Avl");
+    Line3(190);
     // number of book that have been showed
     int numBooksShow = 0;
 
@@ -59,9 +61,9 @@ void searchBook() {
     else {
         numBooksShow = checkDataEachList(Library[cateFil][yearFil], UserFil);
     }
-
-    printf("Number of book found is : %d\n", numBooksShow);
-    
+    Line4(190);
+    printf(" Number of book found is : %d\n", numBooksShow);
+    Line4(190);
 }
 
 // Function for user to describe how to use filter in search function
@@ -567,17 +569,13 @@ void showBookList(booksNode* temp) {
 }
 
 void showBookData(booksNode* temp) {
-    ClearScreen(); Line2();
-    printf("%27s\n","BOOKS");
-    Line();
-    printf(" ID : %s\n", temp->data.id);
-    printf(" title : %s\n", temp->data.title);
-    printf(" Author : %s\n", temp->data.author);
-    printf(" category : %s\n", temp->data.category);
-    printf(" year : %d\n", temp->data.year);
-    printf(" quantity : %d\n", temp->data.quantity);
-    printf(" available : %d\n", temp->data.available);
-    Line2();
+    printf(" %-15s |", temp->data.id);
+    printf(" %-80s |", temp->data.title);
+    printf(" %-40s |", temp->data.author);
+    printf(" %-25s |", temp->data.category);
+    printf(" %-5d |", temp->data.year);
+    printf(" %-3d |", temp->data.quantity);
+    printf(" %-3d\n", temp->data.available);
 }
 
 int checkDataEachList(booksListInfo linkList, char userInput[]) {

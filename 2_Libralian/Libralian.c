@@ -105,7 +105,7 @@ void Member_Management(){
         // UI design format
         ClearScreen();
         Line2();
-        printf("       Welcome to Member Management System\n");
+        printf("%42s\n","Welcome to Member Management System");
         Line2();
         printf(" [1] | Register Member\n");
         printf(" [2] | Update Member\n");
@@ -122,22 +122,18 @@ void Member_Management(){
             case 1:
                 // Register member
                 Register_Member();
-                Exit();
                 break;
             case 2:
                 // Update member
                 updateMember(root);
-                Exit();
                 break;
             case 3:
                 // Display All Members
                 displayMember(root); 
-                Exit();
                 break;
             case 4:
                 // Check borrowing history
                 Check_Borrowing_History();
-                Exit();
                 break;
             case 5:
                 // Exit program
@@ -157,10 +153,10 @@ void Borrow_Management(){
         // UI design format
         ClearScreen();
         Line2();
-        printf("       Welcome to Borrow Management System\n");
+        printf("%42s\n","Welcome to Borrow Management System");
         Line2();
         printf(" [1] | Borrow Book\n");
-        printf(" [2] | Borroeing Queue\n");
+        printf(" [2] | Borrowing Queue\n");
         printf(" [3] | Exit\n");
         Line2();
         printf(" Please select an option : ");
@@ -171,10 +167,10 @@ void Borrow_Management(){
             case 1:
                 // Borrow Book
                 Display_All_Borrowing(root);
-                Exit();
                 break;
             case 2:
                 // Borroeing Queue
+                Display_All_Borrowing_Queue_AllBooks();
                 break;
             case 3:
                 // Exit program
@@ -208,6 +204,7 @@ void Top_Borrowed_Books(){
         switch (Check_Num(Top_Borrowed_choice)){
             case 1: 
                 // Show top borrowed books
+                //displayTop5BorrowedBooks(books, count);
                 break;
             case 2:
                 // Show top borrowed books
@@ -222,7 +219,7 @@ void Top_Borrowed_Books(){
                 printf("\n Invalid choice. Please try again.\n");
                 Delay();
         }
-    } while (Check_Num(Top_Borrowed_choice) != 2);
+    } while (Check_Num(Top_Borrowed_choice) != 3);
 }
 
 void Menu_Librarian(){
@@ -270,4 +267,6 @@ void Menu_Librarian(){
                 Delay();
         }
     } while (Check_Num(Libra_choice) != 5);
+    saveCSV();
+    saveMember(root, "DATA/member.csv");
 }
