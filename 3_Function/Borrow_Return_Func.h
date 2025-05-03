@@ -47,7 +47,7 @@ int isQueueEmpty(BookQueue* queue);
 void InitializeLibrary_Borrow();
 void PrintQueue(BookQueue* queue);
 void Borrowing_Queue(booksNode* temp);
-
+void NotifyReservationQueue(memberNode* member, booksNode* bookRoot);
 // Function to borrow a book
 void borrow_Book(memberNode* member);
 

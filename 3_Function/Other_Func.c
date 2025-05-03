@@ -42,6 +42,7 @@ void Exit(){
         scanf(" %s", Enter_Exit);
     }while (Enter_Exit[0] != 'E' && Enter_Exit[0] != 'e');
     ClearScreen();
+    return 1;
 }
 
 int Check_Num(const char* str){
@@ -98,7 +99,6 @@ int loadBooksFromCSV(const char *fileName, Book books[])
     return count;
     
 }
-
 
 int compareByBorrowed(const void *a, const void *b) {
     Book *bookA = (Book *)a;

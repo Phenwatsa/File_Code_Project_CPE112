@@ -189,24 +189,27 @@ void saveBorrowQueue(const char* filename, memberNode* root) {
         printf(" !!! Error : Could not open file %s\n", filename);
         return;
     }
+    printf("open file %s\n", filename);
 
-    fprintf(ptFile, "User_ID,Book_ID,Title,Status\n");
+    fprintf(ptFile, "Member_ID,Book_ID,Title,Queue_Position\n");
 
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
             booksNode* temp = Library[i][j].head;
             while (temp != NULL) {
-                QueueNode* queueTemp = temp->data.reservationQueue->front;
-
-                while (queueTemp != NULL) {
-                    fprintf(ptFile, "%s,%s,%s,%s\n", queueTemp->User_ID, temp->data.id, temp->data.title, "Reserved");
-                    queueTemp = queueTemp->next;
+                if (temp->data.reservationQueue != NULL) {
+                    QueueNode* queueTemp = temp->data.reservationQueue->front;
+                    while (queueTemp != NULL) {
+                        fprintf(ptFile, "%s,%s,%s,%s\n", queueTemp->User_ID, temp->data.id, temp->data.title, "Reserved");
+                        queueTemp = queueTemp->next;
+                    }
                 }
                 temp = temp->next;
             }
         }
     }
     fclose(ptFile);
+    printf("Borrow queue saved successfully to %s\n", filename);
 }
 
 // Function to borrow a book
@@ -292,11 +295,9 @@ void Enqueue(BookQueue* queue, char* user_ID) {
     if (queue->rear == NULL) {
         queue->front = newNode;
         queue->rear = newNode;
-        printf("Queue is empty, added first node.\n");
     } else {
         queue->rear->next = newNode;
         queue->rear = newNode;
-        printf("Added to the end of the queue.\n");
     }
     printf("1.3\n");
 }
@@ -366,6 +367,7 @@ void Borrowing_Queue(booksNode* temp){
         printf("1\n");
         printf("Adding %s to the reservation queue for book %s\n", user_ID, temp->data.title);
         Enqueue(temp->data.reservationQueue, user_ID);
+        PrintQueue(temp->data.reservationQueue);
         printf("2\n");
     } else {
         printf("Reservation cancelled.\n");
@@ -420,6 +422,8 @@ void NotifyReservationQueue(memberNode* member, booksNode* bookRoot){
             }
         }
     }
+    saveBorrowQueue("DATA/Borrowing_Queue.csv", root);
+    Delay();
 }
 
 // Function returning a book

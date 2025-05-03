@@ -1,6 +1,6 @@
 Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed
-FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,0,0,12
-FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,0,11
+FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,1,0,13
+FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,0,12
 FT01-00048-1965,Airs Above the Ground,Mary Stewart,Fiction,1965,2,0,0
 FT01-00019-1972,The Terminal Man,Michael Crichton,Fiction,1972,2,0,2
 FT01-00026-1974,The Forever War,Joe Haldeman,Fiction,1974,3,0,9
@@ -50,15 +50,13 @@ FT01-00031-2005,Size 12 Is Not Fat,Meg Cabot,Fiction,2005,3,0,9
 FT01-00035-2006,Motor Mouth,Janet Evanovich,Fiction,2006,1,0,2
 FT01-00046-2005,Son of a Witch,Gregory Maguire,Fiction,2005,2,0,0
 HT02-00004-1960,Presidential Power and the Modern Presidents,Richard E. Neustadt,History,1960,1,0,7
-HT02-00008-1994,"Cathedral, Forge and Waterwheel",Joseph Gies,0,1994,0,0
 HT02-00013-1958,The World's Religions,Huston Smith,History,1958,3,0,6
 HT02-00014-1964,The Complete Works,Tacitus,History,1964,2,0,5
 HT02-00017-2002,"The Fall of Berlin, 1945",Antony Beevor,0,2002,0,0
 HT02-00019-1776,The Christians and the Fall of Rome,Edward Gibbon,History,1776,1,0,7
 HT02-00022-1941,Black Lamb and Grey Falcon,Rebecca West,History,1941,1,0,8
 HT02-00023-1938,Homage to Catalonia,George Orwell,History,1938,1,0,4
-HT02-00034-2005,"Love, Sex & Tragedy",Simon Goldhill,0,2005,0,0
-HT02-00035-1979,"The Progressive Historians--Turner, Beard, Parrington",0,0,0,2
+HT02-00034-2005,"Love, Sex & Tragedy",Simon Goldhill,0,2004,0,1
 HT02-00050-2006,"Salonica, City of Ghosts",Mark Mazower,0,2006,0,0
 HT02-00001-1976,Spandau,Albert Speer,History,1976,2,0,4
 HT02-00003-1984,The Origins of the Civil Rights Movement,Aldon D. Morris,History,1984,3,0,0
@@ -198,7 +196,7 @@ CK09-00007-2006,Tyler's Ultimate,Tyler Florence,Cooking,2006,1,0,5
 CK09-00008-2005,Everyday Italian,Giada De Laurentiis,Cooking,2005,2,0,6
 CK09-00009-2005,Being dead is no excuse,Gayden Metcalfe;Charlotte Hays,Cooking,2005,2,0,2
 MT10-00001-2007,The Essential John Nash,John Nash,Mathematics,2007,1,0,4
-MT10-00002-2005,God Created The Integers,Stephen Hawking,Mathematics,2005,2,0,9
+MT10-00002-2005,God Created The Integers,Stephen Hawking,Mathematics,2005,5,1,12
 CG11-00001-2004,"John Constantine, Hellblazer: Setting sun",Warren Ellis,0,2004,0,0
 CG11-00002-2004,Superman,Mark Waid;Leinil Francis Yu,Comics & Graphic Novels,2004,2,0,4
 CG11-00004-2004,Arkham Asylum,Grant Morrison;Dave McKean,Comics & Graphic Novels,2004,3,0,4

@@ -34,6 +34,7 @@ void Menu_User(memberNode* root) {
         printf(" !!! Error: Member with ID [%s] not found.\n", temp_User_ID);
         return;
     }
+    NotifyReservationQueue(currentUser, Library[0][0].head);
 
     do{
         // UI design format
@@ -76,7 +77,7 @@ void Menu_User(memberNode* root) {
                 break;
             case 5:
                 // Exit program
-                printf("\n Exiting the program . . .\n\n");
+                printf("\n Exiting the program . . .\n");
                 break;
             default:
                 // Invalid choice
@@ -86,4 +87,5 @@ void Menu_User(memberNode* root) {
     } while (Check_Num(User_choice) != 5);
     saveCSV();
     saveBorrowQueue("DATA/Borrowing_Queue.csv", root);
+    return 1;
 }
