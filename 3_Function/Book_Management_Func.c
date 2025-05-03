@@ -40,7 +40,7 @@ void searchBook() {
     if (cateFil == -1 && yearFil == -1) {
         for (int i = 0; i < numCategory; i++) {
             for (int j = 0; j < numYear; j++) {
-                numBooksShow = checkDataEachList(Library[i][j], UserFil);
+                numBooksShow += checkDataEachList(Library[i][j], UserFil);
             }
         }
     }
@@ -55,13 +55,13 @@ void searchBook() {
     // using year filter only
     else if (cateFil == -1 && yearFil != -1) {
         for (int i = 0; i < numCategory; i++) {
-            numBooksShow = checkDataEachList(Library[i][yearFil], UserFil);
+            numBooksShow += checkDataEachList(Library[i][yearFil], UserFil);
         }
     }
 
     // using both year and category filter
     else {
-        numBooksShow = checkDataEachList(Library[cateFil][yearFil], UserFil);
+        numBooksShow += checkDataEachList(Library[cateFil][yearFil], UserFil);
     }
     Line4(190);
     printf(" Number of book found is : %d\n", numBooksShow);
