@@ -227,15 +227,15 @@ void loadMember(memberNode **root, const char *fileName)
         if (strlen(line)==0) continue;
         Member info = {0};
 
-        if (sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^\n]", info.ID, info.FirstName, info.LastName, info.Phone, info.Email) == 5)
+        if (sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^\n]", 
+            info.ID, info.FirstName, info.LastName, info.Phone, info.Email) == 5)
         {
             *root = insertMember(*root, info);
         }else{
-            fprintf(stderr, "Invalid data format:  %s\n", line); //////////ui
+            fprintf(stderr, "Invalid data format:  %s\n", line);
         }
     }
     fclose(fp);
-    
 }
 
 void displayMemberTree(memberNode *node)
