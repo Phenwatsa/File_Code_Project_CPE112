@@ -51,7 +51,7 @@ void DeleteBorrowedBook(memberNode* member, const char* bookID) {
     if (member == NULL || member->borrowList == NULL) {
         return;
     }
-
+    
     BookBorrowing* current = member->borrowList;
     BookBorrowing* previous = NULL;
 
