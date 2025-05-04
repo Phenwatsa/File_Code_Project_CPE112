@@ -20,6 +20,8 @@ void ClearScreen();
 void Delay();
 void Exit();
 
+void Download();
+
 
 int Check_Num(const char* str);
 int Check_User_ID(const char* str);

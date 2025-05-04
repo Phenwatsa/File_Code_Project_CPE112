@@ -1,4 +1,3 @@
-//[ploy]
 #include <stdio.h>
 #include "Libralian.h"
 #include "../3_Function/Book_Management_Func.h"
@@ -7,12 +6,12 @@
 #include "../3_Function/Member_Func.h"
 #include "../3_Function/Other_Func.h"
 
+// Function to show all books and search for a specific book
 void Show_Books_Management(){
     char Show_Books_choice[100];
     do{
         // UI design format
-        ClearScreen();
-        Line2();
+        ClearScreen(); Line2();
         printf("%44s\n","Welcome to Show Books Management System");
         Line2();
         printf(" [1] | Show All Books\n");
@@ -21,37 +20,33 @@ void Show_Books_Management(){
         Line2();
         printf(" Please select an option : ");
         
-        // User Input
+        // User Input for menu selection
         scanf(" %s", Show_Books_choice);
         ClearScreen();
         switch (Check_Num(Show_Books_choice)){
-            case 1:
-                // Show all books
+            case 1: // Show all books
                 showAllBooks();
                 break;
-            case 2:
-                // Search book
+            case 2: // Search book
                 searchBook();
                 Exit();
                 break;
-            case 3:
-                // Exit program
-                printf("\n Exiting the program . . .\n\n");
+            case 3: // Exit program
+                printf(" Exiting the program . . .\n\n");
                 break;
-            default:
-                // Invalid choice
-                printf("\n Invalid choice. Please try again.\n");
+            default: // Invalid choice
+                printf(" Invalid choice. Please try again.\n");
                 Delay();
         }
     } while (Check_Num(Show_Books_choice) != 3);
 }
 
+// Function to manage book operations
 void Book_Management(){
     char Book_manag_choice[100];
     do{
         // UI design format
-        ClearScreen();
-        Line2();
+        ClearScreen(); Line2();
         printf(" %40s\n","Welcome to Book Management System");
         Line2();
         printf(" [1] | Add Book\n");
@@ -62,43 +57,33 @@ void Book_Management(){
         Line2();
         printf(" Please select an option : ");
         
-        // User Input
+        // User Input for menu selection
         scanf(" %s", Book_manag_choice);
         ClearScreen();
         switch (Check_Num(Book_manag_choice)){
-            case 1:
-                // Add book
-                addBook();
-                //Exit();
+            case 1: // Add book
+                addBook(); 
                 break;
-            case 2:
-                // Update book
+            case 2: // Update book
                 editBook();
-                //Exit();
                 break;
-            case 3:
-                // Delete book
+            case 3: // Delete book
                 delete();
-                //Exit();
                 break;
-            case 4:
-                // Show all books
+            case 4: // Show all books
                 Show_Books_Management();
-                //Exit();
                 break;
-            case 5:
-                // Exit program
+            case 5: // Exit program
                 printf(" Exiting the program . . .\n"); Delay();
                 break;
-            default:
-                // Invalid choice
+            default: // Invalid choice
                 printf(" Invalid choice. Please try again.\n");
                 Delay();
         }
     } while (Check_Num(Book_manag_choice) != 5);
     saveCSV();
 }
-
+// Function to manage member operations
 void Member_Management(){
     char Member_manag_choice[100];
     do{
@@ -115,109 +100,93 @@ void Member_Management(){
         Line2();
         printf(" Please select an option : ");
         
-        // User Input
+        // User Input for menu selection
         scanf(" %s", Member_manag_choice);
         ClearScreen();
         switch (Check_Num(Member_manag_choice)){
-            case 1:
-                // Register member
+            case 1: // Register member
                 Register_Member();
                 break;
-            case 2:
-                // Update member
+            case 2: // Update member
                 updateMember(root);
                 break;
-            case 3:
-                // Display All Members
+            case 3: // Display All Members
                 displayMember(root); 
                 break;
-            case 4:
-                // Check borrowing history
+            case 4: // Check borrowing history
                 Check_Borrowing_History();
                 break;
-            case 5:
-                // Exit program
-                printf("\n Exiting the program . . .\n\n");
+            case 5: // Exit program
+                printf(" Exiting the program . . .\n\n");
                 break;
-            default:
-                // Invalid choice
-                printf("\n Invalid choice. Please try again.\n");
+            default: // Invalid choice
+                printf(" Invalid choice. Please try again.\n");
                 Delay();
         }
     } while (Check_Num(Member_manag_choice) != 5);
 }
-
+// Function to manage borrowing operations
 void Borrow_Management(){
     char Borrow_manag_choice[100];
     do{
         // UI design format
-        ClearScreen();
-        Line2();
+        ClearScreen(); Line2();
         printf("%42s\n","Welcome to Borrow Management System");
         Line2();
-        printf(" [1] | Borrow Book\n");
-        printf(" [2] | Borrowing Queue\n");
+        printf(" [1] | Borrowed Books List\n");
+        printf(" [2] | Reservation Queue\n");
         printf(" [3] | Exit\n");
         Line2();
         printf(" Please select an option : ");
+
         // User Input
         scanf(" %s", Borrow_manag_choice);
         ClearScreen();
         switch (Check_Num(Borrow_manag_choice)){
-            case 1:
-                // Borrow Book
+            case 1: // Borrowed Books List
                 Display_All_Borrowing(root);
                 break;
-            case 2:
-                // Borroeing Queue
+            case 2: // Reservation Queue
                 Display_All_Borrowing_Queue_AllBooks();
                 break;
-            case 3:
-                // Exit program
-                printf("\n Exiting the program . . .\n\n");
+            case 3: // Exit program
+                printf(" Exiting the program . . .\n\n");
                 break;
-            default:
-                // Invalid choice
-                printf("\n Invalid choice. Please try again.\n");
+            default: // Invalid choice
+                printf(" Invalid choice. Please try again.\n");
                 Delay();
         }
     } while (Check_Num(Borrow_manag_choice) != 3);
 }
-
+// Function to manage top borrowed books
 void Top_Borrowed_Books(){
     char Top_Borrowed_choice[100];
     do{
         // UI design format
-        ClearScreen();
-        Line2();
+        ClearScreen(); Line2();
         printf("       Welcome to Top Borrowed Books System\n");
         Line2();
-        printf(" [1] | Show Top 5 Borrowed Books\n");
-        printf(" [2] | Show Top 3 Members with Most Returns\n");
+        printf(" [1] | Top 5 Borrowed Books\n");
+        printf(" [2] | Top 3 Most Active Borrowers\n");
         printf(" [3] | Exit\n");
         Line2();
         printf(" Please select an option : ");
         
-        // User Input
+        // User Input for menu selection
         scanf(" %s", Top_Borrowed_choice);
         ClearScreen();
         switch (Check_Num(Top_Borrowed_choice)){
-            case 1: 
-                // Show Top 5 Most Borrowed Books
+            case 1: // Show Top 5 Most Borrowed Books
                 displayTop5BorrowedBooks();
                 break;
-            case 2:
-                // Show top 3 members who borrowed (and returned) the most books
+            case 2: // Show top 3 members who borrowed (and returned) the most books
                 showTop3MembersWithMostReturns("DATA/borrow_history.csv", "DATA/member.csv");
-                displayTop5BorrowedBooks();
                 break;
-            case 3:
-                // Exit program
-                printf("\n Exiting the program . . .\n\n");
+            case 3: // Exit program
+                printf(" Exiting the program . . .\n");
                 break;
-            default:
-                // Invalid choice
-                printf("\n Invalid choice. Please try again.\n");
+            default: // Invalid choice
+                printf(" Invalid choice. Please try again.\n");
                 Delay();
         }
     } while (Check_Num(Top_Borrowed_choice) != 3);
@@ -238,33 +207,28 @@ void Menu_Librarian(){
         printf(" [5] | Exit\n");
         Line2();
         printf(" Please select an option : ");
-        // User Input
+        
+        // User Input for menu selection
         scanf(" %s", Libra_choice);
         ClearScreen();
         switch (Check_Num(Libra_choice)){
-            case 1:
-                // Book management
+            case 1: // Book management
                 Book_Management();
                 break;
-            case 2:
-                // Member management
+            case 2: // Member management
                 Member_Management();
                 break;
-            case 3:
-                // Borrow management
+            case 3: // Borrow management
                 Borrow_Management();
                 break;
-            case 4:
-                // Top Borrowed Books
+            case 4: // Top Borrowed Books
                 Top_Borrowed_Books();
                 break;
-            case 5:
-                // Exit program
-                printf("\n Exiting the program . . .\n\n");
+            case 5: // Exit program
+                printf(" Exiting the program . . .\n\n");
                 break;
-            default:
-                // Invalid choice
-                printf("\n Invalid choice. Please try again.\n");
+            default: // Invalid choice
+                printf(" Invalid choice. Please try again.\n");
                 Delay();
         }
     } while (Check_Num(Libra_choice) != 5);

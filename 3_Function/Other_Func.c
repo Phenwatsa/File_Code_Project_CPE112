@@ -34,7 +34,6 @@ void ClearScreen(){
 void Delay(){
     sleep(1);
 }
-
 void Exit(){
     char Enter_Exit;
     do{
@@ -44,6 +43,17 @@ void Exit(){
     ClearScreen();
 }
 
+// Download function
+void Download(){
+    InitializeLibrary();
+    csvToStruct();
+    loadMember(&root, "DATA/member.csv");
+    booksNode* bookRoot = Library[0][0].head;
+    LoadBorrowHistory("DATA/borrow_history.csv", root);
+    LoadBorrowQueue("DATA/Borrowing_Queue.csv", root, bookRoot);
+}
+
+// Check if the input is a number between 1 and 9
 int Check_Num(const char* str){
     if (strlen(str) == 1 && str[0] >= '1' && str[0] <= '9') {
         return str[0] - '0'; 
@@ -51,13 +61,13 @@ int Check_Num(const char* str){
         return 0; 
     }
 }
-
+// Check if the input is a valid member ID
 int Check_User_ID(const char* str){
     memberNode *target = searchMember(root, str);
     if (!target){
         ClearScreen();
         printf(" Member with ID [%s] not found.\n", str);
-        Line();
+        Line(); Delay();
         return 0 ;
     }
     return 1;
@@ -69,8 +79,10 @@ int loadBooksFromCSV(const char *fileName, Book books[])
     FILE *fp = fopen(fileName, "r");
     if (!fp)
     {
-        perror("Error opening file"); ////////ui
+        ClearScreen();
+        perror("Error opening file"); 
         printf("Tried to open: %s\n", fileName);
+        Line(); Delay();
         return 0;
     }
     
@@ -97,7 +109,6 @@ int loadBooksFromCSV(const char *fileName, Book books[])
 
     fclose(fp);
     return count;
-    
 }
 
 int compareByBorrowed(const void *a, const void *b) {
@@ -108,14 +119,16 @@ int compareByBorrowed(const void *a, const void *b) {
 
 void displayTop5BorrowedBooks()
 {
-
     Book books[MAX_BOOKS];
     const char *fileName = "DATA/Book-ID.csv";
     int count = loadBooksFromCSV(fileName, books);
 
     qsort(books,count,sizeof(Book),compareByBorrowed);
-    printf("Top 5 Most Borrowed Books\n");
-    printf("%-20s %-90s %-20s\n", "Borrowed", "Title", "Book ID"); ////////ีรรรuiiiii
+    Line4(115);
+    printf("%70s\n","Top 5 Most Borrowed Books");
+    Line4(115);
+    printf(" %-10s | %-80s | %-20s\n", "Borrowed", "Title", "Book ID");
+    Line3(115);
 
     int top5;
     if (count < 5)
@@ -128,11 +141,11 @@ void displayTop5BorrowedBooks()
     
     for (int i = 0; i < top5; i++)
     {
-        printf("%-20d %-90s %-20s\n",books[i].BORROWED,books[i].TITLE,books[i].ID); //////ีรรรร  uiiiii
+        printf(" %-10d | %-80s | %-20s\n",books[i].BORROWED,books[i].TITLE,books[i].ID); 
 
     }
+    Line4(115);
     Exit();
-
 }
 
 //Show Top 3 Members With Returns
@@ -147,7 +160,9 @@ int loadMembers(const char *fileName, MemberInfo members[], int maxMembers)
 {
     FILE *fp = fopen(fileName, "r");
     if (!fp) {
+        ClearScreen();
         printf("Error opening member file.\n");
+        Line(); Delay();
         return 0;
     }
 
@@ -168,7 +183,9 @@ void showTop3MembersWithMostReturns(const char *borrowFile, const char *memberFi
     FILE *fp = fopen(borrowFile, "r");
     if (!fp) 
     {
+        ClearScreen();
         printf("Error opening borrow file.\n");
+        Line(); Delay();
         return;
     }
 
@@ -207,9 +224,9 @@ void showTop3MembersWithMostReturns(const char *borrowFile, const char *memberFi
     fclose(fp);
 
     qsort(borrow_info, borrow_count, sizeof(MemberBorrowInfo), compareByReturnCount);
-    Line4(100);
-    printf("%-60s\n","Top 3 members with most borred books");
-    Line4(100);
+    Line4(75);
+    printf("%55s\n","Top 3 members with most borred books");
+    Line3(75);
     for (int i = 0; i < 3 && i < borrow_count; i++) 
     {
         char *first = "Unknown";
@@ -223,8 +240,8 @@ void showTop3MembersWithMostReturns(const char *borrowFile, const char *memberFi
                 break;
             }
         }
-        printf(" [%-3d] %-15s %-15s %-15s (%-2d books returned)\n",i + 1, borrow_info[i].MEMBER_ID,first,last,borrow_info[i].RETURNED); 
+        printf(" [%d] %-10s | %-15s %-15s (%-2d books returned)\n",i + 1, borrow_info[i].MEMBER_ID,first,last,borrow_info[i].RETURNED); 
     }
-    Line4(100);
+    Line4(75);
     Exit();
 }

@@ -1,4 +1,3 @@
-// [ploy]
 #include <stdio.h>
 #include "1_User/User.h"
 #include "2_Libralian/Libralian.h"
@@ -11,19 +10,11 @@
 int main() {
     char choice[100];
 
-    InitializeLibrary();
-    csvToStruct();
+    Download(); // Load data from CSV files
     
-    loadMember(&root, "DATA/member.csv");
-    booksNode* bookRoot = Library[0][0].head;
-
-
-    LoadBorrowHistory("DATA/borrow_history.csv", root);
-    LoadBorrowQueue("DATA/Borrowing_Queue.csv", root, bookRoot);
-
-
     do {
         // UI design format
+        //ClearScreen();
         Line2();
         printf("%45s\n","Welcome to the Library Management System");
         Line2();
@@ -33,26 +24,22 @@ int main() {
         Line2();
         printf(" Please select an option : ");
         
-        // User input
+        // User input for menu selection
         scanf(" %s", choice);
         ClearScreen();
         switch (Check_Num(choice)){
-            case 1:
-                // For Librarian
+            case 1: // For Librarian
                 printf(" Librarian selected . . .\n"); Delay();
                 Menu_Librarian();
                 break;
-            case 2:
-                // For Member
+            case 2: // For Member
                 printf(" Member selected . . .\n"); Delay();
                 Menu_User(root);
                 break;
-            case 3:
-                // Exit program
+            case 3: // Exit program
                 printf(" Exiting the program . . .\n"); Delay();
                 break;
-            default:
-                // Invalid choice
+            default: // Invalid choice
                 printf(" Invalid choice. Please try again . . .\n"); Delay();
                 break;
         }

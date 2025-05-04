@@ -2,12 +2,17 @@
 #include "Data_Func.h"
 
 // Set list of category
-char categoryNames[numCategory][max_char] = {"Fiction", "History", "Science", "Biography & Autography", "Psychology", "Religion", "Business & Economics", "Computers", "Cooking", "Mathematics", "Comics & Graphic Novels"};
-
-char cateShortNames[numCategory][5] = {"FT01", "HT02", "SC03", "BI04", "PS05", "RE06", "BE07", "CP08", "CK09", "MT10", "CG11"};
-
+char categoryNames[numCategory][max_char] = 
+    {"Fiction", "History", "Science", "Biography & Autography", 
+    "Psychology", "Religion", "Business & Economics", "Computers", 
+    "Cooking", "Mathematics", "Comics & Graphic Novels"};
+char cateShortNames[numCategory][5] = 
+    {"FT01", "HT02", "SC03", "BI04", "PS05", "RE06", 
+    "BE07", "CP08", "CK09", "MT10", "CG11"};
 // Set list of year range
-char yearNames[numYear][max_char] = {"below 1975", "1975-1985", "1985-1995", "1995-2005", "2005-2015", "2015-2025", "above 2025"};
+char yearNames[numYear][max_char] = 
+    {"below 1975", "1975-1985", "1985-1995", "1995-2005",
+    "2005-2015", "2015-2025", "above 2025"};
 
 // path to csv file
 char pathFile[] = "DATA/Book-ID.csv";
@@ -31,6 +36,7 @@ int year2yearIndex(int year) {
     return yearIndex;
 }
 
+// Function to save the library data to CSV file
 void csvToStruct() {
     FILE* csvFile = fopen(pathFile, "r");
 
@@ -77,7 +83,6 @@ void csvToStruct() {
 
         int quantity = atoi(quantityStr);
         int available = atoi(availableStr);
-
         int categoryIndex = 10 * (id[2] - '0') + (id[3] - '0') - 1;
         int year = atoi(yearStr);
         int yearIndex = year2yearIndex(year);
@@ -116,10 +121,10 @@ void csvToStruct() {
             Library[categoryIndex][yearIndex].tail = newBookNode;
         }
     }
-
     fclose(csvFile);
 }
 
+// Function to borrow a book
 void BorrowQueue(booksNode* bookNode) {
     if (bookNode == NULL) {
         printf("ERROR: Book node is NULL\n");

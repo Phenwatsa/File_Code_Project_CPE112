@@ -8,6 +8,7 @@
 memberNode* root = NULL;
 const char* filename = "DATA/member.csv";
 
+// Insert a new member into the binary search tree
 memberNode *insertMember(memberNode *root, Member data)
 {
     if (root == NULL)
@@ -28,6 +29,7 @@ memberNode *insertMember(memberNode *root, Member data)
     return root;
 }
 
+// Search for a member by ID in the binary search tree
 memberNode *searchMember(memberNode *root, const char *id)
 {
     if (root == NULL || strcmp(root->data.ID, id) == 0)
@@ -48,6 +50,7 @@ int saveMemberTree(memberNode *node, FILE *fp);
 void displayMember(memberNode *node);
 void inputMemberData(Member *info);
 
+// Function to remove trailing whitespace from a string
 void whitespace(char *message)
 {
     int i = strlen(message) - 1;
@@ -55,11 +58,8 @@ void whitespace(char *message)
     {
         message[i--] = '\0';
     }
-    
 }
 
-
-//อาจจะเจน ID ให้ member
 void inputMemberData(Member *info)
 {
     Line2();
@@ -88,10 +88,9 @@ void updateMember(memberNode *root)
 {
     if (!root)
     {
-        
-       ClearScreen(); Line2();
-        printf("Member database is empty.\n");
-        Line2();
+        ClearScreen();
+        printf(" !!! Member database is empty.\n");
+        Line(); Delay();
         return;
     }
     
@@ -105,10 +104,9 @@ void updateMember(memberNode *root)
     memberNode *target = searchMember(root, search_ID);
     if (!target)
     {
-        ClearScreen(); Line2();
-        printf(" Member with ID [%s] not found.\n", search_ID);
-        Line2();
-        Exit();
+        ClearScreen();
+        printf(" !!! Member with ID [%s] not found.\n", search_ID);
+        Line(); Exit();
         return;
 
     }
@@ -124,15 +122,13 @@ void updateMember(memberNode *root)
     {
         Line2();
         printf(" Member updated successfully.\n");
-        Line2(); 
-        Exit();
+        Line2(); Exit();
         return;
     }else
     {
-        ClearScreen(); Line2();
-        printf("Error saving changes.\n");
-        Line2(); 
-        Exit();
+        ClearScreen();
+        printf(" !!! Error saving changes.\n");
+        Line(); Exit();
         return;
     }
 }
@@ -157,8 +153,8 @@ int saveMember(memberNode *root, const char *fileName)
     if (!fp)
     {
         ClearScreen();
-        perror("Error opening file for writing ! ! !"); 
-
+        perror(" !!! Error opening file for writing."); 
+        Line(); Delay();
         return -1; 
     }
     
@@ -175,7 +171,7 @@ void checkBorrowingHistory(const char *memberId)
     {
         ClearScreen();
         printf(" !!! Cannot open borrow history file");
-        Delay();
+        Line(); Delay();
         return;
     }
     
@@ -195,7 +191,6 @@ void checkBorrowingHistory(const char *memberId)
         if (sscanf(line, "%[^,],%[^,],%[^,],%[^\n]", CurrentMemberID, Book_ID, Title, Status) == 4)
         {
             if (strcmp(CurrentMemberID, memberId) != 0) continue;
-            //printf(" %s !!!", Book_ID);
             printf(" %-18s | %-80s | %-5s\n" , Book_ID, Title, Status);
             found = 1;
             
@@ -204,12 +199,12 @@ void checkBorrowingHistory(const char *memberId)
     
     if (!found)
     {
+        ClearScreen();
         printf(" No borrowing history found.\n"); 
+        Line(); Delay();
     }
     fclose(fp);
-    Line4(115);
-    Exit();
-
+    Line4(115); Exit();
 }
 
 void loadMember(memberNode **root, const char *fileName)
@@ -217,7 +212,9 @@ void loadMember(memberNode **root, const char *fileName)
     FILE *fp = fopen(fileName, "r");
     if (!fp)
     {
-        perror("Error opening member file");
+        ClearScreen();
+        perror(" !!! Error opening member file");
+        Line(); Delay();
         return;
     }
 
@@ -230,7 +227,6 @@ void loadMember(memberNode **root, const char *fileName)
         if (strlen(line)==0) continue;
         Member info = {0};
 
-        
         if (sscanf(line, "%[^,],%[^,],%[^,],%[^,],%[^\n]", info.ID, info.FirstName, info.LastName, info.Phone, info.Email) == 5)
         {
             *root = insertMember(*root, info);
@@ -255,9 +251,9 @@ void displayMember(memberNode *root)
 {
     if (!root)
     {
-        ClearScreen(); Line2();
+        ClearScreen();
         printf(" No members to display.\n");
-        Line2();
+        Line(); Delay();
         return;
     }
     ClearScreen(); Line4(115);

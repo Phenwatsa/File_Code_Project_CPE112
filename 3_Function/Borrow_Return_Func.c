@@ -1,5 +1,3 @@
-//[Ploy]
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,6 +8,7 @@
 #include "Other_Func.h"
 #include "Borrow_Return_Func.h"
 
+// Function to search for a member by ID
 booksNode* searchBook_ID(booksNode* root, const char* bookID) {
     booksNode* current = root;
     while (current != NULL) {
@@ -21,10 +20,13 @@ booksNode* searchBook_ID(booksNode* root, const char* bookID) {
     return NULL; 
 }
 
+// Function Add Data to Borrowed Book Structure
 void AddBorrowedBook(memberNode* member, const char* bookID, const char* title, const char* status) {
     BookBorrowing* NewBorrow = (BookBorrowing*)malloc(sizeof(BookBorrowing));
     if (NewBorrow == NULL) {
+        ClearScreen();
         printf(" !!! Error : Memory allocation failed.\n");
+        Line(); Delay();
         return;
     }
 
@@ -44,6 +46,7 @@ void AddBorrowedBook(memberNode* member, const char* bookID, const char* title, 
     }    
 }
 
+// Function to delete a borrowed book from the member's list
 void DeleteBorrowedBook(memberNode* member, const char* bookID) {
     if (member == NULL || member->borrowList == NULL) {
         return;
@@ -58,7 +61,9 @@ void DeleteBorrowedBook(memberNode* member, const char* bookID) {
     }
 
     if (current == NULL) {
+        ClearScreen();
         printf(" !!! Error : Book with ID [%s] not found in borrow list.\n", bookID);
+        Line(); Delay();
         return;
     }
 
@@ -70,10 +75,13 @@ void DeleteBorrowedBook(memberNode* member, const char* bookID) {
     free(current);
 }
 
+// Function to load borrowing history from a CSV file
 void LoadBorrowHistory(const char* filename, memberNode* root){
     FILE* ptFile = fopen(filename, "r");
     if (ptFile == NULL){
+        ClearScreen();
         printf(" !!! Error : Could not open file %s\n", filename);
+        Line(); Delay();
         return;
     }
 
@@ -106,25 +114,27 @@ void LoadBorrowHistory(const char* filename, memberNode* root){
     fclose(ptFile);
 }
 
+// Function to display borrowing history for a specific member
 void DisplayBorrowing(memberNode* Borrowing_Member){
     if (Borrowing_Member == NULL) {
-        Line2();
+        ClearScreen();
         printf(" !!! Error: Invalid member.\n");
-        Line2();
+        Line(); Delay();
         return;
     }
 
     if (Borrowing_Member->borrowList == NULL){
-        Line2();
-        printf(" Member [%s] has no books borrowed.\n", Borrowing_Member->data.ID);
-        Line2();
+        ClearScreen();
+        printf(" !!! Member [%s] has no books borrowed.\n", Borrowing_Member->data.ID);
+        Line(); Delay();
         return;
     }
 
     Line2();
     printf(" Borrowing Books List for Member [%s]\n", Borrowing_Member->data.ID); 
     Line2();
-
+    
+    // Display the borrowed books
     BookBorrowing* temp = Borrowing_Member->borrowList;
     printf(" %-20s %-50s\n", "Book ID", "Title");
     while (temp != NULL) {
@@ -134,6 +144,7 @@ void DisplayBorrowing(memberNode* Borrowing_Member){
     Line2();
 }
 
+// Function to count the number of borrowed books for a member
 int CountBorrowedBooks(memberNode* member){
     int count = 0;
     BookBorrowing* temp = member->borrowList;
@@ -144,10 +155,13 @@ int CountBorrowedBooks(memberNode* member){
     return count;
 }
 
+// Function to load borrowing queue from a CSV file
 void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bookRoot){
     FILE* ptFile = fopen(filename, "r");
     if (ptFile == NULL) {
+        ClearScreen();
         printf(" !!! Error : Could not open file %s\n", filename);
+        Line(); Delay();
         return;
     }
 
@@ -183,17 +197,20 @@ void LoadBorrowQueue(const char* filename, memberNode* memberRoot, booksNode* bo
     fclose(ptFile);
 }
 
+// Function to save borrowing queue to a CSV file
 void saveBorrowQueue(const char* filename, memberNode* root) {
     FILE* ptFile = fopen(filename, "w");
     if (ptFile == NULL) {
         ClearScreen();
         printf(" !!! Error : Could not open file %s\n", filename);
-        Delay();
+        Line(); Delay();
         return;
     }
 
+    // Write header
     fprintf(ptFile, "Member_ID,Book_ID,Title,Queue_Position\n");
 
+    // Write borrowing queue data
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
             booksNode* temp = Library[i][j].head;
@@ -201,7 +218,8 @@ void saveBorrowQueue(const char* filename, memberNode* root) {
                 if (temp->data.reservationQueue != NULL) {
                     QueueNode* queueTemp = temp->data.reservationQueue->front;
                     while (queueTemp != NULL) {
-                        fprintf(ptFile, "%s,%s,%s,%s\n", queueTemp->User_ID, temp->data.id, temp->data.title, "Reserved");
+                        fprintf(ptFile, "%s,%s,%s,%s\n", 
+                            queueTemp->User_ID, temp->data.id, temp->data.title, "Reserved");
                         queueTemp = queueTemp->next;
                     }
                 }
@@ -215,15 +233,14 @@ void saveBorrowQueue(const char* filename, memberNode* root) {
 // Function to borrow a book
 void borrow_Book(memberNode* member){
     if (CountBorrowedBooks(member) >= 3) {
-        printf(" You cannot borrow more than 3 books at a time.\n");
-        Exit();
+        ClearScreen();
+        printf(" !!!You cannot borrow more than 3 books at a time.\n");
+        Line(); Exit();
         return;
     }
 
     char book_id[20];
     int book_found = 0;
-
-    // Prompt user for book name
 
     printf(" Enter the ID of the book you want to borrow : ");
     scanf(" %[^\n]", book_id);
@@ -231,54 +248,62 @@ void borrow_Book(memberNode* member){
     // Search for the book in the list
     for (int i = 0 ; i < numCategory ; i++){
         for (int j = 0 ; j < numYear ; j++){
+            // Check if the book is in the library
             booksNode* temp = Library[i][j].head; 
             while (temp != NULL){
+                // Check if the book ID matches
                 if (strcmp(temp->data.id, book_id)==0){
                     book_found = 1;
-                    ClearScreen(); Line(); 
+                    ClearScreen(); Line();
                     printf(" Book found: %s (ID : %s)\n", temp->data.title, temp->data.id);
                     printf(" Quantity available : %d\n", temp->data.quantity);
                     Line();
 
-                    //Check if the book is available
+
                     char Confirm;
                     do {
+                        // Ask for confirmation to borrow the book
                         printf(" Do you want to borrow this book? (Y/N) : ");
                         scanf(" %c", &Confirm);
                     } while (Confirm != 'Y' && Confirm != 'y' && Confirm != 'N' && Confirm != 'n');
 
+                    // Check if the user wants to borrow the book
                     if (Confirm == 'Y' || Confirm == 'y'){
                         if (temp->data.quantity > 0){
+                            // Proceed with borrowing the book
                             temp->data.quantity--;
                             if (temp->data.quantity <= 0){
                                 temp->data.available = 0;
                             }
+                            // Add the book to the member's borrowed list
                             AddBorrowedBook(member, temp->data.id, temp->data.title, "Borrowed");
                             writeBorrowHistoryToCSVFile(member->data.ID, temp->data.id, temp->data.title, "Borrowed");
-                            saveCSV();
-                            updateBorrowCount(temp->data.id);
+                            saveCSV(); updateBorrowCount(temp->data.id);
                             Line();
                             printf(" You have successfully borrowed the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
                             Line2();
                         }
                         else{
+                            // Book is not available for borrowing
                             Line();
                             printf(" Sorry, this book is not available for borrowing.\n");
+                            // Ask if the user wants to join the reservation queue
                             Borrowing_Queue(temp);
                         }
                     }
+                    // Check if the user does not want to borrow the book
                     else if (Confirm == 'N' || Confirm == 'n'){
                         Line();
                         printf(" Borrowing cancelled.\n");                        
                         Line2();
                     }
+                    Exit();
                     return;
                 }                    
                 temp = temp->next;
             }
         }
     }
-
     if (book_found==0){
         Line();
         printf(" Book not found.\n");
@@ -287,7 +312,7 @@ void borrow_Book(memberNode* member){
     Exit();
 }
 
-// Function Book Borrowing Queue
+// Function to create a new queue node
 void Enqueue(BookQueue* queue, char* user_ID) {
     QueueNode* newNode = (QueueNode*)malloc(sizeof(QueueNode));
 
@@ -301,14 +326,14 @@ void Enqueue(BookQueue* queue, char* user_ID) {
         queue->rear->next = newNode;
         queue->rear = newNode;
     }
-
 }
 
+// Function to dequeue a user from the reservation queue
 void Dequeue(BookQueue* queue){
     if (queue->front == NULL){
         ClearScreen();
-        printf("The reservation queue is empty.\n");
-        Delay();
+        printf(" !!!The reservation queue is empty.\n");
+        Line(); Delay();
         return;
     }
 
@@ -326,6 +351,7 @@ int isQueueEmpty(BookQueue* queue){
     return (queue->front == NULL);
 }
 
+// Function to initialize the reservation queue for all books in the library
 void InitializeLibrary_Borrow() {
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
@@ -342,14 +368,17 @@ void InitializeLibrary_Borrow() {
     }
 }
 
+// Function to print the reservation queue
 void PrintQueue(BookQueue* queue){
     if (queue->front == NULL) {
+        ClearScreen();
         printf("The queue is empty.\n");
+        Line(); Delay();
         return;
     }
 
     QueueNode* temp = queue->front;
-    printf("Current queue: ");
+    printf(" Current queue: ");
     while (temp != NULL) {
         printf("%s -> ", temp->User_ID);
         temp = temp->next;
@@ -357,58 +386,68 @@ void PrintQueue(BookQueue* queue){
     printf("NULL\n");
 }
 
+// Function to add a user to the reservation queue
+// This function is called when a book is not available for borrowing
 void Borrowing_Queue(booksNode* temp){
     char reserve_queue;
-    printf("Do you want to join the reservation queue? (Y/N): ");
-    scanf(" %c", &reserve_queue);
+    do{
+        ClearScreen();
+        printf(" Do you want to join the reservation queue (Y/N): ");
+        scanf(" %c", &reserve_queue);
+    } while (reserve_queue != 'Y' && reserve_queue != 'y' && reserve_queue != 'N' && reserve_queue != 'n');
 
     if (reserve_queue == 'Y' || reserve_queue == 'y') {
         char user_ID[50];
-        printf("Enter your ID: ");
+        printf(" Enter your ID: ");
         scanf(" %[^\n]", user_ID);
 
         // Add the user to the reservation queue
-        printf("1\n");
-        printf("Adding %s to the reservation queue for book %s\n", user_ID, temp->data.title);
+        printf(" Adding [%s] to the reservation queue for book : %s\n", user_ID, temp->data.title);
         Enqueue(temp->data.reservationQueue, user_ID);
         PrintQueue(temp->data.reservationQueue);
-        printf("2\n");
     } else {
-        printf("Reservation cancelled.\n");
+        ClearScreen();
+        printf(" Reservation cancelled.\n");
+        Line(); Delay();
+        return;
     }
-    printf("3--------------------\n");
     saveBorrowQueue("DATA/Borrowing_Queue.csv", root);
     Exit();
 }
 
+// Function to notify a member about the availability of a book
 void NotifyReservationQueue(memberNode* member, booksNode* bookRoot){
-
     if (member == NULL) {
+        ClearScreen();
         printf(" !!! Error: Invalid member.\n");
+        Line(); Delay();
         return;
     }
 
+    // Check if the member has any books in the reservation queue
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
             booksNode* temp = Library[i][j].head;
             while (temp != NULL) {
+                // Check if the book has a reservation queue
                 if (temp->data.reservationQueue != NULL && temp->data.reservationQueue->front != NULL) {
                     if (strcmp(temp->data.reservationQueue->front->User_ID, member->data.ID) == 0) {
                         ClearScreen(); Line2();
-                        printf("   Member ID: [%s] | Name: [%s %s]\n", member->data.ID, member->data.FirstName, member->data.LastName);
+                        printf("   Member ID: [%s] | Name: [%s %s]\n", 
+                            member->data.ID, member->data.FirstName, member->data.LastName);
                         Line2();
                         printf("\n !!! Notification !!!\n");
                         Line2();
-                        printf(" The book '%s' (ID: %s) \n is now available for you.\n", temp->data.title, temp->data.id);
+                        printf(" The book '%s' (ID: %s) \n is now available for you.\n", 
+                            temp->data.title, temp->data.id);
                         Line2();
                         printf(" Do you want to borrow this book (Y/N): ");
-                        
                         
                         char confirm;
                         scanf(" %c", &confirm);
 
+                        // User confirmation to borrow the book
                         if (confirm == 'Y' || confirm == 'y') {
-                            // ดำเนินการยืมหนังสือ
                             if (temp->data.quantity > 0) {
                                 temp->data.quantity--;
                                 if (temp->data.quantity <= 0) {
@@ -418,17 +457,16 @@ void NotifyReservationQueue(memberNode* member, booksNode* bookRoot){
                                 writeBorrowHistoryToCSVFile(member->data.ID, temp->data.id, temp->data.title, "Borrowed");
                                 updateBorrowCount(temp->data.id);
                                 ClearScreen();
-                                printf(" You have successfully borrowed the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
-                                Delay();
-                            } else {
-                                printf(" Sorry, this book is no longer available.\n");
+                                printf(" You have successfully borrowed the book: %s (ID: %s)\n", 
+                                    temp->data.title, temp->data.id);
+                                Line2(); Delay();
                             }
                         } else if (confirm == 'N' || confirm == 'n') {
                             ClearScreen();
                             printf(" You have declined to borrow the book.\n");
-                            Delay();
+                            Line2(); Delay();
                         }
-                        // ลบสมาชิกออกจากคิว
+                        // Remove the user from the reservation queue
                         Dequeue(temp->data.reservationQueue);
                     }
                 }
@@ -444,24 +482,28 @@ void return_Book(memberNode* member) {
     char book_id[20];
     int book_found = 0;
 
-    // ตรวจสอบว่าสมาชิกมีข้อมูลหรือไม่
+    // Check if the member has information
     if (member == NULL) {
+        ClearScreen();
         printf(" !!! Warning : Invalid member.\n");
+        Line(); Delay();
         return;
     }
 
-    // แสดงรายการหนังสือที่สมาชิกยืม
+    // Check if the member has borrowed books
     if (member->borrowList == NULL) {
+        Line2();
         printf(" Member [%s] has no books borrowed.\n", member->data.ID);
+        Line2();
         return;
     }
     DisplayBorrowing(member);
 
-    // รับ Book ID จากผู้ใช้
+    // Input Book ID 
     printf(" Enter the ID of the book you want to return: ");
     scanf(" %[^\n]", book_id);
 
-    // ตรวจสอบว่าหนังสืออยู่ในรายการยืมของสมาชิกหรือไม่
+    // Check if the book is in the member's borrowed list
     BookBorrowing* borrowedBook = member->borrowList;
     while (borrowedBook != NULL) {
         if (strcmp(borrowedBook->Book_ID, book_id) == 0) {
@@ -472,15 +514,18 @@ void return_Book(memberNode* member) {
     }
 
     if (!book_found) {
+        ClearScreen();
         printf(" !!! Error: Book with ID [%s] is not in your borrowing list.\n", book_id);
+        Line(); Delay();
         return;
     }
 
-    // ค้นหาหนังสือใน Library
+    // Search for the book in the library
     booksNode* temp = NULL;
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
             booksNode* current = Library[i][j].head;
+            // Check if the book ID matches
             while (current != NULL) {
                 if (strcmp(current->data.id, book_id) == 0) {
                     temp = current;
@@ -494,17 +539,20 @@ void return_Book(memberNode* member) {
     }
 
     if (temp == NULL) {
+        ClearScreen();
         printf(" !!! Error: Book not found in the library.\n");
+        Line(); Delay();
         return;
     }
 
-    // ยืนยันการคืนหนังสือ
+    // Confirm the return of the book
     char Confirm;
     do {
         printf(" Do you want to return this book (Y/N): ");
         scanf(" %c", &Confirm);
     } while (Confirm != 'Y' && Confirm != 'y' && Confirm != 'N' && Confirm != 'n');
 
+    // User confirmation to return the book
     if (Confirm == 'Y' || Confirm == 'y') {
         temp->data.quantity++;
         temp->data.borrowCount++;
@@ -514,6 +562,7 @@ void return_Book(memberNode* member) {
         changingStatusToReturn(member->data.ID, temp->data.id);
         DeleteBorrowedBook(member, temp->data.id);
         updateBorrowCount(temp->data.id);
+
         ClearScreen();
         printf(" You have successfully returned the book: %s (ID: %s)\n", temp->data.title, temp->data.id);
         Line();
@@ -524,7 +573,7 @@ void return_Book(memberNode* member) {
     }
 }
 
-
+// Function to display all members who are borrowing books
 void displayBorrowingMemberTree(memberNode *node) {
     if (!node) return;
 
@@ -535,7 +584,7 @@ void displayBorrowingMemberTree(memberNode *node) {
     if (node->borrowList != NULL) {
         printf(" Member ID: [%s] | Name: [%s %s]\n", node->data.ID, node->data.FirstName, node->data.LastName);
         Line3(115);
-        // ใช้ตัวชี้ชั่วคราวเพื่อวนลูป borrowList
+        // point to the borrowed books list
         BookBorrowing* temp = node->borrowList;
         while (temp != NULL) {
             printf("\t- Book-ID: %-17s  Title: %-80s\n", temp->Book_ID, temp->Title);
@@ -549,6 +598,7 @@ void displayBorrowingMemberTree(memberNode *node) {
     displayBorrowingMemberTree(node->right);
 }
 
+// Function to display all borrowing members and their borrowed books
 void Display_All_Borrowing(memberNode* root) {
     if (root == NULL) {
         printf(" !!! No borrowing history available.\n");
@@ -564,37 +614,38 @@ void Display_All_Borrowing(memberNode* root) {
     Exit();
 }
 
+// Function to display all borrowing queues for all books
 void Display_All_Borrowing_Queue_AllBooks() {
-    int bookCount = 0; // ตัวนับจำนวนหนังสือที่มีคิว
+    int bookCount = 0; // Counter for books with borrowing queues
     Line4(100);
     printf("%64s\n", "Borrowing Queue for All Books");
     Line4(100);
 
-    // วนลูปผ่านทุกหมวดหมู่และปีใน Library
+    // Iterate through all categories and years
     for (int i = 0; i < numCategory; i++) {
         for (int j = 0; j < numYear; j++) {
             booksNode* temp = Library[i][j].head;
             while (temp != NULL) {
                 if (temp->data.reservationQueue != NULL && temp->data.reservationQueue->front != NULL) {
                     bookCount++;
-                    // แสดงข้อมูลหนังสือ
+                    // Display book information
                     printf(" Book ID: [%s] | Title: %s\n", temp->data.id, temp->data.title);
                     Line3(100);
                     printf(" %-10s | %-20s | %-30s\n", "Position", "User ID", "Member Name");
                     Line3(100);
 
-                    // แสดงข้อมูลคิวของหนังสือ
+                    // Display the reservation queue
                     QueueNode* queueTemp = temp->data.reservationQueue->front;
                     int position = 1;
                     while (queueTemp != NULL) {
-                        // ค้นหาชื่อสมาชิกจาก Member ID
+                        // Search for the member by ID
                         memberNode* member = searchMember(root, queueTemp->User_ID);
-                        char memberName[50] = "Unknown"; // ค่าเริ่มต้นหากไม่พบสมาชิก
+                        char memberName[50] = "Unknown"; // Default name if not found
                         if (member != NULL) {
                             snprintf(memberName, sizeof(memberName), "%s %s", member->data.FirstName, member->data.LastName);
                         }
 
-                        // แสดงข้อมูลคิว
+                        // Display the queue information
                         printf(" %-10d | %-20s | %-30s\n", position, queueTemp->User_ID, memberName);
                         queueTemp = queueTemp->next;
                         position++;
@@ -625,10 +676,6 @@ int writeBorrowHistoryToCSVFile(const char *memberID,const char *bookID, const c
     fprintf(fp,"%s,%s,%s,%s\n",memberID,bookID,title,status);
     fclose(fp);
     return 1;
-    
-}
-
-void Show_Borrowed_Books(){
     
 }
 
