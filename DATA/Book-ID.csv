@@ -1,9 +1,7 @@
 Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed
-FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,0,0,4
-FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,4,0,15
+FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,2,0,4
+FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,0,10
 FT01-00048-1965,Airs Above the Ground,Mary Stewart,Fiction,1965,2,0,0
-FT01-00049-1965,Dune,Frank Herbert,Fiction,1965,2,0,0
-FT01-00050-1965,Dune,Frank Herbert,Fiction,1965,3,0,0
 FT01-00019-1972,The Terminal Man,Michael Crichton,Fiction,1972,2,0,2
 FT01-00026-1974,The Forever War,Joe Haldeman,Fiction,1974,3,0,9
 FT01-00037-1969,Great Short Works of Herman Melville,Herman Melville,Fiction,1969,3,0,2
@@ -12,12 +10,12 @@ FT01-00010-1994,The Love of the Last Tycoon,F. Scott Fitzgerald,Fiction,1994,3,0
 FT01-00011-1992,The Song of Rhiannon,Evangeline Walton,Fiction,1992,2,0,8
 FT01-00013-1986,The Short Stories of Ernest Hemingway,Ernest Hemingway,Fiction,1986,1,0,10
 FT01-00021-1992,The thief of always,Clive Barker,Fiction,1992,3,0,6
-FT01-00038-1988,Thanksgiving,Janet Evanovich,Fiction,1988,0,0,9
+FT01-00038-1988,Thanksgiving,Janet Evanovich,Fiction,1988,1,0,9
 FT01-00039-1989,Love Overboard,Janet Evanovich,Fiction,1989,3,0,1
 FT01-00040-1989,Back to the Bedroom,Janet Evanovich,Fiction,1989,2,0,3
 FT01-00041-1991,The Rocky Road to Romance,Janet Evanovich,Fiction,1991,2,0,7
 FT01-00042-1992,Practical Demonkeeping,Christopher Moore,Fiction,1992,2,0,7
-FT01-00049-1993,Charms for the Easy Lifes,Kaye Gibbon,Fiction,1992,3,0,4
+FT01-00049-1993,Charms for the Easy Life,Kaye Gibbons,Fiction,1993,1,0,4
 FT01-00001-2004,Gilead,Marilynne Robinson,Fiction,2004,1,0,3
 FT01-00003-1995,Warhost of Vastmark,Janny Wurts,Fiction,1995,2,0,4
 FT01-00004-2002,Taken at the Flood,Agatha Christie,Fiction,2002,2,0,9
@@ -52,16 +50,16 @@ FT01-00031-2005,Size 12 Is Not Fat,Meg Cabot,Fiction,2005,3,0,9
 FT01-00035-2006,Motor Mouth,Janet Evanovich,Fiction,2006,1,0,2
 FT01-00046-2005,Son of a Witch,Gregory Maguire,Fiction,2005,2,0,0
 HT02-00004-1960,Presidential Power and the Modern Presidents,Richard E. Neustadt,History,1960,1,0,7
-HT02-00008-1994,"Cathedral, Forge and Waterwheel",Joseph Gies,0,1994,0,0
+HT02-00008-1994,Cathedral Forge and Waterwheel,Joseph Gies,0,1994,2,0
 HT02-00013-1958,The World's Religions,Huston Smith,History,1958,3,0,6
 HT02-00014-1964,The Complete Works,Tacitus,History,1964,2,0,5
-HT02-00017-2002,"The Fall of Berlin, 1945",Antony Beevor,0,2002,0,0
+HT02-00017-2002,The Fall of Berlin 1945,Antony Beevor,0,2002,2,0
 HT02-00019-1776,The Christians and the Fall of Rome,Edward Gibbon,History,1776,1,0,7
 HT02-00022-1941,Black Lamb and Grey Falcon,Rebecca West,History,1941,1,0,8
 HT02-00023-1938,Homage to Catalonia,George Orwell,History,1938,1,0,4
-HT02-00034-2005,"Love, Sex & Tragedy",Simon Goldhill,0,2005,0,0
-HT02-00035-1979,"The Progressive Historians--Turner, Beard, Parrington",0,0,0,2
-HT02-00050-2006,"Salonica, City of Ghosts",Mark Mazower,0,2006,0,0
+HT02-00034-2005,Love Sex & Tragedy,Simon Goldhill,0,2005,2,0
+HT02-00035-1979,The Progressive Historians-Turner, Beard, Parrington",0,0,1979,2
+HT02-00050-2006,Salonica City of Ghosts,Mark Mazower,0,2006,2,0
 HT02-00001-1976,Spandau,Albert Speer,History,1976,2,0,4
 HT02-00003-1984,The Origins of the Civil Rights Movement,Aldon D. Morris,History,1984,3,0,0
 HT02-00007-1981,The Chaneysville Incident,David Bradley,History,1981,2,0,6
@@ -104,7 +102,7 @@ HT02-00029-2005,Battle Cry of Freedom,James M. McPherson,History,2005,2,0,10
 HT02-00030-2005,Strategies of Containment,John Lewis Gaddis,History,2005,2,0,4
 HT02-00031-2006,Acts of God,Ted Steinberg,History,2006,2,0,6
 HT02-00051-2006,The Survivor,John F. Harris,History,2006,1,0,3
-SC03-00006-2006,"Power, Sex, Suicide",0,0,0,2
+SC03-00006-2006,Power Sex Suicide,0,0,2006,2
 SC03-00008-1994,Wrinkles in Time,George Smoot;Keay Davidson,Science,1994,2,0,6
 SC03-00001-2002,Modern Mind,Peter Watson,Science,2002,3,0,10
 SC03-00005-2002,The Best American Science Writing 2002,Matt Ridley;Alan Lightman,Science,2002,2,0,4
@@ -139,8 +137,8 @@ PS05-00007-2000,Inattentional Blindness,Arien Mack;Irvin Rock,Psychology,2000,1,
 PS05-00010-2000,The Mating Mind,Geoffrey Miller,Psychology,2000,1,0,8
 PS05-00009-2006,Social Intelligence,Daniel Goleman,Psychology,2006,2,0,5
 RE06-00001-1956,Saint Thomas of Aquinas,Gilbert Keith Chesterton,Religion,1956,3,0,5
-RE06-00002-1949,Gilgamesh Epic and Old Testament Parallels,Alexander Heidel,Religion,1949,3,0,17
-RE06-00003-1988,"History of Religious Ideas, Volume 3",Mircea Eliade,0,1988,0,0
+RE06-00002-1949,Gilgamesh Epic and Old Testament Parallels,Alexander Heidel,Religion,1949,3,0,8
+RE06-00003-1988,History of Religious Ideas Volume 3,Mircea Eliade,0,1988,2,0
 RE06-00004-1978,Growing Old in America,David Hackett Fischer,Religion,1978,3,0,3
 RE06-00011-1978,The Screwtape Letters,C. S. Lewis,Religion,1978,2,0,3
 RE06-00015-1984,A Circle of Quiet,Madeleine L'Engle,Religion,1984,2,0,0
@@ -154,8 +152,8 @@ RE06-00009-2002,The Dance of the Dissident Daughter,Sue Monk Kidd,Religion,2002,
 RE06-00010-2003,C.S. Lewis,C. S. Lewis,Religion,2003,3,0,7
 RE06-00012-1996,Mere Christianity,C. S. Lewis,Religion,1996,3,0,1
 RE06-00013-1998,Learning to Love,Thomas Merton,Religion,1998,3,0,8
-RE06-00017-2003,"""A"" is for Abductive",Leonard I. Sweet;Brian D. McLaren;Jerry Haselmayer,Religion,2003,2,0,1
-RE06-00018-2003,Fanning the Flame,Christopher J. H. Wright,Religion,2003,1,0,19
+RE06-00017-2003,""A"" is for Abductive,Leonard I. Sweet;Brian D. McLaren;Jerry Haselmayer,Religion,2003,2,0,1
+RE06-00018-2003,Fanning the Flame,Christopher J. H. Wright,Religion,2003,1,0,9
 RE06-00019-2003,The Church on the Other Side,Brian D. McLaren,Religion,2003,2,0,9
 RE06-00020-2003,The Church in Emerging Culture,Andy Crouch,Religion,2003,1,0,7
 RE06-00014-2006,When the Heart Waits,Sue Monk Kidd,Religion,2006,2,0,9
@@ -170,7 +168,6 @@ BE07-00002-2003,Moneyball: The Art of Winning an Unfair Game,Michael Lewis,Busin
 BE07-00003-2003,Naked Economics: Undressing the Dismal Science,Charles Wheelan,Business & Economics,2003,2,0,8
 BE07-00004-2001,The Road to Serfdom,Friedrich August Hayek,Business & Economics,2001,2,0,10
 BE07-00006-2004,Applied Economics,Thomas Sowell,Business & Economics,2004,3,0,9
-BE07-00010-1996,Extraordinary Popular Delusions and the Madness of Crowds and ConfusiÃ3n de Confusiones,Charles Mackay,Business & Economics,1996,2,0,5
 BE07-00011-2003,The Warren Buffett CEO,Robert P. Miles,Business & Economics,2003,2,0,1
 BE07-00013-2004,Reefer Madness,Eric Schlosser,Business & Economics,2004,2,0,6
 BE07-00005-2006,The Coming Economic Collapse,Stephen Leeb;Glen Strathy,Business & Economics,2006,2,0,1
@@ -201,10 +198,10 @@ CK09-00008-2005,Everyday Italian,Giada De Laurentiis,Cooking,2005,2,0,6
 CK09-00009-2005,Being dead is no excuse,Gayden Metcalfe;Charlotte Hays,Cooking,2005,2,0,2
 MT10-00001-2007,The Essential John Nash,John Nash,Mathematics,2007,1,0,4
 MT10-00002-2005,God Created The Integers,Stephen Hawking,Mathematics,2005,1,0,8
-CG11-00001-2004,"John Constantine, Hellblazer: Setting sun",Warren Ellis,Comics & Graphic Novels,2004,0,0,0
+CG11-00001-2004,John Constantine Hellblazer: Setting sun,Warren Ellis,0,2004,1,0
 CG11-00002-2004,Superman,Mark Waid;Leinil Francis Yu,Comics & Graphic Novels,2004,2,0,4
 CG11-00004-2004,Arkham Asylum,Grant Morrison;Dave McKean,Comics & Graphic Novels,2004,3,0,4
-CG11-00003-2005,The Sgt. Rock Archives,Robert Kanigher;Bob Haney,Comics & Graphic Novels,2005,3,0,21
+CG11-00003-2005,The Sgt. Rock Archives,Robert Kanigher;Bob Haney,Comics & Graphic Novels,2005,3,0,8
 CG11-00005-2006,Kid Eternity,Grant Morrison;Duncan Fegredo,Comics & Graphic Novels,2006,3,0,4
 CG11-00006-2006,Challengers of the Unknown,Howard Chaykin;Michelle Madsen,Comics & Graphic Novels,2006,3,0,8
 CG11-00007-2006,Maison Ikkoku,Rumiko Takahashi,Comics & Graphic Novels,2006,2,0,3
@@ -212,12 +209,12 @@ CG11-00008-2006,Beauty is the Beast,Tomo Matsumoto,Comics & Graphic Novels,2006,
 CG11-00009-2006,Bleach,Tite Kubo,Comics & Graphic Novels,2006,3,0,4
 CG11-00010-2006,Battle Angel Alita: Last Order,Yukito Kishiro,Comics & Graphic Novels,2006,3,0,3
 CG11-00011-2006,Ranma 1/2,Rumiko Takahashi,Comics & Graphic Novels,2006,3,0,9
-CG11-00012-2007,From Far Away,Kyoko Hikawa,Comics & Graphic Novels,2007,1,0,13
-CG11-00013-2006,Death Note,Tsugumi Ohba;Takeshi Obata,Comics & Graphic Novels,2006,1,0,1
-CG11-00014-2006,Hikaru no Go,Yumi Hotta,Comics & Graphic Novels,2006,0,0,2
+CG11-00012-2007,From Far Away,Kyoko Hikawa,Comics & Graphic Novels,2007,1,0,8
+CG11-00013-2006,Death Note,Tsugumi Ohba;Takeshi Obata,Comics & Graphic Novels,2006,2,0,1
+CG11-00014-2006,Hikaru no Go,Yumi Hotta,Comics & Graphic Novels,2006,2,0,2
 CG11-00015-2006,JoJo's Bizarre Adventure: Part 3--Stardust Crusaders,Hirohiko Araki,Comics & Graphic Novels,2006,1,0,7
 CG11-00016-2007,Yakitate!! Japan,Takashi Hashiguchi,Comics & Graphic Novels,2007,1,0,1
 CG11-00017-2007,Fullmetal Alchemist,Hiromu Arakawa,Comics & Graphic Novels,2007,3,0,9
-CG11-00018-2006,Angel's Vision,Yukito Kishiro,Comics & Graphic Novels,2006,5,0,7
-CG11-00019-2007,The Drifting Classroom,Kazuo Umezu,Comics & Graphic Novels,2007,2,0,11
-CG11-00020-2007,Ghost in the Shell 2: Innocence (Novel - Paperback),Hiromu Arakawa,Comics & Graphic Novels,2007,1,0,11
+CG11-00018-2006,Angel's Vision,Yukito Kishiro,Comics & Graphic Novels,2006,2,0,4
+CG11-00019-2007,The Drifting Classroom,Kazuo Umezu,Comics & Graphic Novels,2007,3,0,9
+CG11-00020-2007,Ghost in the Shell 2: Innocence (Novel - Paperback),Hiromu Arakawa,Comics & Graphic Novels,2007,1,0,10

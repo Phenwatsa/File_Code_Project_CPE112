@@ -17,14 +17,13 @@ int main() {
     loadMember(&root, "DATA/member.csv");
     booksNode* bookRoot = Library[0][0].head;
 
-    // มันขึ้น segmentation fault 
-    // LoadBorrowHistory("DATA/borrow_history.csv", root);
+
+    LoadBorrowHistory("DATA/borrow_history.csv", root);
     LoadBorrowQueue("DATA/Borrowing_Queue.csv", root, bookRoot);
 
 
     do {
         // UI design format
-        
         Line2();
         printf("%45s\n","Welcome to the Library Management System");
         Line2();
