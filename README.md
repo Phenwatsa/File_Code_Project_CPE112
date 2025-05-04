@@ -22,5 +22,5 @@ A project that implement data structure for simulating the library system for bo
 ` git clone https://github.com/Phenwatsa/File_Code_Project_CPE112`
 
 2. Using the command 
-``` gcc -g Main_Program.c 1_User/User.c 2_Libralian/Libralian.c 3_Function/Book_Management_Func.c 3_Function/Borrow_Return_Func.c 3_Function/Data_Func.c 3_Function/Member_Func.c 3_Function/Other_Func.c -I3_Function -o LibrarySystem `
-` ./LibrarySystem `
+``` gcc -g Main_Program.c 1_User/User.c 2_Libralian/Libralian.c 3_Function/Book_Management_Func.c 3_Function/Borrow_Return_Func.c 3_Function/Data_Func.c 3_Function/Member_Func.c 3_Function/Other_Func.c -I3_Function -o LibrarySystem ```
+``` ./LibrarySystem ```
