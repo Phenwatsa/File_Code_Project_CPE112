@@ -14,7 +14,7 @@ int main() {
     
     do {
         // UI design format
-        //ClearScreen();
+        ClearScreen();
         Line2();
         printf("%45s\n","Welcome to the Library Management System");
         Line2();
