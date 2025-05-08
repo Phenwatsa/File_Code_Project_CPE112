@@ -1,6 +1,6 @@
 Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed
 FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,1,1,4
-FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,1,10
+FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,0,0,10
 FT01-00048-1965,Airs Above the Ground,Mary Stewart,Fiction,1965,2,1,0
 FT01-00019-1972,The Terminal Man,Michael Crichton,Fiction,1972,2,1,2
 FT01-00026-1974,The Forever War,Joe Haldeman,Fiction,1974,3,1,9
