@@ -186,10 +186,10 @@ void editBook() {
 
     int found = 0;
     while (temp != NULL) {
-
         if (strcmp(bookId, temp->data.id) == 0) {
             found = 1;
             // show book data
+            Line4(190);
             showBookData(temp);
             
             char newTitle[max_char];
@@ -200,7 +200,7 @@ void editBook() {
             char newQuantityStr[3];
             int newQuantity = 0;
             char newAuthor[max_char];
-
+            Line4(190);
             // change to which value 
             printf(" Enter new title : ");
             scanf(" %[^\n]", newTitle);
@@ -297,7 +297,9 @@ void delete() {
     // we can access to data
     booksNode* temp = Library[cateIndex][yearIndex].head;
     booksNode* prev = temp;
-    printf("%s %s\n", temp->data.id, bookId);
+    Line2();
+    printf(" The book [%s] has been removed\n", bookId);
+    Line2();
 
     if (Library[cateIndex][yearIndex].head == NULL) {
         ClearScreen();

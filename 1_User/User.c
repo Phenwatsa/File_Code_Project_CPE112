@@ -56,7 +56,6 @@ void Menu_User(memberNode* root) {
             case 3: // Search & Borrow book
                 searchBook();
                 borrow_Book(currentUser);
-                Exit();
                 break;
             case 4: // Return book
                 return_Book(currentUser);

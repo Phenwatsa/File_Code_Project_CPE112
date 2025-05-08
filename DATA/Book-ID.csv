@@ -1,5 +1,5 @@
 Book_ID,Title,Author,Category,Year_Published,Quantity,Status,Borrowed
-FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,0,0,4
+FT01-00017-1962,Island,Aldous Huxley,Fiction,1962,1,1,4
 FT01-00047-1964,This Rough Magic,Mary Stewart,Fiction,1964,2,1,10
 FT01-00048-1965,Airs Above the Ground,Mary Stewart,Fiction,1965,2,1,0
 FT01-00019-1972,The Terminal Man,Michael Crichton,Fiction,1972,2,1,2
@@ -28,7 +28,7 @@ FT01-00015-2003,Moonspinners,Mary Stewart,Fiction,2003,3,1,2
 FT01-00016-2002,She Went All the Way,Meg Cabot,Fiction,2002,2,1,1
 FT01-00018-1996,Lucy Sullivan Is Getting Married,Marian Keyes,Fiction,1996,3,1,7
 FT01-00020-1998,Identity,Milan Kundera,Fiction,1998,2,1,4
-FT01-00022-1998,The Illustrated Alchemist,Paulo Coelho;Alan R. Clarke;Moebius,Fiction,1998,1,1,8
+FT01-00022-1998,The Illustrated Alchemist,Paulo Coelho:Alan R. Clarke:Moebius,Fiction,1998,1,1,8
 FT01-00023-2002,Worlds Enough & Time,Dan Simmons,Fiction,2002,1,1,9
 FT01-00024-2001,The Cheese Monkeys,Chip Kidd,Fiction,2001,3,1,6
 FT01-00030-2001,Happiness,Will Ferguson,Fiction,2001,1,1,0
@@ -50,16 +50,16 @@ FT01-00031-2005,Size 12 Is Not Fat,Meg Cabot,Fiction,2005,3,1,9
 FT01-00035-2006,Motor Mouth,Janet Evanovich,Fiction,2006,1,1,2
 FT01-00046-2005,Son of a Witch,Gregory Maguire,Fiction,2005,2,1,0
 HT02-00004-1960,Presidential Power and the Modern Presidents,Richard E. Neustadt,History,1960,1,1,7
-HT02-00008-1994,"Cathedral, Forge and Waterwheel",Joseph Gies,0,1994,1,0
+HT02-00008-1994,Cathedral Forge and Waterwheel,Joseph Gies,History,1994,1,0
 HT02-00013-1958,The World's Religions,Huston Smith,History,1958,3,1,6
 HT02-00014-1964,The Complete Works,Tacitus,History,1964,2,1,5
-HT02-00017-2002,"The Fall of Berlin, 1945",Antony Beevor,0,2002,1,0
+HT02-00017-2002,The Fall of Berlin 1945,Antony Beevor,History,2002,1,0
 HT02-00019-1776,The Christians and the Fall of Rome,Edward Gibbon,History,1776,1,1,7
 HT02-00022-1941,Black Lamb and Grey Falcon,Rebecca West,History,1941,1,1,8
 HT02-00023-1938,Homage to Catalonia,George Orwell,History,1938,1,1,4
-HT02-00034-2005,"Love, Sex & Tragedy",Simon Goldhill,0,2005,1,0
-HT02-00035-1979,"The Progressive Historians--Turner, Beard, Parrington",0,0,0,2
-HT02-00050-2006,"Salonica, City of Ghosts",Mark Mazower,0,2006,1,0
+HT02-00034-2005,Love Sex & Tragedy,Simon Goldhill,History,2005,1,0
+HT02-00035-1979,The Progressive Historians--Turner, Beard Parrington,History,1975,1,0,2
+HT02-00050-2006,Salonica City of Ghosts,Mark Mazower,History,2006,1,0
 HT02-00001-1976,Spandau,Albert Speer,History,1976,2,1,4
 HT02-00003-1984,The Origins of the Civil Rights Movement,Aldon D. Morris,History,1984,3,1,0
 HT02-00007-1981,The Chaneysville Incident,David Bradley,History,1981,2,1,6
@@ -81,7 +81,7 @@ HT02-00025-2003,The Histories,Herodotus,History,2003,2,1,10
 HT02-00027-1997,Masters of Small Worlds,Stephanie McCurry,History,1997,1,1,5
 HT02-00028-1997,Ride of the Second Horseman,Robert L. O'Connell,History,1997,3,1,7
 HT02-00032-2000,The Crescent Obscured,Robert Allison,History,2000,3,1,4
-HT02-00033-2004,Philosophy in a Time of Terror,Jürgen Habermas;Giovanna Borradori;Jacques Derrida,History,2004,2,1,7
+HT02-00033-2004,Philosophy in a Time of Terror,Jürgen Habermas;Giovanna Borradori:Jacques Derrida,History,2004,2,1,7
 HT02-00036-2001,The Collaborator,Alice Kaplan,History,2001,2,1,2
 HT02-00037-2003,Heat Wave,Eric Klinenberg,History,2003,3,1,3
 HT02-00038-2000,An Arab-Syrian Gentleman and Warrior in the Period of the Crusades,Usāmah ibn Munqidh;Philip Khuri Hitti,History,2000,1,1,7
@@ -102,7 +102,7 @@ HT02-00029-2005,Battle Cry of Freedom,James M. McPherson,History,2005,2,1,10
 HT02-00030-2005,Strategies of Containment,John Lewis Gaddis,History,2005,2,1,4
 HT02-00031-2006,Acts of God,Ted Steinberg,History,2006,2,1,6
 HT02-00051-2006,The Survivor,John F. Harris,History,2006,1,1,3
-SC03-00006-2006,"Power, Sex, Suicide",0,0,0,2
+SC03-00006-2006,Power Sex Suicide,-,Science,2006,2,1,0
 SC03-00008-1994,Wrinkles in Time,George Smoot;Keay Davidson,Science,1994,2,1,6
 SC03-00001-2002,Modern Mind,Peter Watson,Science,2002,3,1,10
 SC03-00005-2002,The Best American Science Writing 2002,Matt Ridley;Alan Lightman,Science,2002,2,1,4
@@ -152,7 +152,7 @@ RE06-00009-2002,The Dance of the Dissident Daughter,Sue Monk Kidd,Religion,2002,
 RE06-00010-2003,C.S. Lewis,C. S. Lewis,Religion,2003,3,1,7
 RE06-00012-1996,Mere Christianity,C. S. Lewis,Religion,1996,3,1,1
 RE06-00013-1998,Learning to Love,Thomas Merton,Religion,1998,3,1,8
-RE06-00017-2003,"""A"" is for Abductive",Leonard I. Sweet;Brian D. McLaren;Jerry Haselmayer,Religion,2003,2,1,1
+RE06-00017-2003,A is for Abductive,Leonard I. Sweet;Brian D. McLaren;Jerry Haselmayer,Religion,2003,2,1,1
 RE06-00018-2003,Fanning the Flame,Christopher J. H. Wright,Religion,2003,1,1,9
 RE06-00019-2003,The Church on the Other Side,Brian D. McLaren,Religion,2003,2,1,9
 RE06-00020-2003,The Church in Emerging Culture,Andy Crouch,Religion,2003,1,1,7
@@ -168,7 +168,6 @@ BE07-00002-2003,Moneyball: The Art of Winning an Unfair Game,Michael Lewis,Busin
 BE07-00003-2003,Naked Economics: Undressing the Dismal Science,Charles Wheelan,Business & Economics,2003,2,1,8
 BE07-00004-2001,The Road to Serfdom,Friedrich August Hayek,Business & Economics,2001,2,1,10
 BE07-00006-2004,Applied Economics,Thomas Sowell,Business & Economics,2004,3,1,9
-BE07-00010-1996,Extraordinary Popular Delusions and the Madness of Crowds and ConfusiÃ3n de Confusiones,Charles Mackay,Business & Economics,1996,2,1,5
 BE07-00011-2003,The Warren Buffett CEO,Robert P. Miles,Business & Economics,2003,2,1,1
 BE07-00013-2004,Reefer Madness,Eric Schlosser,Business & Economics,2004,2,1,6
 BE07-00005-2006,The Coming Economic Collapse,Stephen Leeb;Glen Strathy,Business & Economics,2006,2,1,1
@@ -199,7 +198,7 @@ CK09-00008-2005,Everyday Italian,Giada De Laurentiis,Cooking,2005,2,1,6
 CK09-00009-2005,Being dead is no excuse,Gayden Metcalfe;Charlotte Hays,Cooking,2005,2,1,2
 MT10-00001-2007,The Essential John Nash,John Nash,Mathematics,2007,1,1,4
 MT10-00002-2005,God Created The Integers,Stephen Hawking,Mathematics,2005,1,1,8
-CG11-00001-2004,"John Constantine, Hellblazer: Setting sun",Warren Ellis,0,2004,1,0
+CG11-00001-2004,John Constantine Hellblazer: Setting sun,Warren Ellis,Comics & Graphic Novels,2004,1,0,0
 CG11-00002-2004,Superman,Mark Waid;Leinil Francis Yu,Comics & Graphic Novels,2004,2,1,4
 CG11-00004-2004,Arkham Asylum,Grant Morrison;Dave McKean,Comics & Graphic Novels,2004,3,1,4
 CG11-00003-2005,The Sgt. Rock Archives,Robert Kanigher;Bob Haney,Comics & Graphic Novels,2005,3,1,8
